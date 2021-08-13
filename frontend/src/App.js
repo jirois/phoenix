@@ -1,12 +1,21 @@
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
-    <div class="flex flex-row bg-green-800">
-      <div className="bg-red-400 py-4 px-8 m-2 text-white font:semi-bold">1</div>
-      <div className="bg-red-400 py-4 px-8 m-2 m-2 text-white">2</div>
-      <div className="bg-red-400 py-4 px-8 m-2 m-2 text-white">3</div>
+   
+    <BrowserRouter>
+    <div className="grid-container">
+      <header className="bg-green-200 p-8">
+       <h1>Heading bar</h1>
+      </header>
+      <main>
+        <Route path="/" component={HomeScreen} exact></Route>
+      </main>
+      <footer className="bg-gray-300 text-white p-4 w-full">All right reserved</footer>
     </div>
-
+  </BrowserRouter>
   );
 }
 
