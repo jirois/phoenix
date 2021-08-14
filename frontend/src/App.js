@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen';
+import ServiceScreen from './screens/ServiceScreen';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
        <h1>Heading bar</h1>
       </header>
       <main className="grid-in-main row-start-main row-end-main">
-        <Route path="/product" component={ProductScreen} />
+        <Route path="/product" component={ServiceScreen} />
         <Route path="/" component={HomeScreen} exact></Route>
       </main>
       <footer className="grid-in-footer bg-gray-100">All right reserved</footer>
