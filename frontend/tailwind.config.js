@@ -2,10 +2,28 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
-  },
+    
+      gridTemplateAreas: {
+        'layout': [
+          'header',
+          'main',
+          'footer',
+        ],
+      },
+      gridTemplateColumns: {
+        'layout': '1fr'
+    },
+    gridTemplateRows: {
+      'layout': '5rem 1fr 5rem',
+    },
+
   variants: {
-    extend: {},
+    extend: {
+      gridTemplateAreas: ['responsive']
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@savvywombat/tailwindcss-grid-areas')
+  ],
+}
 }
