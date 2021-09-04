@@ -5,7 +5,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: hsl(197, 88%, 42%);
+  background: black;
   color: #ffffff;
   padding: 3rem;
   transform: translateY(-100%);
@@ -15,4 +15,10 @@
 .sidebar.open {
   transform: translate(0);
   z-index: 400;
+}
+
+.activeClass {
+  color: goldenrod;
+  font-weight: 900;
+  font-size: larger;
 }

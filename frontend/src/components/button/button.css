@@ -18,7 +18,7 @@
   position: absolute;
   height: 2px;
   width: 15%;
-  background: hsl(197, 88%, 42%);
+  background: white;
   transform: rotate(0deg);
   opacity: 1;
   left: 0;

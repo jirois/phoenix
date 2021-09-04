@@ -7,8 +7,9 @@ import ServiceScreen from './screens/ServiceScreen';
 
 function App() {
   return (
-   
-    <LandingSplash />
+   <BrowserRouter>
+    <Navbar />
+   </BrowserRouter>
   //   <BrowserRouter>
   //   <div className="grid grid-areas-layout grid-cols-layout grid-rows-layout h-full">
   //     <header className="grid-in-header row-start-header row-end-header">

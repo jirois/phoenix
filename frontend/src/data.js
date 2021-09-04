@@ -8,23 +8,39 @@ export const links = [
   },
   {
     id: 2,
+    url: '/sessions',
+    text: 'Book Private Session',
+  },
+
+  {
+    id: 3,
     url: '/about',
     text: 'About',
   },
   {
-    id: 3,
-    url: '/services',
-    text: 'Services',
-  },
-  {
     id: 4,
-    url: '/price',
-    text: 'Price',
+    url: '/services',
+    text: 'Our Services & Price',
   },
   {
     id: 5,
+    url: '/broker',
+    text: 'Recommended Broker',
+  },
+  {
+    id: 6,
+    url: '/testimonials',
+    text: 'Testimonials',
+  },
+  {
+    id: 7,
     url: '/contact',
-    text: 'Contact',
+    text: 'Contact Us',
+  },
+  {
+    id: 8,
+    url: '/faq',
+    text: 'FAQs',
   },
 ];
 

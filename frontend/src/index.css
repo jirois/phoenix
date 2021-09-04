@@ -13,6 +13,6 @@
     @apply text-sm text-gray-400 cursor-pointer hover:text-gray-500;
   }
   .text-sidebar {
-    @apply block p-4 text-lg text-white font-bold hover:bg-blue-50 hover:text-blue-600 rounded;
+    @apply block p-2 text-base text-white font-bold;
   }
 }
