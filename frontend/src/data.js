@@ -44,6 +44,27 @@ export const links = [
   },
 ];
 
+export const sliders = [
+  {
+    id: 1,
+    image:
+      '/img/bg-1.jpeg',
+    
+    title: 'Speed Your Trading Journey with our Unique Trading System',
+    para:
+    'Find out About our Trading Program by enquiring now',
+  },
+  {
+    id: 2,
+    image:
+      '/img/bg-2.jpeg',
+    
+    title: 'Start Your Trading Journey Here',
+    para:
+    'Passion | Patience | Persistence | Profit',
+  },
+]
+
 // export const social = [
 //   {
 //     id: 1,
