@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from '../components/hero/Hero'
+import Hero from '../components/carousel/Hero'
 
 function HomeScreen(props) {
     return (

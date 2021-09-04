@@ -36,6 +36,7 @@ function Hero(props) {
         <div className="container-slider">
             {slider.map((slider, personIndex) => {
                 const {id, image, title, para} = slider
+                console.log(para, title)
 
                 let position = 'nextSlide';
           if (personIndex === slideIndex) {
@@ -51,7 +52,13 @@ function Hero(props) {
                     <article className={position} key={id}>
                          <img src={image} alt="bg" />
 
+                       <div className="content-carousel">
+                           <h2>{title}</h2>
+                           <p>{para}</p>
 
+                        <button>Inquire Now</button>
+
+                       </div>
                     </article>
                 )
             })}
