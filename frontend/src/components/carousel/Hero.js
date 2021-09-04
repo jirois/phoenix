@@ -65,7 +65,7 @@ function Hero(props) {
                 {Array.from({length: 2}).map((item, index) => (
                     <div
                     onClick={() => movedot(index + 1)}
-                    className={slideIndex === index + 1 ? "active dot" : "dot"}
+                    className={slideIndex === index ? "active dot" : "dot"}
                     ></div>
                 ))}
             </div>
