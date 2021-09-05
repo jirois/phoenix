@@ -5,6 +5,7 @@ import Hero from './components/carousel/Hero'
 import LandingSplash from './components/splash/LandingSplash';
 import HomeScreen from './screens/HomeScreen';
 import ServiceScreen from './screens/ServiceScreen';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
     <Switch>
       <Route path="/" exact component={HomeScreen} />
     </Switch>
+    <Footer />
    </BrowserRouter>
+
  
   );
 }
