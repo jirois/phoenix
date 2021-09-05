@@ -1,21 +1,8 @@
-import React, { useRef, useState } from 'react';
 import {links} from '../../data'
 import Button from '../button/Button';
 
 function Navbar(props) {
-    const [showLinks, setShowLinks] = useState(true)
-    
-    const openLink = () => {
-        setShowLinks(true)
-        console.log("click")
-        console.log(showLinks)
-    }   
-   
-    const closeLink = () => {
-        setShowLinks(false)
-        console.log("click")
-        console.log(showLinks)
-    }   
+
 
     return (
         <>

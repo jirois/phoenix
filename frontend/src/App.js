@@ -1,10 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './components/nav/Navbar';
-import Hero from './components/carousel/Hero'
-import LandingSplash from './components/splash/LandingSplash';
 import HomeScreen from './screens/HomeScreen';
-import ServiceScreen from './screens/ServiceScreen';
 import Footer from './components/footer/Footer';
 
 function App() {

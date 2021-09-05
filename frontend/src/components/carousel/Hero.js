@@ -12,6 +12,7 @@ function Hero(props) {
 
         if (slideIndex < 0) {
             setIndex(lastIndex)
+            setSliders()
         }
         if (slideIndex > lastIndex){
             setIndex(0)
