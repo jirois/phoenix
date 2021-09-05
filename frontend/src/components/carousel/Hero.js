@@ -36,8 +36,6 @@ function Hero(props) {
         <div className="container-slider">
             {slider.map((slider, personIndex) => {
                 const {id, image, title, para} = slider
-                console.log(para, title)
-
                 let position = 'nextSlide';
           if (personIndex === slideIndex) {
             position = 'activeSlide';
@@ -56,7 +54,7 @@ function Hero(props) {
                            <h2>{title}</h2>
                            <p>{para}</p>
 
-                        <button>Inquire Now</button>
+                        <button className="btn w-32 mx-auto gold-sm">Inquire Now</button>
 
                        </div>
                     </article>

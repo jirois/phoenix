@@ -93,10 +93,10 @@ article.nextSlide {
 }
 
 .content-carousel button {
-  background: chocolate;
+  /* background: #d2691e;
   font-size: 1em;
   margin: 0 auto;
   padding: 0.5rem 3rem;
   border-radius: 4px;
-  border: none;
+  border: none; */
 }

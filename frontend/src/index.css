@@ -15,4 +15,34 @@
   .text-sidebar {
     @apply block p-2 text-base text-white font-bold;
   }
+  .btn {
+    @apply text-white p-2 text-center rounded-full hover:bg-red-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2;
+  }
+}
+
+.gold-sm {
+  background: repeating-linear-gradient(
+    45deg,
+    #b88d30,
+    #cc8b14 5px,
+    #996903 5px,
+    #af7405 10px
+  );
+}
+.gold {
+  background: repeating-linear-gradient(
+    45deg,
+    #b88d30,
+    #cc8b14 10px,
+    #996903 10px,
+    #af7405 20px
+  );
+}
+
+.gray-brown {
+  background-color: rgb(160, 155, 151);
+}
+
+.header-color {
+  color: #cc8b14;
 }

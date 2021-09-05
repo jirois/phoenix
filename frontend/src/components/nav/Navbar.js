@@ -19,7 +19,7 @@ function Navbar(props) {
 
     return (
         <>
-        <nav className="relative px-2 py-4 flex justify-between bg-black text-center z-10">
+        <nav className="relative px-2 py-6 flex justify-between bg-black text-center z-10">
             <a className="menu-logo text-lg py-4 px-14 text-wrap font-bold leading-6 uppercase text-white text-center" href="/">
                 Welcome to phoenix cap
             </a>
