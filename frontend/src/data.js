@@ -48,7 +48,7 @@ export const sliders = [
   {
     id: 1,
     image:
-      '/img/bg-1.jpeg',
+      '/img/phoenix_bg.jpg',
     
     title: 'Speed Your Trading Journey with our Unique Trading System',
     para:
