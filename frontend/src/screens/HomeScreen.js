@@ -6,24 +6,24 @@ function HomeScreen(props) {
     return (
         <div>
            <Hero />
-           <main className="bg-black min-h-screen">
-            <div className="flex flex-col px-6">
+           <main className="bg-black min-h-screen lg:flex lg:flex-col">
+            <div className="flex flex-col px-6 lg:flex-row lg:container lg:justify-center lg:item-space-between lg:order-2 lg:mb-16">
                 <a href="/brooker" className="btn gold uppercase mt-12">our recommended Brokers</a>
-                <a href="/telegram" className="btn gold uppercase">Join our free telegram</a>
+                <a href="/telegram" className="btn gold uppercase lg:mt-12">Join our free telegram</a>
             </div>
-            <section className="services">
-                <div className="flex">
-                    <div className="m-8">
+            <section className="services lg:order-1 lg: pt-12">
+                <div className="flex lg:mr-16 lg:ml-16  ">
+                    <div className="m-8 lg:flex">
                         {services.map((service, index) => {
                             const {id, image: images, header, para} = service
                             console.log(header, images)
 
                             return (
-                                <div key={id} className="gray-brown mb-6 px-4 pb-16 pt-1 text-center rounded-3xl text-white">
-                                    <div className="w-20 h-20 mx-auto mt-2">
+                                <div key={id} className="gray-brown mb-6 px-4 pb-16 pt-1 text-center rounded-3xl text-white lg: w-1/4 lg:mx-auto lg:px-2 lg:mr-2 lg:ml-16 lg:pt-4">
+                                    <div className="w-20 h-20 mx-auto mt-2 lg:w-44 lg:h-44 lg:mt-6">
                                     <img className="w-full h-full object-cover" src={images}  alt="services"/>
                                     </div>
-                                    <h1 className="font-bold my-8 text-xl">{header}</h1>
+                                    <h1 className="font-bold my-8 text-xl lg:text-xxl">{header}</h1>
                                     <p className="text-xs tracking-wide">{para}</p>
 
                                 </div>
@@ -33,16 +33,16 @@ function HomeScreen(props) {
                 </div>
 
             </section>
-            <section className="products -mt-8">
+            <section className="products -mt-8 lg:py-8 lg:order-3">
                 <div className="flex">
-                    <div className="">
+                    <div className="lg:flex">
                         {products.map((product, index) => {
                             const {id, image, header, para} = product
 
                             return (
-                                <div key={id} className="bg-white mt-4 text-black text-center">
+                                <div key={id} className="bg-white mt-4 text-black text-center lg: w-1/4 lg:mx-auto lg:px-2 lg:mr-4 lg:ml-16">
                                     <div className="w-72 h-60 mx-auto mt-4 pt-4">
-                                        <img className="w-full h-full object-cover " src={image} alt="products" />
+                                        <img className="w-full h-full object-cover" src={image} alt="products" />
                                     </div>
                                     <div className="p-8">
                                         <h2 className="header-color font-bold text-xl mb-2 -mt-4 ">{header}</h2>
