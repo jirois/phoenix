@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Hero from '../components/carousel/Hero'
 import {services, products} from '../screens/../data'
-import { motion } from 'framer-motion'
+import { animate, motion } from 'framer-motion'
 import {useInView} from 'react-intersection-observer'
 import {useAnimation} from 'framer-motion'
 
@@ -46,6 +46,7 @@ function HomeScreen(props) {
                                 <motion.div
                                  key={id} 
                                  className="gray-brown mb-6 px-4 pb-16 pt-1 text-center rounded-3xl text-white lg: w-1/4 lg:mx-auto lg:px-2 lg:mr-2 lg:ml-16 lg:pt-4"
+                                
                                  
                                  >
                                     <div className="w-20 h-20 mx-auto mt-2 lg:w-44 lg:h-44 lg:mt-6">
