@@ -1,32 +1,63 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Hero from '../components/carousel/Hero'
 import {services, products} from '../screens/../data'
+import { animate, motion } from 'framer-motion'
+import {useInView} from 'react-intersection-observer'
+import {useAnimation} from 'framer-motion'
+
 
 function HomeScreen(props) {
+    const {ref, inview} = useInView()
+    const animation = useAnimation()
+
+
+    useEffect(()=> {
+        if(inview){
+            animation.start({
+                x: 0,
+                transition: {
+                    type: "spring", duration: 1, bounce: 0.3
+                }
+            })
+        }
+        if (!inview){
+            animation.start({
+                x: "-100vw"
+            })
+        }
+        // console.log("use in view inView: ", inview)
+    })
     return (
-        <div>
+        <div  className="main-bg">
            <Hero />
-           <main className="bg-black min-h-screen lg:flex lg:flex-col">
+           <main className="main-bg bg-black min-h-screen lg:flex lg:flex-col lg:bg-scroll "  >
             <div className="flex flex-col px-6 lg:flex-row lg:container lg:justify-center lg:item-space-between lg:order-2 lg:mb-16">
                 <a href="/brooker" className="btn gold uppercase mt-12">our recommended Brokers</a>
                 <a href="/telegram" className="btn gold uppercase lg:mt-12">Join our free telegram</a>
             </div>
             <section className="services lg:order-1 lg: pt-12">
                 <div className="flex lg:mr-16 lg:ml-16  ">
-                    <div className="m-8 lg:flex">
+                    <div className="m-8 lg:flex"  ref={ref}>
                         {services.map((service, index) => {
                             const {id, image: images, header, para} = service
                             console.log(header, images)
 
                             return (
-                                <div key={id} className="gray-brown mb-6 px-4 pb-16 pt-1 text-center rounded-3xl text-white lg: w-1/4 lg:mx-auto lg:px-2 lg:mr-2 lg:ml-16 lg:pt-4">
+                                <motion.div
+                                 key={id} 
+                                 className="gray-brown mb-6 px-4 pb-16 pt-1 text-center rounded-3xl text-white lg: w-1/4 lg:mx-auto lg:px-2 lg:mr-2 lg:ml-16 lg:pt-4"
+                                
+                                 animate={animation}
+                                //  transition={{ duration: 0.5, delay: index/5}}
+                                 
+                                 >
                                     <div className="w-20 h-20 mx-auto mt-2 lg:w-44 lg:h-44 lg:mt-6">
                                     <img className="w-full h-full object-cover" src={images}  alt="services"/>
                                     </div>
                                     <h1 className="font-bold my-8 text-xl lg:text-xxl">{header}</h1>
                                     <p className="text-xs tracking-wide">{para}</p>
 
-                                </div>
+                                </motion.div>
                             )
                         })}
                     </div>

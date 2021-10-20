@@ -46,3 +46,12 @@
 .header-color {
   color: #cc8b14;
 }
+
+.main-bg {
+  background-image: url("https://res.cloudinary.com/jinncy/image/upload/v1633818127/parallax_image_g53f0l.jpg");
+  background-attachment: scroll;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
