@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route} from 'react-router-dom'
+import Navbar from './components/navbar/Navbar';
 import HomeScreen from './pages/HomeScreen'
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <BrowserRouter>
     <div className="grid-container">
       <header className="header">
-       <h1>Header</h1>
+       <Navbar />
       </header>
     
       <main className="main">
