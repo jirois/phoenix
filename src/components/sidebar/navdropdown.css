@@ -30,7 +30,7 @@
   padding: 1.5rem 1.5rem;
   overflow-y: auto;
   width: 100%;
-  margin-top: -2rem;
+  margin-top: -3rem;
 }
 .sidebar-logo a {
   display: flex;
@@ -38,7 +38,7 @@
   color: var(--primaryColor);
   text-decoration: none;
   font-weight: bold;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 .sidebar-logo img {
   background-color: floralwhite;
@@ -48,6 +48,7 @@
 }
 .sidebar-logo span {
   display: block;
+  font-size: 1rem;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
   font-weight: normal;
