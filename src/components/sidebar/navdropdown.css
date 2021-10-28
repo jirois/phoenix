@@ -18,9 +18,9 @@
 }
 
 .activeClass {
-  color: var(--primaryColor);
+  color: goldenrod;
   font-weight: 900;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .sidebar-content {
@@ -61,7 +61,9 @@
   display: block;
   padding: 0.5rem;
   color: var(--mainWhite);
-  font-weight: bold;
+  font-family: var(--headerFont);
+  font-size: 1rem;
+  font-style: italic;
   text-decoration: none;
   text-align: center;
 }

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   background: #000;
-  padding: 1rem 1rem;
+  padding: 1rem 1rem 0.5rem;
 }
 
 .menu-logo {
@@ -11,7 +11,7 @@
   color: var(--mainWhite);
   word-wrap: normal;
   text-transform: uppercase;
-  padding: 1rem 0.5rem;
+  padding: 1.5rem 0.5rem;
   text-align: center;
   letter-spacing: 1.2px;
   text-decoration: none;
