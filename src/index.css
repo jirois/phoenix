@@ -26,6 +26,7 @@ Variables
   --maxWidth: 40rem;
   --fullWidth: 1170px;
   --headerFont: "lora", serif;
+  --headerFont2: "Slabo 27px", serif;
 }
 
 /*
@@ -96,4 +97,48 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* buttons */
+
+.btn {
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  transition: var(--mainTransition);
+  outline: none;
+}
+
+.btn-sm {
+  width: 10rem;
+
+  background: repeating-linear-gradient(
+    45deg,
+    #b88d30,
+    #cc8b14 5px,
+    #996903 5px,
+    #af7405 10px
+  );
+}
+
+.btn-lg {
+  background: repeating-linear-gradient(
+    45deg,
+    #b88d30,
+    #cc8b14 10px,
+    #996903 10px,
+    #af7405 20px
+  );
+}
+
+.btn-sm:hover {
+  background: repeating-linear-gradient(
+    45deg,
+    #f89e75,
+    #e67416 5px,
+    #994106 5px,
+    #883905 10px
+  );
+  font-weight: bold;
 }
