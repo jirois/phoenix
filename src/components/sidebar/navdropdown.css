@@ -38,7 +38,7 @@
   color: var(--primaryColor);
   text-decoration: none;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 .sidebar-logo img {
   background-color: floralwhite;
@@ -62,7 +62,7 @@
   padding: 0.5rem;
   color: var(--mainWhite);
   font-family: var(--headerFont);
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-style: italic;
   text-decoration: none;
   text-align: center;
