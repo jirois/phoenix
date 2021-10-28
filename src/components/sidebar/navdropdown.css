@@ -18,7 +18,7 @@
 }
 
 .activeClass {
-  color: goldenrod;
+  color: var(--primaryColor);
   font-weight: 900;
   font-size: 1rem;
 }
@@ -30,11 +30,27 @@
   padding: 1.5rem 1.5rem;
   overflow-y: auto;
   width: 100%;
+  margin-top: -2rem;
 }
 .sidebar-logo a {
-  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  color: var(--primaryColor);
+  text-decoration: none;
   font-weight: bold;
-  text-align: center;
+  margin-bottom: 1rem;
+}
+.sidebar-logo img {
+  background-color: floralwhite;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.sidebar-logo span {
+  display: block;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  font-weight: normal;
 }
 
 .sidebar-item-list {
@@ -46,4 +62,6 @@
   padding: 0.5rem;
   color: var(--mainWhite);
   font-weight: bold;
+  text-decoration: none;
+  text-align: center;
 }
