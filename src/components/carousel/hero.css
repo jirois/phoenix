@@ -1,7 +1,7 @@
 .container-slider {
   max-width: 100%;
-  height: 100%;
-  min-height: 70vh;
+  height: 450px;
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -15,6 +15,7 @@
 .prev,
 .next {
   position: absolute;
+  display: none;
   top: 200px;
   transform: translateY(-50%);
   color: white;
@@ -32,9 +33,11 @@
 
 .prev {
   left: 0;
+  display: none;
 }
 .next {
   right: 0;
+  display: none;
 }
 
 article {
@@ -78,32 +81,26 @@ article.nextSlide {
 
 .content-carousel {
   position: absolute;
-  top: 15rem;
+  width: 100%;
+  top: 0;
+  margin-top: 15rem;
   color: #fff;
-  padding: 3rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: space-between;
 }
 .content-carousel h2 {
-  font-family: var(--headerFont);
-  font-size: 1.5rem;
-  padding-bottom: 1rem;
+  font-family: Roboto, serif;
+  font-size: 1.1rem;
+  font-weight: 100;
+  padding-bottom: 0.5rem;
   line-height: 1;
 }
 .content-carousel p {
-  font: 1em sans-serif;
+  font: 0.8em sans-serif;
   word-wrap: normal;
   padding-bottom: 0.5rem;
-}
-
-.content-carousel button {
-  /* background: #d2691e;
-  font-size: 1em;
-  margin: 0 auto;
-  padding: 0.5rem 3rem;
-  border-radius: 4px;
-  border: none; */
 }
 
 @media screen and (min-width: 670px) {

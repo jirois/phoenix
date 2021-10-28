@@ -88,7 +88,7 @@ ul {
 }
 .main {
   grid-area: main;
-  height: 100vw;
+  margin-top: 2rem;
 }
 .footer {
   grid-area: footer;
@@ -130,6 +130,10 @@ ul {
     #996903 10px,
     #af7405 20px
   );
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .btn-sm:hover {
@@ -141,4 +145,30 @@ ul {
     #883905 10px
   );
   font-weight: bold;
+}
+
+.btn-sm:hover {
+  background: repeating-linear-gradient(
+    45deg,
+    #f89e75,
+    #e67416 10px,
+    #994106 10px,
+    #883905 20px
+  );
+  font-weight: 500;
+}
+
+/* Home section */
+.home {
+  background: var(--mainWhite);
+}
+
+.home-btn-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem 1.2rem;
+}
+
+.home-btn-container a:first-child {
+  margin-bottom: 1.3rem;
 }
