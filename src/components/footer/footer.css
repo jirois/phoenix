@@ -1,0 +1,29 @@
+.footer-container {
+  width: 100%;
+  display: flex;
+  background: var(--mainBlack);
+  flex-direction: column;
+  padding: 1rem;
+  color: var(--mainWhite);
+  text-align: center;
+}
+
+.footer-container p {
+  font-size: 16px;
+  word-spacing: 0.3rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+}
+
+.socials li {
+  padding: 0.5rem 0;
+  margin-right: 0.5rem;
+}
+
+.socials a {
+  background: transparent;
+  color: white;
+}

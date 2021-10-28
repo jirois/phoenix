@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route} from 'react-router-dom'
+import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import HomeScreen from './pages/HomeScreen'
 
@@ -17,7 +18,7 @@ function App() {
 
       </main>
       <footer className="footer">
-        All right reserved.
+        <Footer />
   </footer>
     </div>
   </BrowserRouter>
