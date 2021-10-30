@@ -133,6 +133,7 @@ ul {
   font-size: 1rem;
   font-weight: 400;
   font-size: 1.3rem;
+  padding: 0.5rem 0;
   text-transform: capitalize;
 }
 
@@ -147,7 +148,7 @@ ul {
   font-weight: bold;
 }
 
-.btn-sm:hover {
+.btn-lg:hover {
   background: repeating-linear-gradient(
     45deg,
     #f89e75,

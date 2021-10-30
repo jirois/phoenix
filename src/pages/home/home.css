@@ -15,7 +15,7 @@
   background: #616161;
   border-radius: 15px;
   padding: 1rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
   text-align: center;
   color: white;
   box-shadow: var(--lightShadow);
@@ -57,15 +57,15 @@
   background: var(--mainWhite);
   color: var(--mainBlack);
   padding: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-align: center;
   /* box-shadow: var(--lightShadow); */
   border: 1px solid;
 }
 
 .product-image {
-  width: 285px;
-  height: 250px;
+  width: 300px;
+  height: 350px;
   margin: 0 auto;
 }
 .product-image img {
