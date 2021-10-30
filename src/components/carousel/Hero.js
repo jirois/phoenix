@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {sliders} from '../../data'
+import { Link } from 'react-router-dom';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import './hero.css'
 
@@ -58,7 +59,7 @@ function Hero(props) {
                            <h2>{title}</h2>
                            <p>{para}</p>
 
-                        <button className="btn btn-sm">Inquire Now</button>
+                        <Link to="/about" className="btn btn-sm">Inquire Now</Link>
 
                        </div>
                     </article>
