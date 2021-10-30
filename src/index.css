@@ -27,6 +27,7 @@ Variables
   --fullWidth: 1170px;
   --headerFont: "lora", serif;
   --headerFont2: "Slabo 27px", serif;
+  --black: #000;
 }
 
 /*
@@ -88,6 +89,7 @@ ul {
 }
 .main {
   grid-area: main;
+  margin-top: 1.5rem;
 }
 .footer {
   grid-area: footer;
@@ -128,6 +130,8 @@ ul {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 400;
+  font-size: 1.3rem;
+  text-transform: capitalize;
 }
 
 .btn-sm:hover {

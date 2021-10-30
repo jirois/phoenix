@@ -54,7 +54,7 @@ function HomeScreen(props) {
                                     <div className="product-body-content">
                                         <h2 className="header-color font-bold text-xl mb-2 -mt-4 ">{header}</h2>
                                         <p className="text-gray-700 border-b border-gray-300 mb-6">{para}</p>
-                                        <a className="btn w-32 mx-auto gold-sm px-8" href="/get">Get Now</a>
+                                        <a className="btn btn-sm btn-product" href="/get">Get Now</a>
                                     </div>
                                 </div>
                             )

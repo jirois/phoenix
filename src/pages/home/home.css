@@ -1,6 +1,9 @@
+.main-bg {
+  background: var(--black);
+}
 /* service */
 .services {
-  padding: 2.5rem 1rem;
+  padding: 0 1rem 2.5rem;
 }
 .service-container {
   display: flex;
@@ -9,10 +12,10 @@
 }
 
 .service-content-inner {
-  background: grey;
-  border-radius: 5px;
+  background: #616161;
+  border-radius: 15px;
   padding: 1rem;
-  margin-bottom: 6.5rem;
+  margin-bottom: 3.5rem;
   text-align: center;
   color: white;
   box-shadow: var(--lightShadow);
@@ -73,4 +76,6 @@
 
 .product-body-content {
   margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid;
 }

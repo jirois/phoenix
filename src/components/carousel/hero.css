@@ -96,15 +96,16 @@ article.nextSlide {
   align-items: space-between;
 }
 .content-carousel h2 {
-  font-family: Roboto, serif;
-  font-size: 1.1rem;
-  font-weight: 100;
+  font-family: var(--headerFont);
+  font-size: 1.2rem;
+  font-weight: 400;
   padding-bottom: 0.5rem;
   line-height: 1;
 }
 .content-carousel p {
-  font: 0.8em sans-serif;
+  font: 1em sans-serif;
   word-wrap: normal;
+  font-weight: 300;
   padding-bottom: 0.5rem;
 }
 
