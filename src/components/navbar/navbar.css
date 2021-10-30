@@ -10,7 +10,7 @@
 .menu-logo {
   font-family: var(--headerFont);
   color: var(--mainWhite);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   word-wrap: normal;
   display: block;
   margin: 0 auto;
@@ -27,6 +27,7 @@
 
 .menu-item {
   display: none;
+  margin-top: 0.5rem;
 }
 
 @media screen and (min-width: 769px) {
