@@ -77,5 +77,21 @@
 .product-body-content {
   margin-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.product-body-content h2 {
+  color: #19a9d4;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem;
+}
+
+.product-body-content p {
   border-bottom: 1px solid;
+  color: var(--mainBlack);
+  margin-bottom: 1.2rem;
+}
+
+.product-btn {
+  padding: 0.5rem 0.6rem;
+  text-decoration: none;
 }
