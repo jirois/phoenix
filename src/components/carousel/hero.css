@@ -1,13 +1,20 @@
 .container-slider {
   max-width: 100%;
-  height: 350px;
+  height: 450px;
   position: relative;
   overflow: hidden;
 }
+
+.carousel-image-div {
+  width: 100%;
+  height: 450px;
+}
+
 .container-slider img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  background-size: cover;
+  object-fit: cover;
 }
 
 .prev,
@@ -80,7 +87,7 @@ article.nextSlide {
 .content-carousel {
   position: absolute;
   width: 100%;
-  top: 0;
+  top: 13em;
   margin-top: 2rem;
   color: #fff;
   padding: 1rem;

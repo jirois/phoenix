@@ -49,7 +49,10 @@ function Hero(props) {
           }
                 return(
                     <article className={position} key={id}>
-                         <img src={image} alt="bg" />
+                        <div className="carousel-image-div">
+                        <img src={image} alt="bg" />
+
+                        </div>
 
                        <div className="content-carousel">
                            <h2>{title}</h2>
