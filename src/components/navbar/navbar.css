@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  background: var(--black);
+  /* background: var(--black); */
   padding: 2rem 1rem 2rem;
   z-index: 1;
 }
