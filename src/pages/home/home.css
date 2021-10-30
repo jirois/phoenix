@@ -88,10 +88,10 @@
 .product-body-content p {
   border-bottom: 1px solid;
   color: var(--mainBlack);
-  margin-bottom: 1.2rem;
+  padding-bottom: 2rem;
 }
 
-.product-btn {
+.btn-product {
   padding: 0.5rem 0.6rem;
   text-decoration: none;
 }
