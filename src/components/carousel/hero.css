@@ -87,7 +87,7 @@ article.nextSlide {
 .content-carousel {
   position: absolute;
   width: 100%;
-  top: 13em;
+  top: 65%;
   margin-top: 2rem;
   color: #fff;
   padding: 1rem;
@@ -97,13 +97,13 @@ article.nextSlide {
 }
 .content-carousel h2 {
   font-family: var(--headerFont);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 400;
   padding-bottom: 0.5rem;
   line-height: 1;
 }
 .content-carousel p {
-  font: 1em sans-serif;
+  font: 1.1em sans-serif;
   word-wrap: normal;
   font-weight: 300;
   padding-bottom: 0.5rem;
