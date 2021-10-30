@@ -3,13 +3,14 @@
   display: flex;
   justify-content: space-between;
   background: var(--black);
-  padding: 2rem 1rem 2rem;
+  padding: 1.5rem 1rem 1.5rem;
   z-index: 1;
 }
 
 .menu-logo {
   font-family: var(--headerFont);
   color: var(--mainWhite);
+  font-size: 1.5rem;
   word-wrap: normal;
   display: block;
   margin: 0 auto;

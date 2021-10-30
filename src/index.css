@@ -116,6 +116,8 @@ ul {
     #996903 5px,
     #af7405 10px
   );
+  padding: 1rem 0;
+  font-size: 1rem;
 }
 
 .btn-lg {
