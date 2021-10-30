@@ -8,7 +8,7 @@ function Navbar(props) {
     <>
       <nav className="navbar  ">
         <a className="menu-logo " href="/">
-          Welcome to <br /> phoenix cap
+          Welcome to <br /> phoenix capital
         </a>
         <div className="menu-btn ">
           <Button />

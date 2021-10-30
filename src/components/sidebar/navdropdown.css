@@ -30,7 +30,7 @@
   padding: 1.5rem 1.5rem;
   overflow-y: auto;
   width: 100%;
-  margin-top: -3rem;
+  margin-top: -2rem;
 }
 .sidebar-logo a {
   display: flex;
@@ -41,17 +41,17 @@
   margin-bottom: 2.5rem;
 }
 .sidebar-logo img {
-  background-color: floralwhite;
-  width: 35px;
-  height: 35px;
+  background-color: rgb(173, 207, 226);
+  width: 45px;
+  height: 455px;
   border-radius: 50%;
 }
 .sidebar-logo span {
   display: block;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .sidebar-item-list {
