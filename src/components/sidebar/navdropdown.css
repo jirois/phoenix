@@ -8,7 +8,7 @@
   background: black;
   color: #ffffff;
   padding: 3rem;
-  transform: translateY(-120%);
+  transform: translateY(-100%);
   transition: all 0.2s linear;
   z-index: -100;
 }
