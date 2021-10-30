@@ -57,7 +57,7 @@ export const sliders = [
   {
     id: 2,
     image:
-      '/img/bg_phoenix_two.jpg',
+      '/img/phoenix_library.jpg',
     
     title: 'Start Your Trading Journey Here',
     para:
@@ -100,7 +100,7 @@ export const products = [
   {
     id: 1,
     image:
-      '/img/img-bible.jpg',
+      '/img/phoenix_bible.jpg',
     
     header: 'Phoenix Trading Bible',
     para:
@@ -109,7 +109,7 @@ export const products = [
   {
     id: 2,
     image:
-      '/img/img-course.jpg',
+      '/img/phoenix_course.jpg',
     
     header: 'Phoenix Full Course',
     para:
