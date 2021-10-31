@@ -4,7 +4,7 @@ import "./service.css"
 function ServiceScreen(props) {
     return (
         <div className="service">
-            <h2>Service comming page!</h2>
+            <h2>Choose Your Pricing Plan</h2>
             
         </div>
     );
