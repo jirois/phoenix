@@ -23,3 +23,13 @@
   font-weight: 300;
   color: #19a9d4;
 }
+
+.about-body p {
+  padding: 2rem 0;
+  word-wrap: break-word;
+  color: var(--mainWhite);
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.1;
+  text-justify: justify;
+}
