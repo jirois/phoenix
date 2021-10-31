@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { services, products } from '../../data';
 import Hero from '../../components/carousel/Hero';
 import './home.css';
@@ -10,8 +11,11 @@ function HomeScreen(props) {
              <Hero />
             <main className="main-bg" >
             <div className="home-btn-container">
-                <a href="/brooker" className="btn btn-lg">our recommended Brokers</a>
-                <a href="/telegram" className="btn btn-lg">Join our free telegram</a>
+                <Link to="/brooker" className="btn btn-lg btn-broker">our recommended Brokers</Link>
+                <a
+                 href="https://t.me/joinchat/SFrr4FNqHDEzMWFk"
+                  target="_blank"  rel="noreferrer" 
+                  className="btn btn-lg">Join our free telegram</a>
             </div>
             <section className="services">
                 <div className="service-container">
@@ -54,7 +58,7 @@ function HomeScreen(props) {
                                     <div className="product-body-content">
                                         <h2 className="header-color font-bold text-xl mb-2 -mt-4 ">{header}</h2>
                                         <p className="text-gray-700 border-b border-gray-300 mb-6">{para}</p>
-                                        <a className="btn btn-sm btn-product" href="/get">Get Now</a>
+                                        <Link className="btn btn-sm btn-product" to="/services">Get Now</Link>
                                     </div>
                                 </div>
                             )
