@@ -59,7 +59,7 @@ function Hero(props) {
                            <h2>{title}</h2>
                            <p>{para}</p>
 
-                        <Link to="/about" className="btn btn-sm">Inquire Now</Link>
+                        <Link to="/about" className="btn btn-sm btn-hero">Inquire Now</Link>
 
                        </div>
                     </article>

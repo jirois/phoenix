@@ -12,7 +12,7 @@
 
 .container-slider img {
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 400px;
   background-size: cover;
   object-fit: cover;
@@ -111,6 +111,9 @@ article.nextSlide {
   padding-bottom: 0.5rem;
 }
 
+.btn-hero {
+  text-align: center;
+}
 @media screen and (min-width: 670px) {
   .container-slider {
     max-width: 100%;
