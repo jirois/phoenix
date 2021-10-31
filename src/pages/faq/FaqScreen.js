@@ -1,4 +1,6 @@
 import React from 'react';
+import { questions } from '../../data';
+import SingleQuestion from './Question'
 import "./faq.css"
 
 function FaqScreen(props) {
@@ -13,8 +15,13 @@ function FaqScreen(props) {
                     </div>
                 </div>
 
-            <div className="faq-accordion-container">
-                
+              <div className="faq-accordion-container">
+                {questions.map((question) =>{
+                    return (
+                        <SingleQuestion key={question.id} {...question} />
+                    )
+                })}
+
             </div>
             </div>
             
