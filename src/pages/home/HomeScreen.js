@@ -11,7 +11,7 @@ function HomeScreen(props) {
              <Hero />
             <main className="main-bg" >
             <div className="home-btn-container">
-                <Link to="/brooker" className="btn btn-lg btn-broker">our recommended Brokers</Link>
+                <Link to="/broker" className="btn btn-lg btn-broker">our recommended Brokers</Link>
                 <a
                  href="https://t.me/joinchat/SFrr4FNqHDEzMWFk"
                   target="_blank"  rel="noreferrer" 
