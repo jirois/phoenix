@@ -143,3 +143,34 @@ export const social = [
     icon: <FaLinkedin />,
   },
 ];
+
+export const questions = [
+  {
+    id: 1,
+    title: 'Who is the full course for? I know nothing about Forex, Can i enroll?',
+    info:
+      'Our course is a full course is for everyone, both beginner and advanced level. The course teaches you how to trade the Forex market from beginner level to advanced level without any prior knowledge. With the course, you will learn everything you need to know about Forex and how to trade it profitably. ',
+  },
+  {
+    id:2,
+    title:'How long will it take me to complete the course and become confident in taking my own trades?',
+    info: 'We all have different learning process. It took some of our students two weeks, some a month, some a bit over 2 months. Your learning process depends on the effort and time you put in. Our course is broken down so easily to help you learn very fast.'
+  },
+  {
+    id: 3,
+    title: 'How much is the course and how do i pay for the course or any of your service?',
+    info: 'The full course is $500 and you can pay directly on the website by clicking our services and prices on the menu list using your credit card. You can also buy using bitcoin Alternatively, If you are in Africa, you can pay using local transfer Please send a DM to @phoenixcapital._ or @onyeka._  on instagram for details.'
+  },
+  {
+    id: 4,
+    title: 'How long duration is the course for?',
+    info: 'The course is an online course with video and written content so you will be provided your login details to access the course content. You will have lifetime access to the course with regular updates.'
+  },
+  {
+    id: 5,
+    title: 'Do you accept installments and do you offer discounts?',
+    info: 'We’re very sorry we don’t take installmental payment many don’t end up paying completely'
+  }
+
+
+]

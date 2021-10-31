@@ -1,4 +1,20 @@
 .faq {
-  height: 100vh;
-  padding: 4rem;
+  padding: 1rem;
+  background: rgba(27, 13, 3, 0.815);
+}
+
+.faq-container {
+  background: var(--mainWhite);
+  padding: 2.5rem 0.5rem;
+}
+
+.faq-header-container {
+  border-bottom: 1px solid;
+  margin-bottom: 1.5rem;
+}
+
+.faq-header-container h2 {
+  font-size: 1.2rem;
+  font-family: Robot, serif;
+  font-weight: 300;
 }
