@@ -3,7 +3,7 @@ import React from 'react';
 function About(props) {
     return (
         <div>
-            Welcome to About Us
+            <img src="/img/about_hero_img" alt="about" />
         </div>
     );
 }
