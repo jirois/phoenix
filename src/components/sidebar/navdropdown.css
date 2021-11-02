@@ -28,7 +28,6 @@
   flex-direction: column;
   margin: 0 auto;
   padding: 1.5rem 1.5rem;
-  overflow-y: auto;
   width: 100%;
   margin-top: -1rem;
 }
@@ -42,8 +41,8 @@
 }
 .sidebar-logo img {
   background-color: rgb(5, 135, 211);
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
 }
 .sidebar-logo span {

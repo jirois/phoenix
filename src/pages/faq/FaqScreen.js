@@ -10,13 +10,14 @@ function FaqScreen(props) {
                 <div className="faq-header-container">
                     <h2>Frequently asked questions</h2>
 
-                    <div className="faq-search">
+                    {/* <div className="faq-search">
                         <input type="text" />
-                    </div>
+                    </div> */}
                 </div>
 
               <div className="faq-accordion-container">
                 {questions.map((question) =>{
+                    console.log(question)
                     return (
                         <SingleQuestion key={question.id} {...question} />
                     )

@@ -9,7 +9,6 @@ function NavbarDropDown({isToggle, closeSidebar}) {
         <div 
          role="button"
          tabIndex="77"
-         onKeyDown=""
          onClick={closeSidebar}
         className={`${isToggle? 'sidebar open' : 'sidebar'}`}>
             <nav className="sidebar-content  flex flex-col w-5/6 max-w-sm mx-auto py-6 px-6 overflow-y-auto ">
