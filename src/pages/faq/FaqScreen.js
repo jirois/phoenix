@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { questions } from '../../data';
 import SingleQuestion from './Question'
+import {RiArrowDropDownLine, RiArrowDropUpLine} from 'react-icons/ri'
+
 import "./faq.css"
 
 function FaqScreen(props) {
+
     return (
         <div className="faq">
             <div className="faq-container">
@@ -17,7 +20,6 @@ function FaqScreen(props) {
 
               <div className="faq-accordion-container">
                 {questions.map((question) =>{
-                    console.log(question)
                     return (
                         <SingleQuestion key={question.id} {...question} />
                     )

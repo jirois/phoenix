@@ -27,7 +27,7 @@
   border: 2px solid var(--clr-grey-special);
   margin-bottom: 1rem;
   border-radius: var(--radius);
-  box-shadow: var(--light-shadow);
+  border-bottom: 1px solid #ccc;
 }
 .question h4 {
   text-transform: none;

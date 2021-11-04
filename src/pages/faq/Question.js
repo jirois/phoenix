@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
-import {RiArrowDropDownLine, RiArrowDropUpLine} from 'react-icons/ri'
+import {RiArrowDownSLine, RiArrowUpSLine} from 'react-icons/ri'
 import './faq.css'
 
 
 function Question({title, info}) {
-    console.log(title)
 
-    const {showInfo, setShowInfo} = useState(false)
+    const [showInfo, setShowInfo] = useState(false)
+
     return (
-        <article className='question'>
-          <h1>Welcome</h1>
+        <div className='question'>
          <header>
         <h4>{title}</h4>
         <button className='btn' onClick={() => setShowInfo(!showInfo)}>
-          {showInfo ? <RiArrowDropDownLine /> : <RiArrowDropUpLine />}
+          {showInfo ? <RiArrowDownSLine /> : <RiArrowUpSLine />}
         </button>
       </header>
       {showInfo && <p>{info}</p>}
-    </article>
+    </div>
     );
 }
 
