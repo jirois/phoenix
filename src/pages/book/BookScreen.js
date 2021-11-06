@@ -12,7 +12,7 @@ function BookScreen(props) {
                 <span>Persistence</span>
                 <span>Profit</span>
             </div>  
-            <p>
+            <p className="first-para">
                 Our coordinated one-on-one sessions are the ideal platform 
                 for you to feature distinguish and correct all the issues you
                 might be encountering your individual trading profession and put you on the 

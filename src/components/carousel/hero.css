@@ -1,6 +1,6 @@
 .container-slider {
   max-width: 100%;
-  height: 80vh;
+  min-height: 80vh;
   position: relative;
   overflow: hidden;
 }
@@ -15,7 +15,7 @@
 .container-slider img {
   display: block;
   width: 100%;
-  height: 450px;
+  height: 100%;
   max-width: 400px;
 }
 
