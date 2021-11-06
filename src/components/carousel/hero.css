@@ -13,11 +13,10 @@
 }
 
 .container-slider img {
+  display: block;
   width: 100%;
-  height: 100%;
-  background-size: cover;
-  object-fit: cover;
-  margin-bottom: 2rem;
+  height: 450px;
+  max-width: 400px;
 }
 
 .prev,
@@ -91,7 +90,7 @@ article.nextSlide {
 .content-carousel {
   position: absolute;
   width: 100%;
-  top: 50%;
+  top: 40%;
   margin-top: 2rem;
   color: #fff;
   padding: 1rem;
