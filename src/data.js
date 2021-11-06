@@ -199,3 +199,35 @@ export const booksession = [
     price: "$110"
   }
 ]
+
+
+export const servicesSession = [
+  {
+    id:1,
+    title: "Phoenixfx Premium",
+    price: "49.99",
+    duration: "Every month",
+    description: "Support Your Analysis With Our Premium Channels"
+  },
+  {
+    id:2,
+    title: "Phoenixfx Premium/Yr",
+    price: "360",
+    duration: "Every year",
+    description: "40% OFF"
+  },
+  {
+    id:3,
+    title: "One on One Course",
+    price: "700",
+    duration: "",
+    description: "With The Fx Professor"
+  },
+  {
+    id:4,
+    title: "Trading Bible",
+    price: "99",
+    duration: "",
+    description: "Phoenixfx Trading Bible"
+  }
+]
