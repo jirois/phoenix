@@ -55,9 +55,9 @@ p {
 .book-card h1 {
   font-family: Robot, serif;
   font-weight: 300;
-  padding: 1rem 0.5rem 0.5rem;
+  padding: 1rem 0 0.5rem;
   text-transform: uppercase;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #222;
 }
 
