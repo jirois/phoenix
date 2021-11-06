@@ -95,6 +95,10 @@ ul {
   grid-area: footer;
 }
 
+img {
+  display: block;
+}
+
 /* buttons */
 
 .btn {

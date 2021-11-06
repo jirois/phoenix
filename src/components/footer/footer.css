@@ -3,7 +3,7 @@
   display: flex;
   background: var(--black);
   flex-direction: column;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   color: var(--mainWhite);
   text-align: center;
 }

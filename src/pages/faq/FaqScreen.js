@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { questions } from '../../data';
 import SingleQuestion from './Question'
-import {RiArrowDropDownLine, RiArrowDropUpLine} from 'react-icons/ri'
+
 
 import "./faq.css"
 

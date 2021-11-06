@@ -174,3 +174,28 @@ export const questions = [
 
 
 ]
+
+
+export const booksession = [
+  {
+    id:1,
+    img: '/img/img-mentor.jpg',
+    title: "PhoenixFx Private session",
+    hour: "1 hr",
+    price: "$50"
+  },
+  {
+    id:2,
+    img: '/img/img-cert.jpg',
+    title: "PhoenixFx Assessment (students only)",
+    hour: "1 hr",
+    price: "$53"
+  },
+  {
+    id:1,
+    img: '/img/phoenix_course.jpg',
+    title: "PhoenixFx Private session",
+    hour: "2 hr",
+    price: "$110"
+  }
+]
