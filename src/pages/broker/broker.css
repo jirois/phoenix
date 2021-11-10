@@ -8,11 +8,13 @@
   font-family: Robot, serif;
   font-size: 2.5rem;
   font-weight: 300;
+  text-align: center;
 }
 
 p {
-  text-align: justify;
+  text-align: center;
   line-height: 1.8;
+
 }
 
  .paraone {
@@ -25,6 +27,7 @@ p {
 .broker h3 {
   font-size: 1.8rem;
   padding: 1rem 0 0;
+  text-align: center;
 }
 
 .broker-btn {
@@ -43,3 +46,15 @@ p {
   border-radius: 1.5rem;
 }
 
+.broker-img {
+  width: 300px;
+  max-width: 450px;
+  height: 300px;
+  margin: 0 auto;
+}
+.broker-img img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

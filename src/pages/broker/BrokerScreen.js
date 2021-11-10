@@ -11,6 +11,9 @@ function BrokerScreen(props) {
               look for when choosing a broker. We have done our 
               research and that is why we are recommending these brokers.
             </p>
+            <div className="broker-img">
+                <img src="/img/broker-img.jpg" alt="broker chart" />
+            </div>
 
             <h3> Exness Broker</h3>
             <p>
