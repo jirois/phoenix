@@ -1,4 +1,67 @@
 .contact {
-  height: 100vh;
-  padding: 4rem;
+  /* padding: 4rem 0 0; */
+}
+
+input, textarea {
+  display: block;
+  width: 90%;
+  height: 3rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+textarea {
+  height: 7rem;
+}
+
+.form-message {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 1rem 2.5rem;
+  background: rgb(24, 15, 15);
+  color: white;
+}
+
+ .form-message h2 {
+  padding: 2rem 1rem 2rem;
+  text-align: center;
+}
+
+
+
+ button {
+   padding: 1.5rem 1rem;
+   font-size: 1.1rem;
+   color: black;
+   background: rgba(0, 195, 255, 0.822);
+   display: block;
+   border: none;
+   width: 90%;
+   margin: 0 auto;
+}
+
+.form-contact{
+  background: #6fd1f8b2;
+  padding: 1.5rem 1rem;
+}
+
+.form-contact h2 {
+  padding: 1rem 0 2rem;
+  color: white;
+  text-align: center;
+}
+
+.form-contact button{
+  background: rgb(175, 172, 172);
+}
+
+.form-contact input {
+  border: none;
+  border-bottom: 1px solid;
+
+}
+
+.form-contact input:hover{
+  border: 1px solid;
 }
