@@ -15,7 +15,7 @@
 .container-slider img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 80vh;
   max-width: 400px;
 }
 
