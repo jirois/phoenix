@@ -68,14 +68,21 @@
 
 .fullcourse {
   position: relative;
-  background: rgb(250, 246, 246);
+  background: rgb(238, 235, 235);
+}
+
+.percent-div {
+  display: flex;
+  justify-content: center;
 }
 .fullcourse .percent {
   background: rgb(8, 5, 5);
   color: white;
   border: none;
   position: absolute;
-  left: 45%;
+  display: flex;
+  justify-content: center;
+
   top: -1rem;
   padding: 0.3rem 0.5rem;
 }

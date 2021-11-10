@@ -10,8 +10,12 @@ function ServiceScreen(props) {
             <div className="service-cards">
                 <div className="fullcourse">
                 <div className="service-card">
+                    <div className="percent-div">
                     <span className="percent">60% OFF</span>
+                    </div>
+
                         <span className="service-title">Phoenix Full Course</span>
+                    
                         <div className="service-price">
                             <span>$</span>
                             <span className="price">150</span>
