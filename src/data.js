@@ -204,27 +204,41 @@ export const booksession = [
 export const servicesSession = [
   {
     id:1,
-    title: "Phoenixfx Premium",
-    price: "49.99",
+    title: "Signal Group Premium",
+    price: "50",
     duration: "Every month",
     description: "Support Your Analysis With Our Premium Channels"
   },
   {
     id:2,
-    title: "Phoenixfx Premium/Yr",
-    price: "360",
+    title: "Signal Group Premium/Yr",
+    price: "600",
     duration: "Every year",
-    description: "40% OFF"
+    description: "10% OFF"
   },
   {
     id:3,
+    title: "Mentorship",
+    price: "50",
+    duration: "Every month",
+    description: "40% OFF"
+  },
+  {
+    id:4,
     title: "One on One Course",
-    price: "700",
+    price: "500",
     duration: "",
     description: "With The Fx Professor"
   },
   {
-    id:4,
+    id:5,
+    title: "Full Course",
+    price: "150",
+    duration: "",
+    description: "With materials and tutorial sessions"
+  },
+  {
+    id:6,
     title: "Trading Bible",
     price: "99",
     duration: "",

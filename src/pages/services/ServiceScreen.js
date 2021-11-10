@@ -21,7 +21,7 @@ function ServiceScreen(props) {
                             <span className="description">{service.description}</span>
 
                             <Link to="/">
-                                <button className="service-btn">Enroll Now</button>
+                                <button className="service-btn">Purchase Now</button>
                             </Link>
 
                         </div>
