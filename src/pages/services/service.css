@@ -66,5 +66,19 @@
   border-radius: 1.5rem;
 }
 
+.fullcourse {
+  position: relative;
+  background: rgb(250, 246, 246);
+}
+.fullcourse .percent {
+  background: black;
+  color: white;
+  border: none;
+  position: absolute;
+  left: 45%;
+  top: -1rem;
+  padding: 0.3rem 0.5rem;
+}
+
 
 

@@ -232,13 +232,6 @@ export const servicesSession = [
   },
   {
     id:5,
-    title: "Full Course",
-    price: "150",
-    duration: "",
-    description: "With materials and tutorial sessions"
-  },
-  {
-    id:6,
     title: "Trading Bible",
     price: "99",
     duration: "",
