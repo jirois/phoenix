@@ -32,40 +32,40 @@
 }
 
 @media screen and (min-width: 769px) {
-  .navbar {
+  /* .navbar {
     flex-direction: column;
     padding: 1.5rem;
-  }
+  } */
 
   .menu-logo {
     /* padding: 2rem; */
-    margin-top: -1rem;
-    margin-bottom: 3.5rem;
+    /* margin-top: -1rem;
+    margin-bottom: 3.5rem; */
   }
 
   .menu-btn {
-    display: none;
+    /* display: none; */
   }
   .navbar ul {
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem;
     width: 80vw;
     text-align: center;
-    margin: 3rem 5rem;
+    margin: 3rem 5rem; */
   }
 
   .navbar a {
-    word-wrap: normal;
+    /* word-wrap: normal;
     width: 100%;
     text-align: center;
     font-family: var(--);
-    font-size: 1.5rem;
+    font-size: 1.5rem; */
   }
   .text-desknav {
-    color: white;
+    /* color: white; */
   }
 
   .activeClass {
-    color: goldenrod;
+    /* color: goldenrod; */
     /* font-weight: 600; */
   }
 }

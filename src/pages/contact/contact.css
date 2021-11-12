@@ -5,27 +5,33 @@
 input, textarea {
   display: block;
   width: 90%;
-  height: 3rem;
+  height: 4rem;
   margin: 0 auto;
   margin-bottom: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  border: 0.5px solid;
 }
 
 textarea {
-  height: 7rem;
+  height: 10rem;
+}
+::placeholder{
+  font-size: 1rem;
+  color: black;
 }
 
 .form-message {
   display: flex;
   flex-direction: column;
-  padding: 4rem 1rem 2.5rem;
-  background: rgb(24, 15, 15);
+  padding: 4rem 1rem 1.5rem;
+  background: var(--mainBlack);
   color: white;
 }
 
  .form-message h2 {
   padding: 2rem 1rem 2rem;
   text-align: center;
+  color:rgba(0, 195, 255, 0.822);
 }
 
 
@@ -42,26 +48,38 @@ textarea {
 }
 
 .form-contact{
-  background: #6fd1f8b2;
+  background: #4fb6dfb2;
   padding: 1.5rem 1rem;
 }
 
 .form-contact h2 {
-  padding: 1rem 0 2rem;
+  font-family: Robot, serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  padding: 1rem 0 1rem;
   color: white;
   text-align: center;
+  
+
 }
 
 .form-contact button{
-  background: rgb(175, 172, 172);
+  background: white;
 }
 
-.form-contact input {
+.form-contact input, .form-contact textarea {
+  width: 99%;
   border: none;
-  border-bottom: 1px solid;
+  background: transparent;
+  border-bottom: 1px solid white;
 
 }
 
-.form-contact input:hover{
-  border: 1px solid;
+.form-contact input::placeholder, .form-contact textarea::placeholder{
+  color: white;
+}
+
+.form-contact input:hover, .form-contact textarea:hover{
+  border: 0.5px solid white;
+  outline: none;
 }
