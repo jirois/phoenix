@@ -8,10 +8,11 @@
   background: var(--mainBlack);
   color: #ffffff;
   padding: 3rem;
-  transform: translateY(-100%);
+  transform: translateY(-100vh);
   transition: all 0.2s linear;
   z-index: -100;
   box-sizing: border-box;
+  overflow-y: hidden;
 }
 .sidebar.open {
   transform: translate(0);
@@ -63,7 +64,7 @@
   padding: 0.5rem;
   color: var(--mainWhite);
   font-family: var(--headerFont);
-  font-size: 1em;
+  font-size: 1.3em;
   font-style: italic;
   text-decoration: none;
   text-align: center;
