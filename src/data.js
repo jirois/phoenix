@@ -180,21 +180,21 @@ export const booksession = [
   {
     id:1,
     img: '/img/img-mentor.jpg',
-    title: "PhoenixFx Private session",
+    title: "Phoenix Private session",
     hour: "1 hr",
     price: "$50"
   },
   {
     id:2,
     img: '/img/img-cert.jpg',
-    title: "PhoenixFx Assessment (students only)",
+    title: "Phoenix Assessment (students only)",
     hour: "1 hr",
     price: "$53"
   },
   {
     id:1,
     img: '/img/phoenix_course.jpg',
-    title: "PhoenixFx Private session",
+    title: "Phoenix Private session",
     hour: "2 hr",
     price: "$110"
   }
@@ -219,8 +219,8 @@ export const servicesSession = [
   {
     id:3,
     title: "Mentorship",
-    price: "50",
-    duration: "Every month",
+    price: "120",
+    duration: "",
     description: "40% OFF"
   },
   {

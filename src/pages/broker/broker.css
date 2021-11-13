@@ -6,8 +6,9 @@
 
 .broker h2 {
   font-family: Robot, serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 300;
+  padding: 0 1rem;
 }
 
 p {
