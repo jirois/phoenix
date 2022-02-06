@@ -28,7 +28,7 @@ const HeroSection = () => {
         </HeroBlur>
       </HeroBg>
       <HeroContent>
-        <HeroH1>Phoenix Forex Capital</HeroH1>
+        <HeroH1>Phoenix Capital</HeroH1>
         <HeroP>Speed Your Trading Journey with our Unique Trading System</HeroP>
         <HeroBtnWrapper>
           <Button

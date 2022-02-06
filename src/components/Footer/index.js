@@ -69,10 +69,10 @@ const Footer = () => {
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to="/" onClick={toggleHome}>
-              PhoenixCapng
+              PhoenixCap
             </SocialLogo>
             <WebsiteRights>
-              PhoenixCapng @ {new Date().getFullYear()} All rights reserved.
+              PhoenixCap &copy; {new Date().getFullYear()} All rights reserved.
             </WebsiteRights>
             <SocialIcons>
               <SocialIconLink href="/" target="_blank" aria-label="Facebook">
