@@ -36,7 +36,7 @@ const NavbarSection = ({ toggle }) => {
     <Nav scrollNav={scrollNav}>
       <NavbarContainer>
         <NavLogo to="/" onClick={toggleHome}>
-          PhoenixCapng
+          PhoenixCap
         </NavLogo>
         <MobileIcon onClick={toggle}>
           <FaBars />
