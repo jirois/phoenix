@@ -14,7 +14,7 @@ export const ProductContainer = styled.div`
   }
   @media screen and (max-width: 486px) {
     min-height: 1300px;
-    padding: 0 0 4rem;
+    padding-top: 45px;
   }
 `;
 
@@ -41,11 +41,11 @@ export const ProductsCard = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  max-height: 540px;
+  min-height: 540px;
 
   @media screen and (max-width: 486px) {
+    min-height: 600px;
     margin-bottom: 44px;
-    margin-top: 44px;
   }
 `;
 export const ProductIcon = styled.img`
@@ -68,13 +68,17 @@ export const ProductH2 = styled.h2`
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
 `;
 
 export const ProductP = styled.p`
   font-size: 1rem;
   text-align: center;
-  border-bottom: 1px solid;
   padding-bottom: 12px;
+
+  @media screen and (max-width: 486px) {
+    border-bottom: 1px solid;
+  }
 `;
 
 export const ProductLink = styled(Link)`
