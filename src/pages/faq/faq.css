@@ -1,0 +1,68 @@
+.faq {
+  padding: 1rem;
+  background: rgba(27, 13, 3, 0.815);
+}
+
+.faq-container {
+  background: #fff;
+  padding: 2.5rem 0.5rem;
+}
+
+.faq-header-container {
+  border-bottom: 1px solid;
+  margin-bottom: 1.5rem;
+  padding: 2rem 0 0;
+}
+
+.faq-header-container h2 {
+  font-size: 1.3rem;
+  font-family: Robot, serif;
+  font-weight: 300;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+/* Accordion */
+.question {
+  padding: 1rem 1.5rem;
+  border: 2px solid #cdcdcd;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  border-bottom: 1px solid #ccc;
+  text-align: justify;
+}
+.question h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  flex: 1 2 65%;
+  padding: 0.5rem 0;
+}
+.question p {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  text-align: justify;
+}
+.question header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question .btn {
+  background: transparent;
+  border-color: transparent;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 50%;
+  color: gold;
+  cursor: pointer;
+  margin-left: 1rem;
+  align-self: center;
+  min-width: 2rem;
+  flex: auto;
+  padding-top: 0.5rem;
+  font-size: 1.5rem;
+}

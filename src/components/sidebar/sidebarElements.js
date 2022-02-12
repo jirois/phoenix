@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
 import { Link as LinkR } from "react-router-dom";
-import { Link as LinkS } from "react-scroll";
 
 export const SidebarContainer = styled.aside`
   position: fixed;
@@ -49,7 +48,7 @@ export const SidebarMenu = styled.ul`
   }
 `;
 
-export const SidebarLink = styled(LinkS)`
+export const SidebarLink = styled(LinkR)`
   display: flex;
   align-items: center;
   justify-content: center;

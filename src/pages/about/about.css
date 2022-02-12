@@ -1,0 +1,50 @@
+.about-hero-img {
+  width: 100%;
+  height: 250px;
+}
+
+.about-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-body {
+  background: rgba(0, 0, 0, 0.815);
+  padding: 4.5rem 1rem;
+}
+.about-body h1 {
+  font-family: Robot, serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: #fff;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.about-body p {
+  padding: 0.5 0;
+  word-wrap: break-word;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 2.3;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 486px) {
+  .about-hero-img {
+    max-width: 600px;
+    height: 300px;
+  }
+
+  .about-body h1 {
+    font-size: 2.5;
+    text-align: left;
+  }
+
+  .about-body p {
+    text-align: justify;
+  }
+}

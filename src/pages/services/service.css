@@ -1,0 +1,92 @@
+.service {
+  padding: 4rem 2rem;
+  background: var(--mainWhite);
+}
+
+.service h2 {
+  font-family: Robot, serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding: 2rem 1rem 0.4rem;
+  text-align: center;
+}
+
+.service-card {
+  box-shadow: 2px -1px 2px rgba(0, 0, 0, 0.1),
+                -2px 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 2rem 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.service-title {
+  display: block;
+   font-family: Robot, serif;
+   font-weight: 300;
+   font-size: 1.3rem;
+   letter-spacing: 2px;
+   padding: 1rem 0.5rem
+   
+}
+
+.service-price{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 1.4rem 1rem;
+}
+
+.price {
+  display: block;
+  font-size: 2.3rem;
+  font-weight: 400;
+  color:var(--mainBlack);
+}
+
+.duration, .description {
+  display: block;
+  font-size: 0.8rem;
+  padding-bottom: 1rem;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+.service-btn {
+  width: 90%;
+  margin: 0.5rem 1rem 1.2rem;
+  padding: 0.8rem 1.3rem;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  background: rgb(53, 53, 196);
+  border: none;
+  margin-top: 0.5rem;
+  font-weight: 300;
+  border-radius: 1.5rem;
+}
+
+.fullcourse {
+  position: relative;
+  background: rgb(238, 235, 235);
+}
+
+.percent-div {
+  display: flex;
+  justify-content: center;
+}
+.fullcourse .percent {
+  background: rgb(8, 5, 5);
+  color: white;
+  border: none;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+
+  top: -1rem;
+  padding: 0.3rem 0.5rem;
+}
+
+
+
