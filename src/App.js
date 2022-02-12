@@ -24,7 +24,7 @@ function App() {
         <Route path="/broker" element={<BrokerScreen />} />
         <Route path="/faq" element={<FaqScreen />} />
         <Route path="/contact" element={<ContactScreen />} />
-        <Route path="/book" element={<BookScreen />} />
+        <Route path="/sessions" element={<BookScreen />} />
       </Switch>
       <Footer />
     </Router>

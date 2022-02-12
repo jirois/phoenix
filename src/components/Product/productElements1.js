@@ -44,7 +44,8 @@ export const ProductsCard = styled.div`
   max-height: 540px;
 
   @media screen and (max-width: 486px) {
-    margin-top: 64px;
+    margin-bottom: 44px;
+    margin-top: 44px;
   }
 `;
 export const ProductIcon = styled.img`

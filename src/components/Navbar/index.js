@@ -43,7 +43,7 @@ const NavbarSection = ({ toggle }) => {
         </MobileIcon>
         <NavMenu>
           <NavItem>
-            <NavLinks to="/session" exact={true}>
+            <NavLinks to="/sessions" exact={true}>
               Book Private Session
             </NavLinks>
           </NavItem>
