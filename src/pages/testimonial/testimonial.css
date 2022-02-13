@@ -1,8 +1,7 @@
 .review-header {
-  padding: 4rem 0.5rem 2rem; 
+  padding: 12rem 0.5rem;
   background: rgba(27, 13, 3, 0.815);
   text-align: center;
-
 }
 
 .review-header h1 {
@@ -11,12 +10,11 @@
   font-style: italic;
   font-size: 1.3rem;
   padding: 1rem 1.5rem 0.3rem;
+  margin-bottom: 1rem;
 }
 .review-header span {
   display: block;
   color: white;
   margin-top: -1rem;
   font-weight: 300;
-  
-
 }

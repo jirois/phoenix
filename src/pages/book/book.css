@@ -3,7 +3,8 @@
   background: var(--mainWhite);
 }
 
-img, span {
+img,
+span {
   display: block;
 }
 
@@ -16,7 +17,7 @@ img, span {
   margin-bottom: 0.7rem;
 }
 
-.book-nav span{
+.book-nav span {
   font-weight: bolder;
   font-size: 1rem;
   margin-right: 1rem;
@@ -24,7 +25,7 @@ img, span {
   padding-right: 0.5rem;
 }
 
-.book-nav span:last-child{
+.book-nav span:last-child {
   border-right: none;
 }
 
@@ -36,18 +37,16 @@ p {
   padding: 1.3rem;
 }
 
-.first-para{
+.first-para {
   border-bottom: 1px solid #eee;
   padding-bottom: 1rem;
 }
 
 .book-card {
-   box-shadow: 2px -1px 2px rgba(0, 0, 0, 0.1),
-                -2px 1px 2px rgba(0, 0, 0, 0.1);
-   margin: 2rem 1rem 1rem;
-   text-align: center;
-   padding-bottom: 0.2rem;
-  
+  box-shadow: 2px -1px 2px rgba(0, 0, 0, 0.1), -2px 1px 2px rgba(0, 0, 0, 0.1);
+  margin: 2rem 1rem 1rem;
+  text-align: center;
+  padding-bottom: 0.2rem;
 }
 
 .book-card img {
@@ -83,13 +82,17 @@ p {
   margin-bottom: 1rem;
   margin-top: 1rem;
   text-decoration: none;
-
-
 }
 
+.book-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
-
-
-
-
-
+@media screen and (min-width: 768px) {
+  .book-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    margin: 0 auto;
+  }
+}

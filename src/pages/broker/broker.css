@@ -1,7 +1,6 @@
 .broker {
   padding: 4rem 1rem 4rem;
   background: var(--mainWhite);
-
 }
 
 .broker h2 {
@@ -14,11 +13,9 @@
 p {
   text-align: center;
   line-height: 1.8;
-
 }
 
- .paraone {
- 
+.paraone {
   padding: 0.1rem 0 2rem;
   border-bottom: 1px solid;
   margin-bottom: 2rem;
@@ -52,9 +49,22 @@ p {
   height: 300px;
   margin: 0 auto;
 }
-.broker-img img{
+.broker-img img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .broker {
+    text-align: center;
+    padding: 4rem 20rem;
+  }
+  .broker h2 {
+    margin: 1.5rem 0 2.3rem 0;
+  }
+  .broker h3 {
+    margin: 2.2rem 0 1rem 0;
+  }
 }

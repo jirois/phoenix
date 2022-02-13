@@ -12,6 +12,7 @@ import BrokerScreen from "./pages/broker/BrokerScreen";
 import FaqScreen from "./pages/faq/FaqScreen";
 import ContactScreen from "./pages/contact/ContactScreen";
 import BookScreen from "./pages/book/BookScreen";
+import TestimonialScreen from "./pages/testimonial/TestimonialScreen";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/faq" element={<FaqScreen />} />
         <Route path="/contact" element={<ContactScreen />} />
         <Route path="/sessions" element={<BookScreen />} />
+        <Route path="/testimonials" element={<TestimonialScreen />} />
       </Switch>
       <Footer />
     </Router>
