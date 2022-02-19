@@ -13,6 +13,7 @@ import {
   ArrowForward,
   ArrowRight,
   HeroBlur,
+  TelegramLink,
 } from "./HeroElements";
 
 const HeroSection = () => {
@@ -40,6 +41,9 @@ const HeroSection = () => {
           >
             Get started {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
+          <TelegramLink href="telegram" target="_blank">
+            Join our Telegram
+          </TelegramLink>
         </HeroBtnWrapper>
       </HeroContent>
     </HeroContainer>

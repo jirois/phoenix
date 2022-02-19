@@ -1,7 +1,7 @@
 import React from "react";
 import Icon1 from "../../img/img-mentor.jpg";
 import Icon2 from "../../img/img-book.jpg";
-import Icon3 from "../../img/phoenix_cert.jpeg";
+import Icon3 from "../../img/phoenix_cert2.jpeg";
 import {
   ServiceContainer,
   ServicesWrapper,

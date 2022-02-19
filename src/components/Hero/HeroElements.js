@@ -86,8 +86,11 @@ export const HeroP = styled.p`
 export const HeroBtnWrapper = styled.div`
   margin-top: 32px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 786px) {
+    flex-direction: column;
+  }
 `;
 export const ArrowForward = styled(MdArrowForward)`
   margin-left: 8px;
@@ -96,4 +99,31 @@ export const ArrowForward = styled(MdArrowForward)`
 export const ArrowRight = styled(MdKeyboardArrowRight)`
   margin-left: 8px;
   font-size: 20px;
+`;
+
+export const TelegramLink = styled.a`
+  border-radius: 5px;
+  background: transparent;
+  white-space: nowrap;
+  padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
+  color: ${({ dark }) => (dark ? "#010606" : "#fff")};
+  font-size: ${({ fontbig }) => (fontbig ? "20px" : "16px")};
+  outline: none;
+  border: 1px solid #01bf71;
+  cursor: pointer;
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  margin-left: 18px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #01bf71;
+  }
+
+  @media screen and (max-width: 786px) {
+    margin-top: 30px;
+  }
 `;
