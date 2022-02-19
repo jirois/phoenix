@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const TestimonialContainer = styled.div`
   padding: 5rem 0.5rem 10rem;
-  background: rgba(27, 13, 3, 0.815);
+  /* background: rgba(27, 13, 3, 0.815); */
+  background: #fff;
   text-align: center;
 
   @media screen and (max-width: 486px) {
-    padding: 5rem 0.5rem;
+    padding: 5rem 0.5rem 0;
   }
 `;
 
