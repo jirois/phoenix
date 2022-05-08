@@ -1,5 +1,5 @@
 import { createTransport } from "nodemailer";
-import configNodemailerAuth from "./nodemailerConfig";
+import configNodemailerAuth from "./nodemailerConfig.js";
 
 
 const sendEmail = async ({ to, subject, html }) => {

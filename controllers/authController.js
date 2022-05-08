@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
-import Token from "../models/Token";
-import User from "../models/User";
+import Token from "../models/Token.js";
+import User from "../models/User.js";
 import {
     attackCookiesToResponse,
     createTokenUser,
@@ -10,7 +10,7 @@ import {
 } from '../utils/index.js'
 
 import { randomBytes } from 'crypto'
-import { BadRequestError, UnAuthenticatedError } from "../errors";
+import { BadRequestError, UnAuthenticatedError } from "../errors/index.js";
 
 
 const register = async (req, res) => {

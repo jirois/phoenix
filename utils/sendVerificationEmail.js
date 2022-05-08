@@ -1,4 +1,4 @@
-import sendEmail from "./sendEmail";
+import sendEmail from "./sendEmail.js";
 
 const sendVerificationEmail = async ({
     name, email, verificationToken, origin }) => {

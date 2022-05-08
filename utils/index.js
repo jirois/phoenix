@@ -1,8 +1,8 @@
-import { createJWT, isTokenValid, attackCookiesToResponse } from './jwt'
-import createTokenUser from './createTokenUser'
-import checkPermissions from './checkPermissions'
-import sendVerificationEmail from './sendVerificationEmail'
-import sendResetPasswordEmail from './sendResetPasswordEmail'
+import { createJWT, isTokenValid, attackCookiesToResponse } from './jwt.js'
+import createTokenUser from './createTokenUser.js'
+import checkPermissions from './checkPermissions.js'
+import sendVerificationEmail from './sendVerificationEmail.js'
+import sendResetPasswordEmail from './sendResetPasswordEmail.js'
 import createHash from './createHash.js'
 
 export {

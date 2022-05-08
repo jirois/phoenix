@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
-import { BadRequestError, NotFoundError, UnAuthenticatedError } from "../errors";
-import User from "../models/User";
-import { attackCookiesToResponse, checkPermissions, createTokenUser } from "../utils";
+import { BadRequestError, NotFoundError, UnAuthenticatedError } from "../errors/index.js";
+import User from "../models/User.js";
+import { attackCookiesToResponse, checkPermissions, createTokenUser } from "../utils/index.js";
 
 
 const getAllUsers = async (req, res) => {

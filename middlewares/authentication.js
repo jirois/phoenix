@@ -1,5 +1,5 @@
-import { UnAuthenticatedError, UnAuthorizedError } from "../errors";
-import { isTokenValid, attackCookiesToResponse } from "../utils";
+import { UnAuthenticatedError, UnAuthorizedError } from "../errors/index.js";
+import { isTokenValid, attackCookiesToResponse } from "../utils/index.js";
 import Token from '../models/Token.js'
 
 const authenticateUser = async (req, res, next) => {
