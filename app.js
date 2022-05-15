@@ -44,21 +44,19 @@ app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/users', userRouter)
 
 
-app.use(notFoundMiddleware)
-app.use(errorHandlerMiddleware)
-
-
-
 app.get('/', (req, res) => {
     res.send(`<h1> Welcome Here </h1>`)
 })
 
 
+app.use(notFoundMiddleware)
+app.use(errorHandlerMiddleware)
+
 const port = process.env.PORT || 5000
 
 const start = async () => {
     try {
-        connectDB(process.env.MONGO_URI)
+        // connectDB(process.env.MONGO_URI)
         app.listen(port, () => {
             console.log(`Port listening at port: ${port}
 
