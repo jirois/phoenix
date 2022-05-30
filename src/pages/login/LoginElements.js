@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import background from "../../img/bg-img.jpg";
 
 export const LoginWrapper = styled.section`
   min-height: 100vh;
@@ -7,7 +8,12 @@ export const LoginWrapper = styled.section`
   margin: 0 auto;
   padding-top: 5rem;
   padding-bottom: 3rem;
-  background: #000;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(${background});
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-attachment: fixed;
 `;
 
 export const Form = styled.form`
