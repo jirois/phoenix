@@ -2,7 +2,7 @@
   /* padding: 4rem 0 0; */
 }
 
-input,
+/* input,
 textarea {
   display: block;
   width: 90%;
@@ -15,11 +15,11 @@ textarea {
 
 textarea {
   height: 10rem;
-}
-::placeholder {
+} */
+/* ::placeholder {
   font-size: 1rem;
   color: black;
-}
+} */
 
 .form-message {
   display: flex;

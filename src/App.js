@@ -9,9 +9,9 @@ import FaqScreen from "./pages/faq/FaqScreen";
 import ContactScreen from "./pages/contact/ContactScreen";
 import BookScreen from "./pages/book/BookScreen";
 import TestimonialScreen from "./pages/testimonial/TestimonialScreen";
-import Login from "./pages/login";
-import Register from "./pages/register";
-import ResetPassword from "./pages/resetpassword";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Signup";
+import ResetPassword from "./pages/auth/Reset";
 
 function App() {
   return (
@@ -45,7 +45,7 @@ function App() {
         <Route path="/signin">
           <Login />
         </Route>
-        <Route path="/register">
+        <Route path="/signup">
           <Register />
         </Route>
         <Route path="/forgot-password">

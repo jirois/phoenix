@@ -4,7 +4,7 @@ import FormRow from "../../components/FormRow";
 
 import { LoginWrapper, Form, Button, Paragraph, Links } from "./LoginElements";
 
-const Login = () => {
+const Login1 = () => {
   return (
     <LoginWrapper>
       <Form>
@@ -23,4 +23,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login1;
