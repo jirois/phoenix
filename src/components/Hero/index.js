@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../ButtonElement";
+import { ButtonLinK } from "../ButtonElement";
 import video from "../../videos/video_6.mp4";
 
 import {
@@ -32,15 +32,15 @@ const HeroSection = () => {
         <HeroH1>Phoenix Capital</HeroH1>
         <HeroP>Speed Your Trading Journey with our Unique Trading System</HeroP>
         <HeroBtnWrapper>
-          <Button
-            to="signup"
+          <ButtonLinK
+            to="/signup"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"
             dark="true"
           >
             Get started {hover ? <ArrowForward /> : <ArrowRight />}
-          </Button>
+          </ButtonLinK>
           <TelegramLink href="telegram" target="_blank">
             Join our Telegram
           </TelegramLink>
