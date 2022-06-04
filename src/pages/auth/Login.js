@@ -26,7 +26,7 @@ const Login = () => {
   return (
     <BackgroundArea>
       <StyledFormArea bg="gray">
-        <StyledTitle color="white" size={24} mb="0">
+        <StyledTitle color="white" size={24} mb="14">
           Member login
         </StyledTitle>
         <StyledSubTitle>Login here now</StyledSubTitle>

@@ -30,7 +30,7 @@ const Signup = () => {
   return (
     <BackgroundArea>
       <StyledFormAreaSignup bg="gray">
-        <StyledTitle color="white" size={24} mb="0">
+        <StyledTitle color="white" size={24} mb="14">
           Member SignUp
         </StyledTitle>
         <StyledSubTitle>Sign up here</StyledSubTitle>

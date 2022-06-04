@@ -22,12 +22,16 @@ export const BackgroundArea = styled.div`
     url(${background});
   background-size: cover;
   background-attachment: fixed;
+
+  @media (max-width: 480px) {
+    background: black;
+  }
 `;
 
 export const StyledTitle = styled.h2`
   font-size: ${(props) => props.size}px;
   text-align: center;
-  margin-bottom: ${(props) => props.mb}rem;
+  margin-bottom: ${(props) => props.mb}px;
   text-transform: uppercase;
   color: ${(props) => props.color || color.primary};
 `;
@@ -61,14 +65,14 @@ export const StyledLabel = styled.p`
 `;
 
 export const StyledFormInput = styled.input`
-  width: 280px;
+  width: 340px;
   padding: 15px;
   padding-left: 50px;
   letter-spacing: 1px;
   border: 0;
   font-size: 17px;
   outline: 0;
-  color: ${color.accent};
+  color: ${color.dark1};
   margin: -25px auto 15px auto;
   display: block;
   transition: ease-in-out 0.3s;
@@ -133,14 +137,21 @@ export const ErrorMsg = styled.div`
 `;
 
 export const ExtraText = styled.p`
-  font-size: ${(props) => props.size}px;
+  font-size: 18px;
   padding: 2px;
   color: ${(props) => (props.color ? props.color : color.dark2)};
+  @media (width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 export const TextLink = styled(LinkR)`
   font-size: 18px;
   color: ${color.primary};
+
+  @media (width: 480px) {
+    font-size: 14px;
+  }
 `;
 export const StyledIcon = styled.p`
   color: ${color.dark};

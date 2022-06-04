@@ -15,16 +15,9 @@ export const TextInput = ({ icon, ...props }) => {
   return (
     <div style={{ position: "relative" }}>
       <StyledLabel htmlFor={props.name}>{props.label}</StyledLabel>
-      {props.type !== "password" && (
-        <StyledFormInput
-          invalid={meta.touched && meta.error}
-          {...field}
-          {...props}
-        />
-      )}
+      {props.type !== "password" && <StyledFormInput {...field} {...props} />}
       {props.type === "password" && (
         <StyledFormInput
-          invalid={meta.touched && meta.error}
           {...field}
           {...props}
           type={show ? "text" : "password"}
