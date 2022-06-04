@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { FiMail, FiLock } from "react-icons/fi";
+import {  FiLock } from "react-icons/fi";
 import React from "react";
 import {
   BackgroundArea,
