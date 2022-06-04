@@ -93,12 +93,12 @@ export const StyledFormArea = styled.div`
   margin-top: 25px;
 
   @media (max-width: 486px) {
-    margin-top: 75px;
+    margin-top: 35px;
   }
 `;
 
 export const StyledFormAreaSignup = styled(StyledFormArea)`
-  margin-top: 90px;
+  margin-top: 35px;
 `;
 
 export const StyleButtonGroup = styled.div`
