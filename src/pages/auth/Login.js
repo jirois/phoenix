@@ -1,3 +1,5 @@
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../../features/userslice/authSlice";
 import { Form, Formik } from "formik";
 import { FiMail, FiLock } from "react-icons/fi";
 import React from "react";
@@ -11,8 +13,11 @@ import {
   StyledTitle,
   TextLink,
 } from "../../components/FormStyles";
+import { TailSpin } from "react-loader-spinner";
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -23,6 +28,18 @@ const ErrorMessagesSchema = Yup.object().shape({
 });
 
 const Login = () => {
+  const { user, isError, message, isSuccess } = useSelector(
+    (store) => store.auth
+  );
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (isSuccess || user) {
+      history.push("/");
+    }
+  }, [user, isError, isSuccess, message, history, dispatch]);
   return (
     <BackgroundArea>
       <StyledFormArea bg="gray">
@@ -38,9 +55,10 @@ const Login = () => {
           validationSchema={ErrorMessagesSchema}
           onSubmit={(values) => {
             console.log(values);
+            dispatch(login(values));
           }}
         >
-          {() => (
+          {({ isSubmitting }) => (
             <Form>
               <TextInput
                 name="email"
@@ -57,7 +75,12 @@ const Login = () => {
                 icon={<FiLock />}
               />
               <StyleButtonGroup>
-                <StyledFormButton type="submit">Login</StyledFormButton>
+                {!isSubmitting && (
+                  <StyledFormButton type="submit">Login</StyledFormButton>
+                )}
+                {isSubmitting && (
+                  <TailSpin color="yellow" height={30} width={80} />
+                )}
               </StyleButtonGroup>
               <ExtraText>
                 Don't have an account? <TextLink to="/signup">Sign Up</TextLink>

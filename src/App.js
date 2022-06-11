@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Home from "./pages";
 import NavbarHome from "./components/Navbar/NavbarSection";
 import About from "./pages/about/AboutScreen";
@@ -10,7 +11,7 @@ import ContactScreen from "./pages/contact/ContactScreen";
 import BookScreen from "./pages/book/BookScreen";
 import TestimonialScreen from "./pages/testimonial/TestimonialScreen";
 import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Signup";
+import Register from "./pages/auth/Register";
 import ResetPassword from "./pages/auth/Reset";
 
 function App() {

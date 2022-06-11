@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll/modules";
+import { logout } from "../../features/userslice/authSlice";
 
 import {
   Nav,
@@ -12,10 +15,19 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLinkOne,
+  NavBtnLinkBtn,
 } from "./navbarELements";
 
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
+  const { user } = useSelector((store) => store.auth);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(logout());
+    history.push("/signin");
+  };
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -79,7 +91,11 @@ const NavbarSection = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          <NavBtnLinkOne to="/signin">Sign In</NavBtnLinkOne>
+          {user ? (
+            <NavBtnLinkBtn onClick={onLogout}>Log Out</NavBtnLinkBtn>
+          ) : (
+            <NavBtnLinkOne to="/signin">Sign In</NavBtnLinkOne>
+          )}
         </NavBtn>
       </NavbarContainer>
     </Nav>

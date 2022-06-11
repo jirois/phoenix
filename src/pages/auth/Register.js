@@ -1,11 +1,13 @@
+import { useSelector, useDispatch } from "react-redux";
+import { register } from "../../features/userslice/authSlice";
 import { Form, Formik } from "formik";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BackgroundArea,
   ExtraText,
   StyleButtonGroup,
-  StyledFormAreaSignup,
+  StyledFormArea,
   StyledFormButton,
   StyledSubTitle,
   StyledTitle,
@@ -13,46 +15,55 @@ import {
 } from "../../components/FormStyles";
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
+import { useHistory } from "react-router-dom";
+import { TailSpin } from "react-loader-spinner";
 
 const ErrorMessagesSchema = Yup.object().shape({
+  name: Yup.string().required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
     .min(4, "Password Too Short")
     .max(50, "Password too Long")
     .required("Required"),
-  name: Yup.string().min(5, "Name too short").required("Required"),
-  repeatPassword: Yup.string()
-    .required("Required")
-    .oneOf([Yup.ref("password")], "Password must match"),
 });
 
-const Signup = () => {
+const Register = () => {
+  const { isError, user, isSuccess } = useSelector((store) => store.auth);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (isSuccess || user) {
+      history.push("/signin");
+    }
+  }, [isSuccess, user, isError, history, dispatch]);
   return (
     <BackgroundArea>
-      <StyledFormAreaSignup bg="gray">
+      <StyledFormArea bg="gray">
         <StyledTitle color="white" size={24} mb="14">
-          Member SignUp
+          Register Now
         </StyledTitle>
-        <StyledSubTitle>Sign up here</StyledSubTitle>
+        <StyledSubTitle>Sign up</StyledSubTitle>
         <Formik
           initialValues={{
             name: "",
             email: "",
             password: "",
-            repeatPassword: "",
           }}
           validationSchema={ErrorMessagesSchema}
           onSubmit={(values) => {
             console.log(values);
+            dispatch(register(values));
           }}
         >
-          {() => (
+          {({ isSubmitting }) => (
             <Form>
               <TextInput
-                name="namw"
-                type="text"
-                label="Full Name"
-                placeholder="Omas Omas"
+                name="name"
+                type="name"
+                label="Name"
+                placeholder="omas@omas.com"
                 icon={<FiUser />}
               />
               <TextInput
@@ -69,26 +80,25 @@ const Signup = () => {
                 placeholder="********"
                 icon={<FiLock />}
               />
-              <TextInput
-                name="repeatPassword"
-                type="password"
-                label="Repeat Password"
-                placeholder="********"
-                icon={<FiLock />}
-              />
               <StyleButtonGroup>
-                <StyledFormButton type="submit">Sign Up</StyledFormButton>
+                <StyleButtonGroup>
+                  {!isSubmitting && (
+                    <StyledFormButton type="submit">Sign Up</StyledFormButton>
+                  )}
+                  {isSubmitting && (
+                    <TailSpin color="yellow" height={30} width={80} />
+                  )}
+                </StyleButtonGroup>
               </StyleButtonGroup>
               <ExtraText>
-                Already have an account?{" "}
-                <TextLink to="/signin">Log In</TextLink>
+                Don't have an account? <TextLink to="/login">Log In</TextLink>
               </ExtraText>
             </Form>
           )}
         </Formik>
-      </StyledFormAreaSignup>
+      </StyledFormArea>
     </BackgroundArea>
   );
 };
 
-export default Signup;
+export default Register;
