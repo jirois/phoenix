@@ -2,6 +2,7 @@ import axios from "axios";
 const URL = "https://upsever.herokuapp.com/api/v1/auth/";
 
 const register = async (userData) => {
+  axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
   const response = await axios.post(URL + "register", userData);
 
   if (response.data) {
