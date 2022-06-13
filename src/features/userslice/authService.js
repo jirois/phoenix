@@ -3,6 +3,7 @@ const URL = "https://upsever.herokuapp.com/api/v1/auth/";
 
 const register = async (userData) => {
   const response = await axios({
+    method: "post",
     headers: {
       "Access-Control-Allow-Origin": "*",
       Accept: "application/json",
@@ -10,7 +11,6 @@ const register = async (userData) => {
     },
     url: URL + "register",
     userData,
-    method: "POST",
   });
 
   //   const response = await axios.post(URL + "register", userData);
