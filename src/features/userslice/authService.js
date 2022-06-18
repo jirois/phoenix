@@ -2,17 +2,17 @@ import axios from "axios";
 const URL = "https://upsever.herokuapp.com/api/v1/auth/";
 
 const register = async (userData) => {
-  const response = await axios.post({
-    url: URL + "register",
-    userData,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  });
+  // const response = await axios.post({
+  //   url: URL + "register",
+  //   userData,
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //     Accept: "application/json",
+  //     "Content-Type": "application/json",
+  //   },
+  // });
 
-  //   const response = await axios.post(URL + "register", userData);
+  const response = await axios.post(URL + "register", userData);
 
   if (response.data) {
     localStorage.setItem("user", JSON.stringify(response.data));
