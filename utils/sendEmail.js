@@ -1,15 +1,14 @@
-import { createTransport } from "nodemailer";
-import configNodemailerAuth from "./nodemailerConfig.js";
-
+import nodemailer from "nodemailer";
+import { configNodemailerHotmail } from "./nodemailerConfig.js";
 
 const sendEmail = async ({ to, subject, html }) => {
-    const transporter = createTransport(configNodemailerAuth)
-    return transporter.sendMail({
-        from: '"Phoenix Capital" <phoenixcapng@info.com',
-        to,
-        subject,
-        html
-    })
-}
+  const transporter = nodemailer.createTransport(configNodemailerHotmail);
+  return transporter.sendMail({
+    from: '"Phoenix Capital" <phoenixcapng@info.com',
+    to,
+    subject,
+    html,
+  });
+};
 
 export default sendEmail;
