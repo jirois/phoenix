@@ -6,6 +6,7 @@ import express from "express";
 const app = express();
 
 import cookieParser from "cookie-parser";
+import timeout from "connect-timeout";
 import rateLimiter from "express-rate-limit";
 import helmet from "helmet";
 import xss from "xss-clean";
@@ -25,6 +26,7 @@ import errorHandlerMiddleware from "./middlewares/error-handler.js";
 import notFoundMiddleware from "./middlewares/not-found.js";
 
 app.set("trust proxy", 1);
+app.use(timeout("15"));
 app.use(
   rateLimiter({
     windowMs: 15 * 60 * 1000,
