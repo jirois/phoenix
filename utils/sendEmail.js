@@ -1,10 +1,21 @@
 import nodemailer from "nodemailer";
 import { configNodemailerSendinBlue } from "./nodemailerConfig.js";
 
+import { mg } from "./mailgunConfig.js";
+
+// const sendEmail = async ({ to, subject, html }) => {
+//   const transporter = nodemailer.createTransport(configNodemailerSendinBlue);
+//   return transporter.sendMail({
+//     from: '"Phoenix Capital" <phoenixcapng@info.com',
+//     to,
+//     subject,
+//     html,
+//   });
+// };
+
 const sendEmail = async ({ to, subject, html }) => {
-  const transporter = nodemailer.createTransport(configNodemailerSendinBlue);
-  return transporter.sendMail({
-    from: '"Phoenix Capital" <phoenixcapng@info.com',
+  return mg.messages.create(process.env.MAILGUN_DOMAIN, {
+    from: "Jinncy Co <jinncyco@outlook.com>",
     to,
     subject,
     html,
