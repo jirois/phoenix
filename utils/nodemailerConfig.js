@@ -40,3 +40,11 @@ export const configNodemailerHotmail = {
     pass: process.env.PASS1,
   },
 };
+export const configNodemailerSendinBlue = {
+  host: "smtp-relay-sendinblue.com",
+  port: 587,
+  auth: {
+    user: process.env.NAME,
+    pass: process.env.KEY,
+  },
+};

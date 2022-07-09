@@ -26,7 +26,6 @@ import errorHandlerMiddleware from "./middlewares/error-handler.js";
 import notFoundMiddleware from "./middlewares/not-found.js";
 
 app.set("trust proxy", 1);
-app.use(timeout("15"));
 app.use(
   rateLimiter({
     windowMs: 15 * 60 * 1000,
