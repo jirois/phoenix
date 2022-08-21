@@ -13,6 +13,7 @@ import TestimonialScreen from "./pages/testimonial/TestimonialScreen";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ResetPassword from "./pages/auth/Reset";
+import VerifyEmail from "./pages/auth/VerifyEmail";
 
 function App() {
   return (
@@ -49,6 +50,10 @@ function App() {
         <Route path="/signup">
           <Register />
         </Route>
+        <Route path="/verify-email">
+          <VerifyEmail />
+        </Route>
+
         <Route path="/forgot-password">
           <ResetPassword />
         </Route>

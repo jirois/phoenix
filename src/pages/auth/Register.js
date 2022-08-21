@@ -63,14 +63,14 @@ const Register = () => {
                 name="name"
                 type="name"
                 label="Name"
-                placeholder="omas@omas.com"
+                placeholder="info@info.com"
                 icon={<FiUser />}
               />
               <TextInput
                 name="email"
                 type="email"
                 label="Email Address"
-                placeholder="omas@omas.com"
+                placeholder="info@info.com"
                 icon={<FiMail />}
               />
               <TextInput
@@ -92,6 +92,9 @@ const Register = () => {
               </StyleButtonGroup>
               <ExtraText>
                 Don't have an account? <TextLink to="/login">Log In</TextLink>
+              </ExtraText>
+              <ExtraText>
+                Forgot Password? <TextLink to="/reset">Log In</TextLink>
               </ExtraText>
             </Form>
           )}

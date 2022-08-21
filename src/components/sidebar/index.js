@@ -1,4 +1,7 @@
 import React from "react";
+import { logout } from "../../features/userslice/authSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import {
   SidebarContainer,
@@ -11,6 +14,14 @@ import {
   SidebarRouter,
 } from "./sidebarElements";
 const Sidebar = ({ isOpen, toggle }) => {
+  const { user } = useSelector((store) => store.auth);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(logout());
+    history.push("/signin");
+  };
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
@@ -41,7 +52,11 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SidebarBtnWrap>
-          <SidebarRouter to="/signin">Sign In</SidebarRouter>
+          {user ? (
+            <SidebarRouter onClick={onLogout}>Log Out</SidebarRouter>
+          ) : (
+            <SidebarRouter to="/signin">Sign In</SidebarRouter>
+          )}
         </SidebarBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

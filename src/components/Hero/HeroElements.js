@@ -30,6 +30,10 @@ export const VideoBg = styled.video`
   -o-object-fit: cover;
   object-fit: cover;
   background: #232a34;
+
+  @media (max-width: 668px) {
+    height: 70%;
+  }
 `;
 
 export const HeroBlur = styled.div`

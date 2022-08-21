@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "https://upsever.herokuapp.com/api/v1/auth/";
+const URL = "https://vast-brook-91178.herokuapp.com/api/v1/auth/";
 
 const register = async (userData) => {
   // const response = await axios.post({
@@ -14,19 +14,11 @@ const register = async (userData) => {
 
   const response = await axios.post(URL + "register", userData);
 
-  if (response.data) {
-    localStorage.setItem("user", JSON.stringify(response.data));
-  }
-
   return response.data;
 };
 
 const login = async (userData) => {
   const response = await axios.post(URL + "login", userData);
-
-  if (response.data) {
-    localStorage.setItem("user", JSON.stringify(response.data));
-  }
 
   return response.data;
 };

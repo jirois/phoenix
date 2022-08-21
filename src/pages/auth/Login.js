@@ -64,7 +64,7 @@ const Login = () => {
                 name="email"
                 type="email"
                 label="Email Address"
-                placeholder="omas@omas.com"
+                placeholder="info@gmail.com"
                 icon={<FiMail />}
               />
               <TextInput
