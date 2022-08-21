@@ -8,9 +8,8 @@ export const ServiceContainer = styled.div`
   align-items: center;
   background: #010606;
   @media (max-height: 668px) {
-    padding: 5rem 0;
-    margin-top: 2rem;
-    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-top: 0;
   }
 `;
 
@@ -53,7 +52,6 @@ export const ServicesCard = styled.div`
   }
 
   @media (max-height: 668px) {
-    padding: 1rem 0 3rem;
   }
 `;
 export const ServicesIcon = styled.img`
@@ -64,7 +62,7 @@ export const ServicesIcon = styled.img`
 export const ServicesH1 = styled.h1`
   font-size: 2.5rem;
   color: #fff;
-  padding: 3rem 0;
+  padding: 2rem 0 3rem;
 
   @media screen and (max-width: 480px) {
     font-size: 2rem;
