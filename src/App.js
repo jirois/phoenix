@@ -1,24 +1,22 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Home from "./pages";
-import NavbarHome from "./components/Navbar/NavbarSection";
 import About from "./pages/about/AboutScreen";
-import Footer from "./components/Footer";
 import ServiceScreen from "./pages/services/ServiceScreen";
 import BrokerScreen from "./pages/broker/BrokerScreen";
 import FaqScreen from "./pages/faq/FaqScreen";
 import ContactScreen from "./pages/contact/ContactScreen";
-import BookScreen from "./pages/book/BookScreen";
+import BookScreen from "./pages/book";
 import TestimonialScreen from "./pages/testimonial/TestimonialScreen";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ResetPassword from "./pages/auth/Reset";
 import VerifyEmail from "./pages/auth/VerifyEmail";
+import Error from "./pages/Error";
 
 function App() {
   return (
     <Router>
-      <NavbarHome />
       <Switch>
         <Route path="/" exact="true">
           <Home />
@@ -44,10 +42,10 @@ function App() {
         <Route path="/testimonials">
           <TestimonialScreen />
         </Route>
-        <Route path="/signin">
+        <Route path="/signin" exact>
           <Login />
         </Route>
-        <Route path="/signup">
+        <Route path="/signup" exact>
           <Register />
         </Route>
         <Route path="/verify-email">
@@ -57,8 +55,10 @@ function App() {
         <Route path="/forgot-password">
           <ResetPassword />
         </Route>
+        <Route path="*">
+          <Error />
+        </Route>
       </Switch>
-      <Footer />
     </Router>
   );
 }
