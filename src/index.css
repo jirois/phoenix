@@ -4,27 +4,17 @@
   padding: 0;
   font-family: "Encoded Sans Expanded" sans-serif;
 }
-/* 
-.active {
-  border-bottom: 3px solid #fff;
-} */
-
-/* .btn {
-  cursor: pointer;
-  color: white;
-  background: #ffb300;
-  border: transparent;
-  letter-spacing: 0.5px;
-  padding: 0.675rem 0.75rem;
-  box-shadow:  0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  transition: 0.3s ease-in-out all;
-  text-transform: capitalize;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 1rem;
+body {
+  margin: 0;
+  font-family:  'Lora', serif;;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.btn:hover {
-  background: #6db00a;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-  0 4px 6px -2px rgba(0, 0, 0, 0.05);
-} */
+
+
+.user-icon{
+
+}
+ svg {
+  fill: goldenrod;
+}

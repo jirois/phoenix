@@ -1,19 +1,14 @@
 import styled from "styled-components";
+import { values } from "../Styles";
 
 export const ServiceContainer = styled.div`
-  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #010606;
-
-  @media screen and (max-width: 768px) {
-    height: 1300px;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 1500px;
+  @media (max-height: 668px) {
+    padding: 5rem 0;
   }
 `;
 
@@ -42,15 +37,21 @@ export const ServicesCard = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  max-height: 530px;
-  padding: 1rem 0 2rem;
+  height: 20rem;
+  min-height: 25rem;
+  padding: 1rem 0 5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.02);
     transition: all 0.2s ease-in-out;
+    box-shadow: ${values.lightShadow};
     cursor: pointer;
+  }
+
+  @media (max-height: 668px) {
+    padding: 1rem 0 3rem;
   }
 `;
 export const ServicesIcon = styled.img`

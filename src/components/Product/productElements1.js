@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { color, values } from "../Styles";
 
 export const ProductContainer = styled.div`
   display: flex;
@@ -7,14 +8,9 @@ export const ProductContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: #fff;
-  min-height: 800px;
 
-  @media screen and (max-width: 768px) {
-    min-height: 1100px;
-  }
-  @media screen and (max-width: 486px) {
-    min-height: 1300px;
-    padding-top: 45px;
+  @media (max-height: 668px) {
+    padding: 5rem 0;
   }
 `;
 
@@ -41,8 +37,13 @@ export const ProductsCard = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  min-height: 540px;
+  height: 650px;
+  box-shadow: ${values.lightShadow};
+  transition: ${values.transition};
 
+  &:hover {
+    box-shadow: ${values.darkShadow};
+  }
   @media screen and (max-width: 486px) {
     min-height: 600px;
     margin-bottom: 44px;
@@ -83,20 +84,28 @@ export const ProductP = styled.p`
 
 export const ProductLink = styled(Link)`
   display: block;
-  padding: 14px 12px;
-  background: #01bf71;
+  padding: 14px 20px;
+  background: ${color.primary};
   border-radius: 50px;
   text-align: center;
   font-size: 0.8rem;
   margin-top: 12px;
+  margin-bottom: 3rem;
   text-decoration: none;
   font-weight: bold;
   color: #fff;
-  transition: all 0.3s ease-out
+  transition: ${values.transition};
+  transform: scale(1);
+  cursor: pointer;
 
   &:hover {
-    background: #fff;
-    color: #01bf71;
-    
+    background: ${color.mainWhite};
+    color: ${color.primary};
+    border: 1px solid;
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 667px) {
+    margin-bottom: 3.6rem;
   }
 `;

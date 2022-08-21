@@ -28,7 +28,9 @@ const ErrorMessagesSchema = Yup.object().shape({
 });
 
 const Register = () => {
-  const { isError, user, isSuccess } = useSelector((store) => store.auth);
+  const { isError, user, isSuccess, message } = useSelector(
+    (store) => store.auth
+  );
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -85,6 +87,7 @@ const Register = () => {
                   {!isSubmitting && (
                     <StyledFormButton type="submit">Sign Up</StyledFormButton>
                   )}
+
                   {isSubmitting && (
                     <TailSpin color="yellow" height={30} width={80} />
                   )}
@@ -94,7 +97,7 @@ const Register = () => {
                 Don't have an account? <TextLink to="/login">Log In</TextLink>
               </ExtraText>
               <ExtraText>
-                Forgot Password? <TextLink to="/reset">Log In</TextLink>
+                Forgot Password? <TextLink to="/reset">Reset here</TextLink>
               </ExtraText>
             </Form>
           )}

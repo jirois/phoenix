@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MdArrowForward, MdKeyboardArrowRight } from "react-icons/md";
+import { color } from "../Styles";
 
 export const HeroContainer = styled.div`
   background: #0c0c0c;
@@ -30,10 +31,6 @@ export const VideoBg = styled.video`
   -o-object-fit: cover;
   object-fit: cover;
   background: #232a34;
-
-  @media (max-width: 668px) {
-    height: 70%;
-  }
 `;
 
 export const HeroBlur = styled.div`
@@ -110,10 +107,10 @@ export const TelegramLink = styled.a`
   background: transparent;
   white-space: nowrap;
   padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
-  color: ${({ dark }) => (dark ? "#010606" : "#fff")};
+  color: ${({ dark }) => (dark ? `${color.primary}` : `${color.mainWhite}`)};
   font-size: ${({ fontbig }) => (fontbig ? "20px" : "16px")};
   outline: none;
-  border: 1px solid #01bf71;
+  border: 1px solid ${color.primary};
   cursor: pointer;
   display: flex;
   text-decoration: none;
@@ -124,7 +121,7 @@ export const TelegramLink = styled.a`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #01bf71;
+    background: ${color.primary};
   }
 
   @media screen and (max-width: 786px) {

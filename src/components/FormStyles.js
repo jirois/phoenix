@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import background from "../img/bg-img.jpg";
 import { Link as LinkR } from "react-router-dom";
+import { color } from "./Styles";
 
-export const color = {
-  primary: "#ffb300",
-  secondary: "#efb350",
-  accent: "#458123",
-  red: "#f12",
-  dark1: "#444",
-  dark2: "#eee",
-  whyte: "#fff",
-};
+// export const color = {
+//   primary: "#ffb300",
+//   secondary: "#efb350",
+//   accent: "#458123",
+//   red: "#f12",
+//   dark1: "#444",
+//   dark2: "#eee",
+//   whyte: "#fff",
+// };
 
 export const BackgroundArea = styled.div`
   min-height: 100vh;
@@ -53,7 +54,7 @@ export const StyledButton = styled(LinkR)`
 
   &:hover {
     background-color: ${color.primary};
-    color: ${color.whyte};
+    color: ${color.mainColor};
   }
 `;
 
@@ -81,14 +82,14 @@ export const StyledFormInput = styled.input`
     props.invalid && `background-color: ${color.red}; color: ${color.primary};`}
 
   &:focus {
-    background-color: ${color.dark2};
+    background-color: ${color.darkGrey};
     color: ${color.primary};
   }
 `;
 
 export const StyledFormArea = styled.div`
   background-color: ${(props) => props.bg || color.secondary};
-  padding: 35px 55px;
+  padding: 47px 55px;
   text-align: center;
   margin-top: 25px;
 
@@ -130,7 +131,7 @@ export const StyledFormButtonBig = styled(StyledFormButton)`
 `;
 export const ErrorMsg = styled.div`
   font-size: 11px;
-  color: ${color.red};
+  color: ${color.mainRed};
   margin-top: -5px;
   margin-bottom: 10px;
   text-align: left;
@@ -139,7 +140,7 @@ export const ErrorMsg = styled.div`
 export const ExtraText = styled.p`
   font-size: 18px;
   padding: 2px;
-  color: ${(props) => (props.color ? props.color : color.dark2)};
+  color: ${(props) => (props.color ? props.color : color.darkGrey)};
   @media (width: 480px) {
     font-size: 14px;
   }
@@ -154,7 +155,7 @@ export const TextLink = styled(LinkR)`
   }
 `;
 export const StyledIcon = styled.p`
-  color: ${color.dark};
+  color: ${color.mainBlack};
   position: absolute;
   font-size: 23px;
   top: 30px;

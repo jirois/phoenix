@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
+import { color } from "../Styles";
 
 export const Nav = styled.nav`
   background: ${({ scrollNav }) => (scrollNav ? "#000" : "transparent")};
@@ -129,4 +130,15 @@ export const NavBtnLinkBtn = styled.button`
     background: #ffb300;
     color: #010606;
   }
+`;
+export const UserDiv = styled.div`
+  display: flex;
+  & > svg {
+    fill: ${color.primary};
+  }
+`;
+
+export const UserIcon = styled.img`
+  border-radius: 50%;
+  object-fit: cover;
 `;

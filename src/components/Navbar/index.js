@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll/modules";
 import { logout } from "../../features/userslice/authSlice";
+import userIcon from "../../assets/user.png";
+import { ChevronUser } from "../../assets/Icon";
 
 import {
   Nav,
@@ -16,6 +18,8 @@ import {
   NavBtn,
   NavBtnLinkOne,
   NavBtnLinkBtn,
+  UserIcon,
+  UserDiv,
 } from "./navbarELements";
 
 const NavbarSection = ({ toggle }) => {
@@ -91,8 +95,11 @@ const NavbarSection = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          {user ? (
-            <NavBtnLinkBtn onClick={onLogout}>Log Out</NavBtnLinkBtn>
+          {!user ? (
+            <UserDiv className="user-icon">
+              <UserIcon src={userIcon} />
+              <ChevronUser />
+            </UserDiv>
           ) : (
             <NavBtnLinkOne to="/signin">Sign In</NavBtnLinkOne>
           )}
