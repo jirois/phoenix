@@ -25,6 +25,7 @@ export const ProductWrapper = styled.div`
 
   @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr 1fr;
+    padding: 5rem 0;
   }
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
