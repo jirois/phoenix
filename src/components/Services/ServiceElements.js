@@ -9,6 +9,8 @@ export const ServiceContainer = styled.div`
   background: #010606;
   @media (max-height: 668px) {
     padding: 5rem 0;
+    margin-top: 2rem;
+    padding-top: 3rem;
   }
 `;
 
