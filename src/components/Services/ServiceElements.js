@@ -9,6 +9,7 @@ export const ServiceContainer = styled.div`
   background: #010606;
   @media (max-height: 668px) {
     padding: 5rem 0;
+    padding-top: 0;
   }
 `;
 
@@ -18,7 +19,7 @@ export const ServicesWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  grid-gap: 10px;
+  grid-gap: 20px;
   padding: 0 50px;
 
   @media screen and (max-width: 1000px) {

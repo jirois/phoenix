@@ -1,3 +1,7 @@
+import styled from "styled-components";
+
+import { Link } from "react-router-dom";
+
 export const color = {
   primary: "#ffb300",
   secondary: "#efb350",
@@ -25,3 +29,61 @@ export const values = {
   fullWidth: "1170px",
   mainBorderRadius: "0.25rem",
 };
+
+// General Styles
+export const Header = styled.h1`
+  letter-spacing: ${values.spacing};
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+`;
+export const HeaderOne = styled(Header)`
+  font-size: 3rem;
+`;
+export const HeaderTwo = styled(Header)`
+  font-size: 2rem;
+`;
+export const HeaderThree = styled(Header)`
+  font-size: 1.25rem;
+`;
+export const HeaderFour = styled(Header)`
+  font-size: 0.875rem;
+`;
+export const Para = styled.p`
+  margin-bottom: 1.25rem;
+  color: ${color.grey_five};
+`;
+
+// Error
+
+export const ErrorPage = styled.div`
+  margin: 15rem auto;
+  width: 90vw;
+`;
+
+export const ErrorContainer = styled.div`
+  text-align: center;
+  text-transform: capitalize;
+`;
+
+export const ErrorBtn = styled(Link)`
+  padding: 0.45rem 0.8rem;
+  letter-spacing: ${values.mainSpacing};
+  display: inline-block;
+  transition: ${values.transition};
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: ${values.mainBorderRadius};
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background: ${color.primary};
+  color: ${color.mainWhite};
+  border-color: transparent;
+
+  &:hover {
+    background: ${color.mainWhite};
+    color: ${color.primary};
+    border: solid;
+  }
+`;
