@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+// import { useHistory } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll/modules";
-import { logout } from "../../features/userslice/authSlice";
+// import { logout } from "../../features/userslice/authSlice";
 import userIcon from "../../assets/user.png";
 import { ChevronUser } from "../../assets/Icon";
 
@@ -17,7 +17,6 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLinkOne,
-  NavBtnLinkBtn,
   UserIcon,
   UserDiv,
 } from "./navbarELements";
@@ -25,13 +24,11 @@ import {
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
   const { user } = useSelector((store) => store.auth);
-  const history = useHistory();
-  const dispatch = useDispatch();
 
-  const onLogout = () => {
-    dispatch(logout());
-    history.push("/signin");
-  };
+  // const onLogout = () => {
+  //   dispatch(logout());
+  //   history.push("/signin");
+  // };
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -95,7 +92,7 @@ const NavbarSection = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          {!user ? (
+          {user ? (
             <UserDiv className="user-icon">
               <UserIcon src={userIcon} />
               <ChevronUser />

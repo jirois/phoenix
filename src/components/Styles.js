@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 export const color = {
   primary: "#ffb300",
   secondary: "#efb350",

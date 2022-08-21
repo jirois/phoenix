@@ -28,9 +28,7 @@ const ErrorMessagesSchema = Yup.object().shape({
 });
 
 const Register = () => {
-  const { isError, user, isSuccess, message } = useSelector(
-    (store) => store.auth
-  );
+  const { isError, user, isSuccess } = useSelector((store) => store.auth);
 
   const dispatch = useDispatch();
   const history = useHistory();
