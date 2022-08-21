@@ -34,7 +34,7 @@ export const VideoBg = styled.video`
   background: #232a34;
 
   @media (max-width: 668px) {
-    height: 70%;
+    min-height: 100vh;
   }
 `;
 
