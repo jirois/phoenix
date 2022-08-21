@@ -11,11 +11,11 @@ export const ProductContainer = styled.div`
 
   @media (max-height: 668px) {
     padding: 5rem 0;
+    min-height: 100vh;
   }
 `;
 
 export const ProductWrapper = styled.div`
-  max-widht: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -23,12 +23,9 @@ export const ProductWrapper = styled.div`
   grid-gap: 10px;
   padding: 0 50px;
 
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
-    padding: 5rem 0;
-  }
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+    padding: 2rem;
   }
 `;
 
@@ -62,7 +59,7 @@ export const ProductH1 = styled.h1`
   white-space: nowrap;
 
   @media screen and (max-width: 486px) {
-    display: none;
+    // display: none;
   }
 `;
 
