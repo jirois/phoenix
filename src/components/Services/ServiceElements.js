@@ -8,8 +8,7 @@ export const ServiceContainer = styled.div`
   align-items: center;
   background: #010606;
   @media (max-height: 668px) {
-    padding-bottom: 3rem;
-    padding-top: 0;
+    padding: 5rem 0;
   }
 `;
 
