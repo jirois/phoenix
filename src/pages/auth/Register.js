@@ -42,7 +42,7 @@ const Register = () => {
       history.push("/signin");
       showAlert({ text: user.msg, type: "success" });
     }
-  }, [isSuccess, user, isError, message, history]);
+  }, [isSuccess, user, isError, message, history, showAlert]);
   return (
     <BackgroundArea>
       {alert.show && (
