@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../features/userslice/authSlice";
+import { login } from "../../features/auth/authSlice";
 import { Form, Formik } from "formik";
 import { FiMail, FiLock } from "react-icons/fi";
 import React from "react";

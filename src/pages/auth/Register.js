@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { register } from "../../features/userslice/authSlice";
+import { register } from "../../features/auth/authSlice";
 import { Form, Formik } from "formik";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
 import React, { useEffect } from "react";
@@ -17,6 +17,7 @@ import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
 import { useHistory } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
+import useLocalState from "../../utils/localState";
 
 const ErrorMessagesSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
@@ -28,18 +29,25 @@ const ErrorMessagesSchema = Yup.object().shape({
 });
 
 const Register = () => {
-  const { isError, user, isSuccess } = useSelector((store) => store.auth);
-
+  const { isError, user, isSuccess, message } = useSelector(
+    (store) => store.auth
+  );
+  console.log(user);
   const dispatch = useDispatch();
   const history = useHistory();
+  const { showAlert, alert } = useLocalState();
 
   useEffect(() => {
-    if (isSuccess || user) {
+    if (isSuccess) {
       history.push("/signin");
+      showAlert({ text: user.msg, type: "success" });
     }
-  }, [isSuccess, user, isError, history, dispatch]);
+  }, [isSuccess, user, isError, message, history]);
   return (
     <BackgroundArea>
+      {alert.show && (
+        <div className={`alert alert-${alert.type}`}>{alert.text}</div>
+      )}
       <StyledFormArea bg="gray">
         <StyledTitle color="white" size={24} mb="14">
           Register Now
@@ -82,12 +90,14 @@ const Register = () => {
               />
               <StyleButtonGroup>
                 <StyleButtonGroup>
-                  {!isSubmitting && (
+                  {/* {!isSubmitting && (
                     <StyledFormButton type="submit">Sign Up</StyledFormButton>
-                  )}
+                  )} */}
 
-                  {isSubmitting && (
+                  {isSubmitting ? (
                     <TailSpin color="yellow" height={30} width={80} />
+                  ) : (
+                    <StyledFormButton type="submit">Sign Up</StyledFormButton>
                   )}
                 </StyleButtonGroup>
               </StyleButtonGroup>

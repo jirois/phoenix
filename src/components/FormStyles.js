@@ -122,7 +122,7 @@ export const StyledFormButton = styled.button`
 
   &:hover {
     background-color: ${color.primary};
-    color: ${color.whyte};
+    color: ${color.mainWhite};
   }
 `;
 

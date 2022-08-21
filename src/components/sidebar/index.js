@@ -1,5 +1,5 @@
 import React from "react";
-import { logout } from "../../features/userslice/authSlice";
+import { logout } from "../../features/auth/authSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
