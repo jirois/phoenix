@@ -16,6 +16,7 @@ const Home = () => {
     if (isSuccess) {
       showAlert({ text: user.msg, type: "success" });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, user]);
   return (
     <div>
