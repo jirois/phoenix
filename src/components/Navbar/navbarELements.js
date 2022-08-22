@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
-import { color } from "../Styles";
+import { color, values } from "../Styles";
 
 export const Nav = styled.nav`
   background: ${({ scrollNav }) => (scrollNav ? "#000" : "transparent")};
@@ -77,7 +77,12 @@ export const NavLinks = styled(LinkR)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+  transition: ${values.transition}
+  border-bottom: none;
 
+  &:hover {
+    border-bottom: 3px solid ${color.primary};
+  }
   &.active {
     border-bottom: 3px solid #fff;
   }
