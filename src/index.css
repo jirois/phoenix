@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,22 +15,22 @@ body {
 
 /* alerts */
 .alert {
-  padding: 0.375rem 0.75rem;
-  margin: 0 auto;
+  padding: 0.6rem 1rem;
+  z-index: 50;
   border-color: transparent;
-  border-radius: var(--borderRadius);
-  width: var(--fluid-width);
-  max-width: var(--fixed-width);
-  text-align: center;
+  border-radius: 0.3rem;
+  width: 100%;
+  text-align: left;
   text-transform: capitalize;
+  /* margin-bottom: 2rem; */
 }
 
 .alert-danger {
-  color: var(--red-dark);
-  background: var(--red-light);
+  color: #842029;
+  background: #f8d7da;
 }
 .alert-success {
-  color: var(--green-dark);
-  background: var(--green-light);
+  color: #0f5132;
+  background: #d1e7dd;
 }
  

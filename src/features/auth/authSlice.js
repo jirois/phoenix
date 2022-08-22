@@ -23,6 +23,7 @@ export const register = createAsyncThunk(
           error.response.data.message) ||
         error.message ||
         error.toString();
+
       return thunkAPI.rejectWithValue(message);
     }
   }

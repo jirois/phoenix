@@ -39,10 +39,13 @@ const Register = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      history.push("/signin");
-      showAlert({ text: user.msg, type: "success" });
+      history.push("/");
     }
-  }, [isSuccess, user, isError, message, history, showAlert]);
+    if (isError) {
+      showAlert({ text: message });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess, user, isError, message, history]);
   return (
     <BackgroundArea>
       {alert.show && (
@@ -60,9 +63,12 @@ const Register = () => {
             password: "",
           }}
           validationSchema={ErrorMessagesSchema}
-          onSubmit={(values) => {
+          onSubmit={(values, { setFieldError, setSubmitting }) => {
             console.log(values);
-            dispatch(register(values));
+            dispatch(register(values, setFieldError, setSubmitting));
+            if (isError) {
+              setSubmitting(false);
+            }
           }}
         >
           {({ isSubmitting }) => (
@@ -90,14 +96,17 @@ const Register = () => {
               />
               <StyleButtonGroup>
                 <StyleButtonGroup>
-                  {/* {!isSubmitting && (
+                  {!isSubmitting && (
                     <StyledFormButton type="submit">Sign Up</StyledFormButton>
-                  )} */}
+                  )}
+                  {isError && (
+                    <StyledFormButton type="submit">Sign Up</StyledFormButton>
+                  )}
 
                   {isSubmitting ? (
                     <TailSpin color="yellow" height={30} width={80} />
                   ) : (
-                    <StyledFormButton type="submit">Sign Up</StyledFormButton>
+                    ""
                   )}
                 </StyleButtonGroup>
               </StyleButtonGroup>
