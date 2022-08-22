@@ -3,29 +3,19 @@ import background from "../img/bg-img.jpg";
 import { Link as LinkR } from "react-router-dom";
 import { color } from "./Styles";
 
-// export const color = {
-//   primary: "#ffb300",
-//   secondary: "#efb350",
-//   accent: "#458123",
-//   red: "#f12",
-//   dark1: "#444",
-//   dark2: "#eee",
-//   whyte: "#fff",
-// };
-
 export const BackgroundArea = styled.div`
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)),
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${background});
   background-size: cover;
   background-attachment: fixed;
 
   @media (max-width: 480px) {
-    background: black;
+    // background: black;
   }
 `;
 
@@ -62,6 +52,7 @@ export const StyledLabel = styled.p`
   text-align: left;
   font-weight: bold;
   font-size: 13px;
+  margin: 0;
   margin-bottom: 4px;
 `;
 
@@ -73,7 +64,8 @@ export const StyledFormInput = styled.input`
   border: 0;
   font-size: 17px;
   outline: 0;
-  color: ${color.dark1};
+  border: 0.5px solid;
+  color: ${color.mainBlack};
   margin: -25px auto 15px auto;
   display: block;
   transition: ease-in-out 0.3s;
@@ -82,8 +74,8 @@ export const StyledFormInput = styled.input`
     props.invalid && `background-color: ${color.red}; color: ${color.primary};`}
 
   &:focus {
-    background-color: ${color.darkGrey};
-    color: ${color.primary};
+    background-color: ${color.mainGrey};
+    color: ${color.darkGrey};
   }
 `;
 
@@ -119,11 +111,22 @@ export const StyledFormButton = styled.button`
   background-color: transparent;
   text-align: center;
   transition: ease-in-out 0.3s;
+  cursor: pointer;
 
   &:hover {
     background-color: ${color.primary};
     color: ${color.mainWhite};
   }
+`;
+
+export const FormAvatar = styled.div`
+  width: ${(props) => props.wd || 85}px;
+  height: ${(props) => props.ht || 85}px;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+  margin: auto;
 `;
 
 export const StyledFormButtonBig = styled(StyledFormButton)`
@@ -161,4 +164,9 @@ export const StyledIcon = styled.p`
   top: 30px;
   ${(props) => props.right && "right:-5px;"}
   ${(props) => !props.right && "left: -5px;"}
+`;
+
+export const FieldContainer = styled.div`
+  position: relative;
+  margin: 0;
 `;

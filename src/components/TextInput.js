@@ -6,6 +6,7 @@ import {
   StyledLabel,
   StyledIcon,
   ErrorMsg,
+  FieldContainer,
 } from "./FormStyles";
 
 export const TextInput = ({ icon, ...props }) => {
@@ -13,7 +14,7 @@ export const TextInput = ({ icon, ...props }) => {
   const [show, setShow] = useState(false);
 
   return (
-    <div style={{ position: "relative" }}>
+    <FieldContainer>
       <StyledLabel htmlFor={props.name}>{props.label}</StyledLabel>
       {props.type !== "password" && <StyledFormInput {...field} {...props} />}
       {props.type === "password" && (
@@ -37,6 +38,6 @@ export const TextInput = ({ icon, ...props }) => {
       ) : (
         <ErrorMsg style={{ visibility: "hidden" }}></ErrorMsg>
       )}
-    </div>
+    </FieldContainer>
   );
 };

@@ -1,8 +1,9 @@
 import { Form, Formik } from "formik";
-import {  FiLock } from "react-icons/fi";
+import { FiLock } from "react-icons/fi";
 import React from "react";
 import {
   BackgroundArea,
+  FormAvatar,
   StyleButtonGroup,
   StyledFormArea,
   StyledFormButtonBig,
@@ -10,6 +11,8 @@ import {
 } from "../../components/FormStyles";
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
+import logo from "../../assets/phoenix_logo.png";
+import { WebsiteRights } from "../../components/Footer/FooterElements";
 
 const ErrorMessagesSchema = Yup.object().shape({
   password: Yup.string()
@@ -21,8 +24,9 @@ const ErrorMessagesSchema = Yup.object().shape({
 const ResetPassword = () => {
   return (
     <BackgroundArea>
-      <StyledFormArea bg="gray">
-        <StyledTitle color="white" size={24} mb="0">
+      <StyledFormArea bg="white">
+        <FormAvatar image={logo} wd={100} ht={100} />
+        <StyledTitle size={24} mb="0">
           Reset Password
         </StyledTitle>
         <Formik
@@ -52,6 +56,10 @@ const ResetPassword = () => {
           )}
         </Formik>
       </StyledFormArea>
+
+      <WebsiteRights style={{ marginTop: "25px" }}>
+        PhoenixCap &copy; {new Date().getFullYear()} All rights reserved.
+      </WebsiteRights>
     </BackgroundArea>
   );
 };

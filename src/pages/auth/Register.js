@@ -18,6 +18,7 @@ import { TextInput } from "../../components/TextInput";
 import { useHistory } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import useLocalState from "../../utils/localState";
+import { WebsiteRights } from "../../components/Footer/FooterElements";
 
 const ErrorMessagesSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
@@ -51,11 +52,13 @@ const Register = () => {
       {alert.show && (
         <div className={`alert alert-${alert.type}`}>{alert.text}</div>
       )}
-      <StyledFormArea bg="gray">
-        <StyledTitle color="white" size={24} mb="14">
+      <StyledFormArea bg="white">
+        <StyledTitle size={24} mb="14">
           Register Now
         </StyledTitle>
-        <StyledSubTitle>Sign up</StyledSubTitle>
+        <StyledSubTitle color="gray">
+          Begin your trading journey today
+        </StyledSubTitle>
         <Formik
           initialValues={{
             name: "",
@@ -111,15 +114,15 @@ const Register = () => {
                 </StyleButtonGroup>
               </StyleButtonGroup>
               <ExtraText>
-                Don't have an account? <TextLink to="/login">Log In</TextLink>
-              </ExtraText>
-              <ExtraText>
-                Forgot Password? <TextLink to="/reset">Reset here</TextLink>
+                Don't have an account? <TextLink to="/signin">Log In</TextLink>
               </ExtraText>
             </Form>
           )}
         </Formik>
       </StyledFormArea>
+      <WebsiteRights style={{ marginTop: "25px" }}>
+        PhoenixCap &copy; {new Date().getFullYear()} All rights reserved.
+      </WebsiteRights>
     </BackgroundArea>
   );
 };

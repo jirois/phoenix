@@ -6,6 +6,7 @@ import React from "react";
 import {
   BackgroundArea,
   ExtraText,
+  FormAvatar,
   StyleButtonGroup,
   StyledFormArea,
   StyledFormButton,
@@ -18,6 +19,8 @@ import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
+import logo from "../../assets/phoenix_logo.png";
+import { WebsiteRights } from "../../components/Footer/FooterElements";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -42,11 +45,12 @@ const Login = () => {
   }, [user, isError, isSuccess, message, history, dispatch]);
   return (
     <BackgroundArea>
-      <StyledFormArea bg="gray">
-        <StyledTitle color="white" size={24} mb="14">
+      <StyledFormArea bg="white">
+        <FormAvatar image={logo} wd={100} ht={100} />
+        <StyledTitle size={24} mb="14">
           Member login
         </StyledTitle>
-        <StyledSubTitle>Login here now</StyledSubTitle>
+        <StyledSubTitle color="gray">proceed to login</StyledSubTitle>
         <Formik
           initialValues={{
             email: "",
@@ -93,6 +97,9 @@ const Login = () => {
           )}
         </Formik>
       </StyledFormArea>
+      <WebsiteRights style={{ marginTop: "25px" }}>
+        PhoenixCap &copy; {new Date().getFullYear()} All rights reserved.
+      </WebsiteRights>
     </BackgroundArea>
   );
 };
