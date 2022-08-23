@@ -25,18 +25,20 @@ const ErrorMessagesSchema = Yup.object().shape({
 });
 
 const ForgotPassword = () => {
-  const { isSuccess, isLoading, isError, user } = useSelector(
-    (store) => store.auth
-  );
+  const { isSuccess, isLoading, isError } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const { showAlert, alert } = useLocalState();
   useEffect(() => {
     if (isSuccess) {
-      showAlert({ text: user.msg, type: "success" });
+      showAlert({
+        text: "A Reset password link has been sent to your mail, Please proceed to your mail.",
+        type: "success",
+      });
     }
     if (isError) {
       showAlert({ text: "Something went wrong, please try again" });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError, isSuccess]);
   return (
     <BackgroundArea>

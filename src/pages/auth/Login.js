@@ -14,7 +14,7 @@ import {
   StyledTitle,
   TextLink,
 } from "../../components/FormStyles";
-import { TailSpin } from "react-loader-spinner";
+// import { TailSpin } from "react-loader-spinner";
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
 import { useHistory } from "react-router-dom";

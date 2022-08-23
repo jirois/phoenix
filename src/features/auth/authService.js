@@ -18,6 +18,10 @@ const verifyEmail = async (queryData) => {
   const { data } = await axios.post(URL + "auth/verify-email", queryData);
   return data;
 };
+const resetPassword = async (queryData) => {
+  const { data } = await axios.post(URL + "auth/reset-password", queryData);
+  return data;
+};
 
 const forgotPassword = async (userData) => {
   const { data } = await axios.post(URL + "auth/forgot-password", userData);
@@ -33,6 +37,7 @@ const authService = {
   logout,
   verifyEmail,
   forgotPassword,
+  resetPassword,
 };
 
 export default authService;

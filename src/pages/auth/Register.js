@@ -16,7 +16,7 @@ import {
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
 import { useHistory } from "react-router-dom";
-import { TailSpin } from "react-loader-spinner";
+// import { TailSpin } from "react-loader-spinner";
 import useLocalState from "../../utils/localState";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
 
