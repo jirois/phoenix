@@ -38,4 +38,12 @@ body {
 .selected {
   border-bottom: 3px solid #fff;
 }
+.btn{
+  font-size: 0.875rem;
+}
+.btn:disabled {
+  cursor: not-allowed;
+  color: black;
+  background-color:#efd5ac ;
+}
  

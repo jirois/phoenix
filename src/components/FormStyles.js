@@ -104,7 +104,7 @@ export const StyleButtonGroup = styled.div`
 
 export const StyledFormButton = styled.button`
   padding: 10px;
-  width: 150px;
+  width: ${(props) => props.wd || 150}px;
   border-radius: 25px;
   border: 2px solid ${color.primary};
   color: ${color.primary};

@@ -1,65 +1,61 @@
-import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../features/auth/authSlice";
 import { Form, Formik } from "formik";
-import { FiMail, FiLock } from "react-icons/fi";
 import React from "react";
+import { FiMail } from "react-icons/fi";
+// import { TailSpin } from "react-loader-spinner";
+import { useSelector, useDispatch } from "react-redux";
+import { forgotPassword } from "../../features/auth/authSlice";
+
 import {
   BackgroundArea,
-  ExtraText,
   FormAvatar,
   StyleButtonGroup,
   StyledFormArea,
   StyledFormButton,
-  StyledSubTitle,
   StyledTitle,
-  TextLink,
 } from "../../components/FormStyles";
-import { TailSpin } from "react-loader-spinner";
 import * as Yup from "yup";
-import { TextInput } from "../../components/TextInput";
-import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
 import logo from "../../assets/phoenix_logo.png";
+import { TextInput } from "../../components/TextInput";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
+import { useEffect } from "react";
+import useLocalState from "../../utils/localState";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string()
-    .min(4, "Password Too Short")
-    .max(50, "Password too Long")
-    .required("Required"),
 });
 
-const Login = () => {
-  const { user, isError, message, isSuccess, isLoading } = useSelector(
+const ForgotPassword = () => {
+  const { isSuccess, isLoading, isError, user } = useSelector(
     (store) => store.auth
   );
-
   const dispatch = useDispatch();
-  const history = useHistory();
-
+  const { showAlert, alert } = useLocalState();
   useEffect(() => {
-    if (isSuccess || user) {
-      history.push("/");
+    if (isSuccess) {
+      showAlert({ text: user.msg, type: "success" });
     }
-  }, [user, isError, isSuccess, message, history, dispatch]);
+    if (isError) {
+      showAlert({ text: "Something went wrong, please try again" });
+    }
+  }, [isError, isSuccess]);
   return (
     <BackgroundArea>
+      {alert.show && (
+        <div className={`alert alert-${alert.type}`}>{alert.text}</div>
+      )}
       <StyledFormArea bg="white">
         <FormAvatar image={logo} wd={100} ht={100} />
         <StyledTitle size={24} mb="14">
-          Member login
+          Forgot password
         </StyledTitle>
-        <StyledSubTitle color="gray">proceed to login</StyledSubTitle>
         <Formik
           initialValues={{
             email: "",
-            password: "",
           }}
           validationSchema={ErrorMessagesSchema}
           onSubmit={(values) => {
             console.log(values);
-            dispatch(login(values));
+            dispatch(forgotPassword(values));
           }}
         >
           {({ isSubmitting }) => (
@@ -71,13 +67,7 @@ const Login = () => {
                 placeholder="info@gmail.com"
                 icon={<FiMail />}
               />
-              <TextInput
-                name="password"
-                type="password"
-                label="Password"
-                placeholder="********"
-                icon={<FiLock />}
-              />
+
               <StyleButtonGroup>
                 <StyledFormButton
                   className="btn"
@@ -85,16 +75,9 @@ const Login = () => {
                   type="submit"
                   disabled={isLoading}
                 >
-                  {isLoading ? "Please Wait.." : " Log In"}
+                  {isLoading ? "Please Wait.." : " Get Reset Password Link"}
                 </StyledFormButton>
               </StyleButtonGroup>
-              <ExtraText>
-                Don't have an account? <TextLink to="/signup">Sign Up</TextLink>
-              </ExtraText>
-              <ExtraText>
-                Forgot password?{" "}
-                <TextLink to="/forgot-password">Reset Password</TextLink>
-              </ExtraText>
             </Form>
           )}
         </Formik>
@@ -106,4 +89,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

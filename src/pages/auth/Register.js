@@ -30,7 +30,7 @@ const ErrorMessagesSchema = Yup.object().shape({
 });
 
 const Register = () => {
-  const { isError, user, isSuccess, message } = useSelector(
+  const { isError, user, isSuccess, message, isLoading } = useSelector(
     (store) => store.auth
   );
   console.log(user);
@@ -98,20 +98,14 @@ const Register = () => {
                 icon={<FiLock />}
               />
               <StyleButtonGroup>
-                <StyleButtonGroup>
-                  {!isSubmitting && (
-                    <StyledFormButton type="submit">Sign Up</StyledFormButton>
-                  )}
-                  {isError && (
-                    <StyledFormButton type="submit">Sign Up</StyledFormButton>
-                  )}
-
-                  {isSubmitting ? (
-                    <TailSpin color="yellow" height={30} width={80} />
-                  ) : (
-                    ""
-                  )}
-                </StyleButtonGroup>
+                <StyledFormButton
+                  className="btn"
+                  wd={250}
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Please Wait.." : " Sign Up"}
+                </StyledFormButton>
               </StyleButtonGroup>
               <ExtraText>
                 Don't have an account? <TextLink to="/signin">Log In</TextLink>

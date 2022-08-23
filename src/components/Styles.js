@@ -27,6 +27,8 @@ export const values = {
   smallWidth: "85vw",
   maxWidth: "40rem",
   fullWidth: "1170px",
+  fluidWidth: "90vw",
+  fixedWidth: "500px",
   mainBorderRadius: "0.25rem",
 };
 
@@ -86,4 +88,16 @@ export const ErrorBtn = styled(Link)`
     color: ${color.primary};
     border: solid;
   }
+`;
+export const Page = styled.section`
+  min-height: calc(100vh - 6rem);
+  width: ${values.fluidWidth};
+  max-width: ${values.maxWidth};
+  margin: 0 auto;
+  padding-top: 3rem;
+`;
+export const PageCenter = styled.div`
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 `;
