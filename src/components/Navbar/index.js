@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { animateScroll as scroll } from "react-scroll/modules";
 // import { logout } from "../../features/userslice/authSlice";
 import userIcon from "../../assets/user.png";
-import { ChevronUser } from "../../assets/Icon";
 
 import {
   Nav,
@@ -17,7 +16,6 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLinkOne,
-  UserIcon,
   UserDiv,
   UserImg,
   Textdiv,

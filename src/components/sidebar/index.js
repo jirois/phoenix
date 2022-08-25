@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { logout } from "../../features/auth/authSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+// import { logout } from "../../features/auth/authSlice";
+import { useSelector } from "react-redux";
+// import { useHistory } from "react-router-dom";
 import userIcon from "../../assets/user.png";
 
 import {
@@ -25,17 +25,17 @@ import {
 import UserProfile from "../userProfile";
 const Sidebar = ({ isOpen, toggle }) => {
   const { user } = useSelector((store) => store.auth);
-  const history = useHistory();
-  const dispatch = useDispatch();
+  // const history = useHistory();
+  // const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
   const onHover = () => {
     setHover(!hover);
   };
 
-  const onLogout = () => {
-    dispatch(logout());
-    history.push("/signin");
-  };
+  // const onLogout = () => {
+  //   dispatch(logout());
+  //   history.push("/signin");
+  // };
   return (
     <SidebarContainer isOpen={isOpen}>
       <Icon onClick={toggle}>

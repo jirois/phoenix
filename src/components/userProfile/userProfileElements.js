@@ -1,6 +1,5 @@
-import { FaFileExcel } from "react-icons/fa";
 import styled from "styled-components";
-import { color, values } from "../Styles";
+import { color } from "../Styles";
 
 export const ProfileWrapper = styled.div`
   position: absolute;
