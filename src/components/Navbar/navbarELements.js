@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 import { color, values } from "../Styles";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 export const Nav = styled.nav`
   background: ${({ scrollNav }) => (scrollNav ? "#000" : "transparent")};
@@ -138,12 +139,36 @@ export const NavBtnLinkBtn = styled.button`
 `;
 export const UserDiv = styled.div`
   display: flex;
-  & > svg {
-    fill: ${color.primary};
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background-color: rgba(247, 247, 247, 0.3);
   }
 `;
-
-export const UserIcon = styled.img`
+export const UserImg = styled.img`
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  object-fit: cover;
+`;
+export const Textdiv = styled.div`
+  display: flex;
+`;
+export const Greeting = styled.span`
+  color: ${color.mainGrey};
+  font-size: 14px;
+`;
+export const UserName = styled.span`
+  color: ${color.mainGrey};
+  font-size: 14px;
+  margin-left: 0.25rem;
+  font-weight: bold;
+`;
+
+export const DropIcon = styled(MdKeyboardArrowDown)`
+  font-size: 14px;
+  color: ${color.mainGrey};
 `;

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { logout } from "../../features/auth/authSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import userIcon from "../../assets/user.png";
 
 import {
   SidebarContainer,
@@ -13,21 +14,52 @@ import {
   SidebarBtnWrap,
   SidebarRouter,
 } from "./sidebarElements";
+import {
+  DropIcon,
+  Greeting,
+  Textdiv,
+  UserDiv,
+  UserImg,
+  UserName,
+} from "../Navbar/navbarELements";
+import UserProfile from "../userProfile";
 const Sidebar = ({ isOpen, toggle }) => {
   const { user } = useSelector((store) => store.auth);
   const history = useHistory();
   const dispatch = useDispatch();
+  const [hover, setHover] = useState(false);
+  const onHover = () => {
+    setHover(!hover);
+  };
 
   const onLogout = () => {
     dispatch(logout());
     history.push("/signin");
   };
   return (
-    <SidebarContainer isOpen={isOpen} onClick={toggle}>
+    <SidebarContainer isOpen={isOpen}>
       <Icon onClick={toggle}>
         <CloseIcon />
       </Icon>
+
       <SidebarWrapper>
+        {!user && (
+          <div
+            style={{ display: "flex", alignItems: "center", marginTop: "4rem" }}
+            onTouchStart={onHover}
+            onTouchEnd={onHover}
+          >
+            <UserDiv>
+              <UserImg src={userIcon} />
+              <Textdiv>
+                <Greeting>Hi</Greeting>
+                <UserName>Phoenix</UserName>
+              </Textdiv>
+              <DropIcon />
+            </UserDiv>
+            {hover && <UserProfile />}
+          </div>
+        )}
         <SidebarMenu>
           <SidebarLink to="/sessions" onClick={toggle}>
             Book Private Session
@@ -52,11 +84,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SidebarBtnWrap>
-          {user ? (
-            <SidebarRouter onClick={onLogout}>Log Out</SidebarRouter>
-          ) : (
-            <SidebarRouter to="/signin">Sign In</SidebarRouter>
-          )}
+          {user && <SidebarRouter to="/signin">Sign In</SidebarRouter>}
         </SidebarBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

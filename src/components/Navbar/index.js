@@ -19,7 +19,13 @@ import {
   NavBtnLinkOne,
   UserIcon,
   UserDiv,
+  UserImg,
+  Textdiv,
+  Greeting,
+  UserName,
+  DropIcon,
 } from "./navbarELements";
+import UserProfile from "../userProfile";
 
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -29,6 +35,11 @@ const NavbarSection = ({ toggle }) => {
   //   dispatch(logout());
   //   history.push("/signin");
   // };
+
+  const [hover, setHover] = useState(false);
+  const onHover = () => {
+    setHover(!hover);
+  };
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -96,11 +107,18 @@ const NavbarSection = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          {user ? (
-            <UserDiv className="user-icon">
-              <UserIcon src={userIcon} />
-              <ChevronUser />
-            </UserDiv>
+          {!user ? (
+            <div onMouseEnter={onHover} onMouseLeave={onHover}>
+              <UserDiv>
+                <UserImg src={userIcon} />
+                <Textdiv>
+                  <Greeting>Hi</Greeting>
+                  <UserName>Phoenix</UserName>
+                </Textdiv>
+                <DropIcon />
+              </UserDiv>
+              {hover && <UserProfile />}
+            </div>
           ) : (
             <NavBtnLinkOne to="/signin">Sign In</NavBtnLinkOne>
           )}

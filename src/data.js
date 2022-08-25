@@ -1,5 +1,13 @@
 import React from "react";
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import {
+  FaCartPlus,
+  FaFacebook,
+  FaLinkedin,
+  FaTasks,
+  FaTwitter,
+} from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
+
 export const links = [
   {
     id: 1,
@@ -244,5 +252,29 @@ export const testimonialSession = [
     name: "One on One Course",
     link: "https://www.youtube.com/embed/iFytRizSsmU?autoplay=1",
     description: "With The Fx Professor",
+  },
+];
+
+export const userProfileData = [
+  {
+    icon: <MdAccountCircle />,
+    title: "My Profile",
+    desc: "Account Settings",
+    iconColor: "#03C9D7",
+    iconBg: "#E5FAFB",
+  },
+  {
+    icon: <FaCartPlus />,
+    title: "Cart",
+    desc: "Orders",
+    iconColor: "rgb(0, 194, 146)",
+    iconBg: "rgb(235, 250, 242)",
+  },
+  {
+    icon: <FaTasks />,
+    title: "Products",
+    desc: "Go to your products ",
+    iconColor: "rgb(255, 244, 229)",
+    iconBg: "rgb(254, 201, 15)",
   },
 ];
