@@ -12,7 +12,8 @@ export const ProfileWrapper = styled.div`
   border-radius: 0.5rem;
 
   @media (max-width: 668px) {
-    top: 2rem;
+    position: normal;
+    top: 4rem;
     right: 2.5rem;
     left: 2.5rem;
     z-index: 11000;
@@ -22,6 +23,10 @@ export const ProfileHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 648px) {
+    display: none;
+  }
 `;
 export const ProfileTitle = styled.p`
   font-weight: 600;
@@ -40,6 +45,7 @@ export const ProfileInfo = styled.div`
   margin-bottom: 1rem;
   @media (max-width: 668px) {
     border-bottom: none;
+    display: none;
   }
 `;
 export const ProfileImg = styled.img`

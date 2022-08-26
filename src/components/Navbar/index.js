@@ -105,7 +105,7 @@ const NavbarSection = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          {!user ? (
+          {user ? (
             <div onMouseEnter={onHover} onMouseLeave={onHover}>
               <UserDiv>
                 <UserImg src={userIcon} />

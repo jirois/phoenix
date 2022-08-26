@@ -27,9 +27,9 @@ const Sidebar = ({ isOpen, toggle }) => {
   const { user } = useSelector((store) => store.auth);
   // const history = useHistory();
   // const dispatch = useDispatch();
-  const [hover, setHover] = useState(false);
-  const onHover = () => {
-    setHover(!hover);
+  const [isClick, setIsClick] = useState(false);
+  const handleClick = () => {
+    setIsClick(!isClick);
   };
 
   // const onLogout = () => {
@@ -43,11 +43,10 @@ const Sidebar = ({ isOpen, toggle }) => {
       </Icon>
 
       <SidebarWrapper>
-        {!user && (
+        {user && (
           <div
             style={{ display: "flex", alignItems: "center", marginTop: "4rem" }}
-            onTouchStart={onHover}
-            onTouchEnd={onHover}
+            onClick={handleClick}
           >
             <UserDiv>
               <UserImg src={userIcon} />
@@ -57,7 +56,7 @@ const Sidebar = ({ isOpen, toggle }) => {
               </Textdiv>
               <DropIcon />
             </UserDiv>
-            {hover && <UserProfile />}
+            {isClick && <UserProfile />}
           </div>
         )}
         <SidebarMenu>
@@ -84,7 +83,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SidebarBtnWrap>
-          {user && <SidebarRouter to="/signin">Sign In</SidebarRouter>}
+          {!user && <SidebarRouter to="/signin">Sign In</SidebarRouter>}
         </SidebarBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>
