@@ -1,50 +1,47 @@
-import React from 'react';
-import "./contact.css"
+import React from "react";
+import "./contactElement.js";
+import {
+  Container,
+  Form,
+  Input,
+  Label,
+  StyledButton,
+  StyledTitle,
+  Textarea,
+  WrapperGrid,
+} from "./contactElement.js";
 
 function ContactScreen(props) {
-    return (
-        <>
-            <div className="form-message">
-                <h2>Get in Touch</h2>
-                <form >
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="text" placeholder="Subject" />
-                    <textarea row="10" col="5" 
-                    placeholder="Type your messgage here..."></textarea>
-
-                    <button type="submit">Submit</button>
-
-                </form>
-            </div>
-            <div className="form-contact">
-                <h2>Contact Support</h2>
-                <form>
-                    <input type="text" placeholder="First Name" />
-                    <input type="text" placeholder="Last Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="tel" placeholder="Phone" />
-                    <div className="dropdown">
-                    <input list="issues" />
-                    <datalist id="issues">
-                        <option value="Logging into account" />
-                        <option value="Completing Payment" />
-                        <option value="Viewing content" />
-                        <option value="Uploading files" />
-                        <option value="Other" />
-                    </datalist>
-                    </div>
-
-                    <textarea col="10" row="4" 
-                        placeholder="Let us know what you need help with..." ></textarea>
-                
-                    <button type="submit">Get in Touch</button>
-                </form>
-
-            </div>
-            
-       </>
-    );
+  return (
+    <Container wrapper>
+      <StyledTitle>Email Us</StyledTitle>
+      <Form>
+        <WrapperGrid>
+          <Label>First Name</Label>
+          <Input type="text" name="name" />
+        </WrapperGrid>
+        <WrapperGrid>
+          <Label>Last Name</Label>
+          <Input type="text" name="company" />
+        </WrapperGrid>
+        <WrapperGrid>
+          <Label>Email Address</Label>
+          <Input type="email" name="email" />
+        </WrapperGrid>
+        <WrapperGrid>
+          <Label>Phone Number</Label>
+          <Input type="text" name="phone" />
+        </WrapperGrid>
+        <WrapperGrid full>
+          <Label>Message</Label>
+          <Textarea name="message" rows="5"></Textarea>
+        </WrapperGrid>
+        <WrapperGrid full>
+          <StyledButton>Submit</StyledButton>
+        </WrapperGrid>
+      </Form>
+    </Container>
+  );
 }
 
 export default ContactScreen;
