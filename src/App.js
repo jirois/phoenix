@@ -14,6 +14,7 @@ import ResetPassword from "./pages/auth/Reset";
 import VerifyEmail from "./pages/auth/VerifyEmail";
 import Error from "./pages/Error";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import RedirectPage from "./pages/RedirectPage";
 
 function App() {
   return (
@@ -58,6 +59,9 @@ function App() {
         </Route>
         <Route path="/forgot-password" exact>
           <ForgotPassword />
+        </Route>
+        <Route path="/success-page">
+          <RedirectPage />
         </Route>
         <Route path="*">
           <Error />

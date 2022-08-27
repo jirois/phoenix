@@ -40,7 +40,7 @@ const Register = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      history.push("/");
+      history.push("/success-page");
     }
     if (isError) {
       showAlert({ text: message });
