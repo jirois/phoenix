@@ -15,6 +15,7 @@ import VerifyEmail from "./pages/auth/VerifyEmail";
 import Error from "./pages/Error";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import RedirectPage from "./pages/RedirectPage";
+import Dashboard from "./pages/dashboard";
 
 function App() {
   return (
@@ -44,25 +45,29 @@ function App() {
         <Route path="/testimonials">
           <TestimonialScreen />
         </Route>
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="/success-page">
+          <RedirectPage />
+        </Route>
         <Route path="/signin" exact>
           <Login />
         </Route>
         <Route path="/signup" exact>
           <Register />
         </Route>
-        <Route path="/verify-email">
+        <Route path="/user/verify-email">
           <VerifyEmail />
         </Route>
 
-        <Route path="/reset-password" exact>
+        <Route path="user/reset-password" exact>
           <ResetPassword />
         </Route>
         <Route path="/forgot-password" exact>
           <ForgotPassword />
         </Route>
-        <Route path="/success-page">
-          <RedirectPage />
-        </Route>
+
         <Route path="*">
           <Error />
         </Route>
