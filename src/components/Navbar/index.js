@@ -27,7 +27,7 @@ import UserProfile from "../userProfile";
 
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const { user } = useSelector((store) => store.auth);
+  const { user } = useSelector((store) => store.user);
 
   // const onLogout = () => {
   //   dispatch(logout());
@@ -111,7 +111,7 @@ const NavbarSection = ({ toggle }) => {
                 <UserImg src={userIcon} />
                 <Textdiv>
                   <Greeting>Hi</Greeting>
-                  <UserName>Phoenix</UserName>
+                  <UserName>{user.name}</UserName>
                 </Textdiv>
                 <DropIcon />
               </UserDiv>
