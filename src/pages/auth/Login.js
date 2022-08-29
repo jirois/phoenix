@@ -21,6 +21,7 @@ import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
+import { showAlert, alert } from "../../utils/localState";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -42,9 +43,15 @@ const Login = () => {
     if (isSuccess || user) {
       history.push("/");
     }
+    if (isError) {
+      showAlert({ text: message });
+    }
   }, [user, isError, isSuccess, message, history, dispatch]);
   return (
     <BackgroundArea>
+      {alert.show && (
+        <div className={`alert alert-${alert.type}`}>{alert.text}</div>
+      )}
       <StyledFormArea bg="white">
         <FormAvatar image={logo} wd={100} ht={100} />
         <StyledTitle size={24} mb="14">

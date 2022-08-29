@@ -101,3 +101,20 @@ export const PageCenter = styled.div`
   display: grid;
   place-items: center;
 `;
+
+// checkout steps styling
+
+export const CheckoutWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+// Redirect Page
+export const RedirectWrapper = styled.div`
+  width: 20rem;
+  margin: 50px auto;
+  box-shadow: ${values.darkShadow};
+  background: ${color.mainWhite};
+`;

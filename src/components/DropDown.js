@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { color, values } from "./Styles";
+import { color } from "./Styles";
 import { Link } from "react-router-dom";
 
 const DropDown = () => {
