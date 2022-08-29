@@ -33,7 +33,7 @@ const NavbarSection = ({ toggle }) => {
   //   dispatch(logout());
   //   history.push("/signin");
   // };
-  console.log(user.user.name);
+  console.log(user.name);
 
   const [hover, setHover] = useState(false);
   const onHover = () => {
@@ -112,7 +112,7 @@ const NavbarSection = ({ toggle }) => {
                 <UserImg src={userIcon} />
                 <Textdiv>
                   <Greeting>Hi</Greeting>
-                  <UserName>{user.user.name}</UserName>
+                  <UserName>{user.name}</UserName>
                 </Textdiv>
                 <DropIcon />
               </UserDiv>
