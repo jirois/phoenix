@@ -27,7 +27,7 @@ import UserProfile from "../userProfile";
 
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const { user } = useSelector((store) => store.user);
+  const { user } = useSelector((store) => store.auth);
 
   // const onLogout = () => {
   //   dispatch(logout());
