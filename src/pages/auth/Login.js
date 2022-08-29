@@ -21,7 +21,8 @@ import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
-import { showAlert, alert } from "../../utils/localState";
+
+import useLocalState from "../../utils/localState";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -36,6 +37,8 @@ const Login = () => {
     (store) => store.auth
   );
 
+  const { showAlert, alert } = useLocalState();
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -46,6 +49,7 @@ const Login = () => {
     if (isError) {
       showAlert({ text: message });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, isError, isSuccess, message, history, dispatch]);
   return (
     <BackgroundArea>
