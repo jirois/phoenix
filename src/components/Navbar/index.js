@@ -33,6 +33,7 @@ const NavbarSection = ({ toggle }) => {
   //   dispatch(logout());
   //   history.push("/signin");
   // };
+  console.log(user);
 
   const [hover, setHover] = useState(false);
   const onHover = () => {
