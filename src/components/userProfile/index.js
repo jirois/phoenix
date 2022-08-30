@@ -16,7 +16,7 @@ import {
 } from "./userProfileElements";
 import { useHistory } from "react-router-dom";
 
-import { logOut, removeUser } from "../../features/user/userSlice";
+import { logout } from "../../features/auth/authSlice";
 
 import userIcon from "../../assets/user.png";
 import { userProfileData } from "../../data";
@@ -29,8 +29,7 @@ const UserProfile = () => {
   const dispatch = useDispatch();
 
   const onLogout = () => {
-    dispatch(logOut());
-    dispatch(removeUser);
+    dispatch(logout());
     history.push("/signin");
   };
 

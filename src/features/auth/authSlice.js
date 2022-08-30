@@ -91,7 +91,7 @@ export const forgotPassword = createAsyncThunk(
 );
 
 export const logout = createAsyncThunk("auth/logout", async () => {
-  await authService.logout;
+  return await authService.logout;
 });
 
 const authSlice = createSlice({
