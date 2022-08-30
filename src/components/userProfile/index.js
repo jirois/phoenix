@@ -14,12 +14,26 @@ import {
   ProfilteItemDesc,
   ProfilteItemTitle,
 } from "./userProfileElements";
+import { useHistory } from "react-router-dom";
+
+import { logOut, removeUser } from "../../features/user/userSlice";
 
 import userIcon from "../../assets/user.png";
 import { userProfileData } from "../../data";
 import { NavBtnLinkBtn } from "../Navbar/navbarELements";
+import { useDispatch, useSelector } from "react-redux";
 
 const UserProfile = () => {
+  const { user: userSign } = useSelector((store) => store.user);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(logOut());
+    dispatch(removeUser);
+    history.push("/signin");
+  };
+
   return (
     <ProfileWrapper on>
       <ProfileHeader>
@@ -28,9 +42,9 @@ const UserProfile = () => {
       <ProfileInfo>
         <ProfileImg src={userIcon} alt="PA" />
         <div>
-          <ProfileName>Hi Phoenix</ProfileName>
-          <ProfileRole>Admin</ProfileRole>
-          <ProfileEmail>info@phoenix.com</ProfileEmail>
+          <ProfileName>{userSign.user.name}</ProfileName>
+          <ProfileRole>{userSign.user.role}</ProfileRole>
+          <ProfileEmail>info@phoenixcap.com</ProfileEmail>
         </div>
       </ProfileInfo>
       <div>
@@ -44,7 +58,7 @@ const UserProfile = () => {
         ))}
       </div>
       <LogoutWrapper>
-        <NavBtnLinkBtn>Log out</NavBtnLinkBtn>
+        <NavBtnLinkBtn onClick={onLogout}>Log out</NavBtnLinkBtn>
       </LogoutWrapper>
     </ProfileWrapper>
   );

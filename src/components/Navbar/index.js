@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll/modules";
-// import { logout } from "../../features/userslice/authSlice";
 import userIcon from "../../assets/user.png";
 
 import {
@@ -27,15 +25,7 @@ import UserProfile from "../userProfile";
 
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const { user } = useSelector((store) => store.auth);
   const { user: usern } = useSelector((store) => store.user);
-  console.log(usern);
-
-  // const onLogout = () => {
-  //   dispatch(logout());
-  //   history.push("/signin");
-  // };
-  console.log(user);
 
   const [hover, setHover] = useState(false);
   const onHover = () => {
@@ -108,13 +98,13 @@ const NavbarSection = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          {user ? (
+          {usern ? (
             <div onMouseEnter={onHover} onMouseLeave={onHover}>
               <UserDiv>
                 <UserImg src={userIcon} />
                 <Textdiv>
                   <Greeting>Hi</Greeting>
-                  <UserName>{user.name}</UserName>
+                  <UserName>{usern.user.name}</UserName>
                 </Textdiv>
                 <DropIcon />
               </UserDiv>

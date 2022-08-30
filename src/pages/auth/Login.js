@@ -23,6 +23,7 @@ import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
 
 import useLocalState from "../../utils/localState";
+import { saveUser } from "../../features/user/userSlice";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -45,6 +46,8 @@ const Login = () => {
   useEffect(() => {
     if (isSuccess || user) {
       history.push("/");
+      dispatch(saveUser(user));
+      console.log(user);
     }
     if (isError) {
       showAlert({ text: message });
