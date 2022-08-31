@@ -1,22 +1,20 @@
 import styled from "styled-components";
-import background from "../img/bg-img.jpg";
 import { Link as LinkR } from "react-router-dom";
-import { color } from "./Styles";
+import { color, values } from "./Styles";
 
 export const BackgroundArea = styled.div`
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${background});
-  background-size: cover;
-  background-attachment: fixed;
+`;
+export const FormContent = styled.div`
+  width: ${values.fluidWidth};
+  max-width: ${values.maxWidth};
+  margin: 0 auto;
+  box-shadow: -3px 2px 37px 0px rgba(0, 0, 0, 0.26);
 
-  @media (max-width: 480px) {
-    // background: black;
-  }
+  padding-top: 3rem;
 `;
 
 export const StyledTitle = styled.h2`
@@ -84,6 +82,7 @@ export const StyledFormArea = styled.div`
   padding: 47px 55px;
   text-align: center;
   margin-top: 25px;
+  box-shadow: -3px 2px 17px 0px rgba(0, 0, 0, 0.26);
 
   @media (max-width: 486px) {
     margin-top: 5px;
@@ -112,10 +111,12 @@ export const StyledFormButton = styled.button`
   text-align: center;
   transition: ease-in-out 0.3s;
   cursor: pointer;
+  margin-bottom: 12px;
+  font-size: 1rem;
 
   &:hover {
-    background-color: ${color.primary};
-    color: ${color.mainWhite};
+    // background-color: ${color.primary};
+    // color: ${color.mainWhite};
   }
 `;
 
