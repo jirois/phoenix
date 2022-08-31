@@ -17,7 +17,7 @@ import {
 // import { TailSpin } from "react-loader-spinner";
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
@@ -41,11 +41,11 @@ const Login = () => {
   const { showAlert, alert } = useLocalState();
 
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isSuccess || user) {
-      history.push("/");
+      navigate("/");
       dispatch(saveUser(user));
       console.log(user);
     }
@@ -53,7 +53,7 @@ const Login = () => {
       showAlert({ text: message });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, isError, isSuccess, message, history, dispatch]);
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
   return (
     <BackgroundArea>
       {alert.show && (

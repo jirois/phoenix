@@ -16,16 +16,13 @@ const getUser = createAsyncThunk("user/getUser", async (user, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-export const logOut = createAsyncThunk(
-  "auth/logoutUser",
-  async (user, thunkAPI) => {
-    try {
-      await axios.delete(`${baseUrl} + auth/logout`);
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
+export const logOut = createAsyncThunk("auth/logoutUser", async (thunkAPI) => {
+  try {
+    await axios.delete(`${baseUrl} + auth/logout`);
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
   }
-);
+});
 
 const userSlice = createSlice({
   name: "user",

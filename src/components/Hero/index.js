@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ButtonLinK } from "../ButtonElement";
 import video from "../../videos/video_6.mp4";
+import { useSelector } from "react-redux";
 
 import {
   HeroContainer,
@@ -21,6 +22,7 @@ const HeroSection = () => {
   const onHover = () => {
     setHover(!hover);
   };
+  const { user } = useSelector((store) => store.user);
   return (
     <HeroContainer>
       <HeroBg>
@@ -32,15 +34,27 @@ const HeroSection = () => {
         <HeroH1>Phoenix Capital</HeroH1>
         <HeroP>Speed Your Trading Journey with our Unique Trading System</HeroP>
         <HeroBtnWrapper>
-          <ButtonLinK
-            to="/signup"
-            onMouseEnter={onHover}
-            onMouseLeave={onHover}
-            primary="true"
-            dark="true"
-          >
-            Get started {hover ? <ArrowForward /> : <ArrowRight />}
-          </ButtonLinK>
+          {user ? (
+            <ButtonLinK
+              to="/sessions"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+              primary="true"
+              dark="true"
+            >
+              Book a Session {hover ? <ArrowForward /> : <ArrowRight />}
+            </ButtonLinK>
+          ) : (
+            <ButtonLinK
+              to="/signup"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+              primary="true"
+              dark="true"
+            >
+              Get started {hover ? <ArrowForward /> : <ArrowRight />}
+            </ButtonLinK>
+          )}
           <TelegramLink dark href="telegram" target="_blank">
             Join our Telegram
           </TelegramLink>

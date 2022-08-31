@@ -11,7 +11,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 const VerifyEmail = () => {
-  const { isLoading, isError } = useSelector((store) => store.auth);
+  const { isLoading, isError, message } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const query = useQuery();
 
@@ -22,7 +22,10 @@ const VerifyEmail = () => {
         email: query.get("email"),
       })
     );
-  }, [dispatch, query]);
+    if (isError) {
+      console.log(message);
+    }
+  }, [dispatch, query, isError, message]);
 
   if (isLoading) {
     <TailSpin color="yellow" height={70} width={150} />;

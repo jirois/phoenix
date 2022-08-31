@@ -15,7 +15,7 @@ import {
 } from "../../components/FormStyles";
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { TailSpin } from "react-loader-spinner";
 import useLocalState from "../../utils/localState";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
@@ -35,18 +35,18 @@ const Register = () => {
   );
   console.log(user);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { showAlert, alert } = useLocalState();
 
   useEffect(() => {
     if (isSuccess) {
-      history.push("/success-page");
+      navigate("/success-page");
     }
     if (isError) {
       showAlert({ text: message });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, user, isError, message, history]);
+  }, [isSuccess, user, isError, message, navigate]);
   return (
     <BackgroundArea>
       {alert.show && (

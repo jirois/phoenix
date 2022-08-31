@@ -15,7 +15,7 @@ import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
 import { useSelector, useDispatch } from "react-redux";
 import { resetPassword } from "../../features/auth/authSlice";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import useLocalState from "../../utils/localState";
 function useQuery() {
@@ -32,19 +32,19 @@ const ResetPassword = () => {
   const { isLoading, isError, isSuccess } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const query = useQuery();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { showAlert, alert } = useLocalState();
 
   useEffect(() => {
     if (isSuccess) {
-      history.push("/signin");
+      navigate("/signin");
     }
 
     if (isError) {
       showAlert({ text: "check your credentials" });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, history, isError]);
+  }, [isSuccess, navigate, isError]);
 
   return (
     <BackgroundArea>

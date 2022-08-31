@@ -14,9 +14,9 @@ import {
   ProfilteItemDesc,
   ProfilteItemTitle,
 } from "./userProfileElements";
-import { useHistory } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-import { logout } from "../../features/auth/authSlice";
+import { logOut, removeUser } from "../../features/user/userSlice";
 
 import userIcon from "../../assets/user.png";
 import { userProfileData } from "../../data";
@@ -25,12 +25,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 const UserProfile = () => {
   const { user: userSign } = useSelector((store) => store.user);
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const onLogout = () => {
-    dispatch(logout());
-    history.push("/signin");
+    dispatch(logOut());
+    dispatch(removeUser());
+    <Navigate to="/signin" />;
   };
 
   return (
@@ -43,7 +43,7 @@ const UserProfile = () => {
         <div>
           <ProfileName>{userSign.user.name}</ProfileName>
           <ProfileRole>{userSign.user.role}</ProfileRole>
-          <ProfileEmail>info@phoenixcap.com</ProfileEmail>
+          <ProfileEmail></ProfileEmail>
         </div>
       </ProfileInfo>
       <div>

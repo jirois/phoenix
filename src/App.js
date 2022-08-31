@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Home from "./pages";
 import About from "./pages/about/AboutScreen";
@@ -20,58 +20,37 @@ import Dashboard from "./pages/dashboard";
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact="true">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/services">
-          <ServiceScreen />
-        </Route>
-        <Route path="/broker">
-          <BrokerScreen />
-        </Route>
-        <Route path="/faq">
-          <FaqScreen />
-        </Route>
-        <Route path="/contact">
-          <ContactScreen />
-        </Route>
-        <Route path="/sessions">
-          <BookScreen />
-        </Route>
-        <Route path="/testimonials">
-          <TestimonialScreen />
-        </Route>
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
-        <Route path="/success-page">
-          <RedirectPage />
-        </Route>
-        <Route path="/signin" exact>
-          <Login />
-        </Route>
-        <Route path="/signup" exact>
-          <Register />
-        </Route>
-        <Route path="/user/verify-email">
-          <VerifyEmail />
-        </Route>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<ServiceScreen />} />
 
-        <Route path="user/reset-password" exact>
-          <ResetPassword />
-        </Route>
-        <Route path="/forgot-password" exact>
-          <ForgotPassword />
-        </Route>
+        <Route path="/broker" element={<BrokerScreen />} />
 
-        <Route path="*">
-          <Error />
-        </Route>
-      </Switch>
+        <Route path="/faq" element={<FaqScreen />} />
+
+        <Route path="/contact" element={<ContactScreen />} />
+
+        <Route path="/sessions" element={<BookScreen />} />
+
+        <Route path="/testimonials" element={<TestimonialScreen />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route path="/success-page" element={<RedirectPage />} />
+
+        <Route path="/signin" element={<Login />} />
+
+        <Route path="/signup" element={<Register />} />
+
+        <Route path="/user/verify-email" element={<VerifyEmail />} />
+
+        <Route path="user/reset-password" element={<ResetPassword />} />
+
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
+        <Route path="*" element={<Error />} />
+      </Routes>
     </Router>
   );
 }
