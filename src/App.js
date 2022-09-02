@@ -16,6 +16,8 @@ import Error from "./pages/Error";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import RedirectPage from "./pages/RedirectPage";
 import Dashboard from "./pages/dashboard";
+import Signup from "./pages/auth/Signup";
+import Signin from "./pages/auth/Signin";
 
 function App() {
   return (
@@ -39,9 +41,9 @@ function App() {
 
         <Route path="/success-page" element={<RedirectPage />} />
 
-        <Route path="/signin" element={<Login />} />
+        <Route path="/signin" element={<Signin />} />
 
-        <Route path="/signup" element={<Register />} />
+        <Route path="/signup" element={<Signup />} />
 
         <Route path="/user/verify-email" element={<VerifyEmail />} />
 

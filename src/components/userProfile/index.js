@@ -14,9 +14,10 @@ import {
   ProfilteItemDesc,
   ProfilteItemTitle,
 } from "./userProfileElements";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { logOut, removeUser } from "../../features/user/userSlice";
+// import { logOut, removeUser } from "../../features/user/userSlice";
+import { useGlobalContext } from "../../context";
 
 import userIcon from "../../assets/user.png";
 import { userProfileData } from "../../data";
@@ -24,13 +25,14 @@ import { NavBtnLinkBtn } from "../Navbar/navbarELements";
 import { useDispatch, useSelector } from "react-redux";
 
 const UserProfile = () => {
-  const { user: userSign } = useSelector((store) => store.user);
-  const dispatch = useDispatch();
+  // const { user: userSign } = useSelector((store) => store.user);
+  // const dispatch = useDispatch();
+  const { logoutUser, user } = useGlobalContext();
+  const navigate = useNavigate();
 
   const onLogout = () => {
-    dispatch(logOut());
-    dispatch(removeUser());
-    <Navigate to="/signin" />;
+    logoutUser();
+    navigate("/signin");
   };
 
   return (
@@ -41,8 +43,8 @@ const UserProfile = () => {
       <ProfileInfo>
         <ProfileImg src={userIcon} alt="PA" />
         <div>
-          <ProfileName>{userSign.user.name}</ProfileName>
-          <ProfileRole>{userSign.user.role}</ProfileRole>
+          <ProfileName>{user.name}</ProfileName>
+          <ProfileRole>{user.role}</ProfileRole>
           <ProfileEmail></ProfileEmail>
         </div>
       </ProfileInfo>

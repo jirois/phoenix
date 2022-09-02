@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { useGlobalContext } from "../../context";
 import { animateScroll as scroll } from "react-scroll/modules";
 import userIcon from "../../assets/user.png";
 
@@ -25,7 +26,8 @@ import UserProfile from "../userProfile";
 
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const { user: usern } = useSelector((store) => store.user);
+  // const { user: usern } = useSelector((store) => store.user);
+  const { user } = useGlobalContext();
 
   const [hover, setHover] = useState(false);
   const onHover = () => {
@@ -98,13 +100,13 @@ const NavbarSection = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          {usern ? (
+          {user ? (
             <div onMouseEnter={onHover} onMouseLeave={onHover}>
               <UserDiv>
                 <UserImg src={userIcon} />
                 <Textdiv>
                   <Greeting>Hi</Greeting>
-                  <UserName>{usern.user.name}</UserName>
+                  <UserName>{user}</UserName>
                 </Textdiv>
                 <DropIcon />
               </UserDiv>

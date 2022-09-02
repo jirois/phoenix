@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 // import { logout } from "../../features/auth/authSlice";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
 import userIcon from "../../assets/user.png";
+// import {logoutUser} from '../../context'
+// import { useNavigate } from "react-router-dom";
 
 import {
   SidebarContainer,
@@ -23,18 +25,20 @@ import {
   UserName,
 } from "../Navbar/navbarELements";
 import UserProfile from "../userProfile";
+import { useGlobalContext } from "../../context";
 const Sidebar = ({ isOpen, toggle }) => {
-  const { user } = useSelector((store) => store.auth);
+  const { user } = useGlobalContext();
   // const history = useHistory();
   // const dispatch = useDispatch();
+  // const navigate = useNavigate();
   const [isClick, setIsClick] = useState(false);
   const handleClick = () => {
     setIsClick(!isClick);
   };
 
   // const onLogout = () => {
-  //   dispatch(logout());
-  //   history.push("/signin");
+  //   logoutUser()
+  //   navigate("/signin");
   // };
   return (
     <SidebarContainer isOpen={isOpen}>

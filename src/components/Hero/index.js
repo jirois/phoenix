@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { ButtonLinK } from "../ButtonElement";
 import video from "../../videos/video_6.mp4";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { useGlobalContext } from "../../context";
 
 import {
   HeroContainer,
@@ -22,7 +23,7 @@ const HeroSection = () => {
   const onHover = () => {
     setHover(!hover);
   };
-  const { user } = useSelector((store) => store.user);
+  const { user } = useGlobalContext();
   return (
     <HeroContainer>
       <HeroBg>
