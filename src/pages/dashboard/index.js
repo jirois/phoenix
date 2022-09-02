@@ -17,7 +17,7 @@ const Dashboard = () => {
   return (
     <div>
       <DashboardHeader>
-        <HeaderOne>Dashboard</HeaderOne>
+        <HeaderOne className="underline">Dashboard</HeaderOne>
       </DashboardHeader>
       <>
         <DashboardItemContainer>

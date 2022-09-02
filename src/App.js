@@ -16,8 +16,10 @@ import Error from "./pages/Error";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import RedirectPage from "./pages/RedirectPage";
 import Dashboard from "./pages/dashboard";
+import DashboardScreen from "./pages/dashboard/Home";
 import Signup from "./pages/auth/Signup";
 import Signin from "./pages/auth/Signin";
+import "./App.css";
 
 function App() {
   return (
@@ -37,7 +39,7 @@ function App() {
 
         <Route path="/testimonials" element={<TestimonialScreen />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<DashboardScreen />} />
 
         <Route path="/success-page" element={<RedirectPage />} />
 

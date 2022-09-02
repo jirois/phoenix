@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaCartPlus,
   FaFacebook,
@@ -6,7 +5,34 @@ import {
   FaTasks,
   FaTwitter,
 } from "react-icons/fa";
+import { FiHome, FiSettings } from "react-icons/fi";
 import { MdAccountCircle } from "react-icons/md";
+
+import React from "react";
+import {
+  AiOutlineCalendar,
+  AiOutlineShoppingCart,
+  AiOutlineAreaChart,
+  AiOutlineBarChart,
+  AiOutlineStock,
+} from "react-icons/ai";
+// import {
+//   FiShoppingBag,
+//   FiEdit,
+//   FiPieChart,
+//   FiBarChart,
+//   FiCreditCard,
+//   FiStar,
+//   FiShoppingCart,
+// } from "react-icons/fi";
+
+import { IoMdContacts } from "react-icons/io";
+import { RiContactsLine, RiStockLine } from "react-icons/ri";
+// import { MdOutlineSupervisorAccount } from "react-icons/md";
+// import { HiOutlineRefresh } from "react-icons/hi";
+// import { TiTick } from "react-icons/ti";
+// import { GiLouvrePyramid } from "react-icons/gi";
+// import { GrLocation } from "react-icons/gr";
 
 export const links = [
   {
@@ -276,5 +302,59 @@ export const userProfileData = [
     desc: "Go to your products ",
     iconColor: "rgb(255, 244, 229)",
     iconBg: "rgb(254, 201, 15)",
+  },
+];
+
+export const dashboardLinks = [
+  {
+    title: "Dashboard",
+    links: [
+      {
+        name: "home",
+        icon: <FiHome />,
+      },
+    ],
+  },
+
+  {
+    title: "Accounts",
+    links: [
+      {
+        name: "Services",
+        icon: <AiOutlineShoppingCart />,
+      },
+      {
+        name: "Sessions",
+        icon: <IoMdContacts />,
+      },
+      {
+        name: "Students",
+        icon: <RiContactsLine />,
+      },
+      {
+        name: "Settings",
+        icon: <FiSettings />,
+      },
+    ],
+  },
+
+  {
+    title: "Charts",
+    links: [
+      {
+        name: "line",
+        icon: <AiOutlineStock />,
+      },
+
+      {
+        name: "bar",
+        icon: <AiOutlineBarChart />,
+      },
+
+      {
+        name: "financial",
+        icon: <RiStockLine />,
+      },
+    ],
   },
 ];

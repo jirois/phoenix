@@ -60,3 +60,6 @@ body {
   color: #f08000;
 }
  
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
