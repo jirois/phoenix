@@ -10,9 +10,7 @@ import { MdAccountCircle } from "react-icons/md";
 
 import React from "react";
 import {
-  AiOutlineCalendar,
   AiOutlineShoppingCart,
-  AiOutlineAreaChart,
   AiOutlineBarChart,
   AiOutlineStock,
 } from "react-icons/ai";
@@ -312,6 +310,7 @@ export const dashboardLinks = [
       {
         name: "home",
         icon: <FiHome />,
+        url: "dashboard",
       },
     ],
   },
@@ -322,18 +321,22 @@ export const dashboardLinks = [
       {
         name: "Services",
         icon: <AiOutlineShoppingCart />,
+        url: "dashboard/services",
       },
       {
         name: "Sessions",
         icon: <IoMdContacts />,
+        url: "dashboard/sessions",
       },
       {
         name: "Students",
         icon: <RiContactsLine />,
+        url: "dashboard/students",
       },
       {
         name: "Settings",
         icon: <FiSettings />,
+        url: "dashboard/settings",
       },
     ],
   },
@@ -344,16 +347,19 @@ export const dashboardLinks = [
       {
         name: "line",
         icon: <AiOutlineStock />,
+        url: "dashboard/line",
       },
 
       {
         name: "bar",
         icon: <AiOutlineBarChart />,
+        url: "dashboard/bar",
       },
 
       {
         name: "financial",
         icon: <RiStockLine />,
+        url: "dashboard/financial",
       },
     ],
   },

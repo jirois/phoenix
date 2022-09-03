@@ -1,6 +1,7 @@
 import React from "react";
 import { Sidebar, Navbar } from "./components";
 import { useGlobalContext } from "../../context";
+import { Outlet } from "react-router-dom";
 
 const DashboardScreen = () => {
   const { activeMenu } = useGlobalContext();
@@ -21,7 +22,9 @@ const DashboardScreen = () => {
         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
           <Navbar />
         </div>
-        <div></div>
+        <div>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

@@ -20,6 +20,11 @@ import DashboardScreen from "./pages/dashboard/Home";
 import Signup from "./pages/auth/Signup";
 import Signin from "./pages/auth/Signin";
 import "./App.css";
+import Setting from "./pages/dashboard/pages/Setting";
+import Students from "./pages/dashboard/pages/Students";
+import Sessions from "./pages/dashboard/pages/Sessions";
+import DashboardHome from "./pages/dashboard/pages/Home";
+import Services from "./pages/dashboard/pages/Services";
 
 function App() {
   return (
@@ -39,7 +44,13 @@ function App() {
 
         <Route path="/testimonials" element={<TestimonialScreen />} />
 
-        <Route path="/dashboard" element={<DashboardScreen />} />
+        <Route path="/dashboard" element={<DashboardScreen />}>
+          <Route path="/dashboard" element={<DashboardHome />} />
+          <Route path="settings" element={<Setting />} />
+          <Route path="students" element={<Students />} />
+          <Route path="sessions" element={<Sessions />} />
+          <Route path="services" element={<Services />} />
+        </Route>
 
         <Route path="/success-page" element={<RedirectPage />} />
 

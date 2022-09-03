@@ -24,7 +24,7 @@ const Sidebar = () => {
             <>
                 <div className='flex justify-between items-center'>
                     <Link to='/' onClick={handleCloseSidebar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-                        <SiShopware /> <span>Shoppy</span>
+                        <SiShopware /> <span>Phoenix Cap</span>
                     </Link>
                     <TooltipComponent content="Menu" position="BottomCenter">
                         <button type='button'
@@ -43,7 +43,7 @@ const Sidebar = () => {
                             </span>
                             {item.links.map((link) => (
                                 <NavLink
-                                to={`/${link.name}`}
+                                to={`/${link.url}`}
                                 key={link.name}
                                 onClick={handleCloseSidebar }
                                 className ={({isActive}) => isActive ? activeLink : normalLink}>
