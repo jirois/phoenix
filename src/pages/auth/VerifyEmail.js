@@ -13,7 +13,7 @@ function useQuery() {
 const VerifyEmail = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("");
   const { loading: isLoading } = useGlobalContext();
   const query = useQuery();
 
@@ -25,6 +25,7 @@ const VerifyEmail = () => {
         email: query.get("email"),
       });
       console.log(data);
+      setMessage(data.msg);
     } catch (error) {
       console.log(error.response.msg);
       setError(true);
@@ -58,7 +59,7 @@ const VerifyEmail = () => {
 
   return (
     <Page>
-      <HeaderTwo>Account Confirmed</HeaderTwo>
+      <HeaderTwo>{message}</HeaderTwo>
       <Link
         to="/signin"
         className="text-xl text-yellow-500 hover:bg-yellow hover:text-white font-body"
