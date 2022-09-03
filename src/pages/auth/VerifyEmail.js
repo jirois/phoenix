@@ -13,7 +13,6 @@ import { useGlobalContext } from "../../context";
 const VerifyEmail = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
   const { loading: isLoading } = useGlobalContext();
   // const query = useQuery();
   const [searchParams] = useSearchParams();
@@ -26,7 +25,6 @@ const VerifyEmail = () => {
         email: searchParams.get("email"),
       });
       console.log(data);
-      setMessage(data.msg);
     } catch (error) {
       console.log(error.response.msg);
       setError(true);
@@ -60,7 +58,7 @@ const VerifyEmail = () => {
 
   return (
     <Page>
-      <HeaderTwo>{message}</HeaderTwo>
+      <HeaderTwo>Account Confirmed</HeaderTwo>
       <Link
         to="/signin"
         className="text-xl text-yellow-500 hover:bg-yellow hover:text-white font-body"
