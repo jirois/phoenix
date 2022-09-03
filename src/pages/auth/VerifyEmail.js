@@ -5,14 +5,16 @@ import { HeaderTwo, Page } from "../../components/Styles";
 import { NavBtnLinkBtn } from "../../components/Navbar/navbarELements";
 import axios from "axios";
 import { baseUrl } from "../../utils/url";
+import { useGlobalContext } from "../../context";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 const VerifyEmail = () => {
-  const [setError] = useState(false);
+  // const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
+  const { loading: isLoading } = useGlobalContext();
   const query = useQuery();
 
   const verifyToken = async () => {
@@ -22,16 +24,16 @@ const VerifyEmail = () => {
         verification: query.get("token"),
         email: query.get("email"),
       });
-      setMessage(data.msg);
+      console.log(data);
     } catch (error) {
-      console.log(error.response);
-      setError(true);
+      console.log(error.response.msg);
+      // setError(true);
     }
     setLoading(false);
   };
 
   useEffect(() => {
-    if (!loading) {
+    if (!isLoading) {
       verifyToken();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -56,7 +58,7 @@ const VerifyEmail = () => {
 
   return (
     <Page>
-      <HeaderTwo>{message}</HeaderTwo>
+      <HeaderTwo>Account Confirmed</HeaderTwo>
       <NavBtnLinkBtn to="/signin">Please login</NavBtnLinkBtn>
     </Page>
   );
