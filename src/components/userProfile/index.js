@@ -22,7 +22,7 @@ import { useGlobalContext } from "../../context";
 import userIcon from "../../assets/user.png";
 import { userProfileData } from "../../data";
 import { NavBtnLinkBtn } from "../Navbar/navbarELements";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 
 const UserProfile = () => {
   // const { user: userSign } = useSelector((store) => store.user);

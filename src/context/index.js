@@ -19,6 +19,8 @@ const AppProvider = ({ children }) => {
   const [currentColor, setCurrentColor] = useState("#03C9D7");
   const [currentMode, setCurrentMode] = useState("Light");
   const [themeSettings, setThemeSettings] = useState(false);
+  const [sessions, setSessions] = useState([]);
+  const [services, setServices] = useState([]);
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -37,6 +39,7 @@ const AppProvider = ({ children }) => {
   const saveUser = (user) => {
     setUser(user);
   };
+
   const removeUser = () => {
     setUser(null);
   };
@@ -60,7 +63,10 @@ const AppProvider = ({ children }) => {
   };
   useEffect(() => {
     fetchUser();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -83,6 +89,10 @@ const AppProvider = ({ children }) => {
         themeSettings,
         setThemeSettings,
         handleClick,
+        sessions,
+        setSessions,
+        services,
+        setServices,
       }}
     >
       {children}

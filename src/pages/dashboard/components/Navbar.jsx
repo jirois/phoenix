@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import {AiOutlineMenu} from 'react-icons/ai'
 import {FiShoppingCart } from 'react-icons/fi'
-import {BsChatLeft} from 'react-icons/bs'
 import {RiNotification3Line} from 'react-icons/ri'
 import {MdKeyboardArrowDown} from 'react-icons/md'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
@@ -30,7 +29,8 @@ const Navbar = () => {
     window.addEventListener('resize', handleResize)
     handleResize()
     return () => window.removeEventListener('resize', handleResize)
-
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -39,6 +39,7 @@ const Navbar = () => {
     } else {
       setActiveMenu(true)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [screenSize])
   
   return (
@@ -64,6 +65,7 @@ const Navbar = () => {
           onClick={() => handleClick('userProfile')}>
             <img 
               src={avatar}
+              alt="user id"
               className="rounded-full w-8 h-8"
             />
             <span className='flex'>

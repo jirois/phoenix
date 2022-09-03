@@ -24,7 +24,7 @@ import { WebsiteRights } from "../../components/Footer/FooterElements";
 
 import useLocalState from "../../utils/localState";
 import { saveUser } from "../../features/user/userSlice";
-import { Page } from "../../components/Styles";
+// import { Page } from "../../components/Styles";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),

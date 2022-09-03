@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { booksession } from "../../data";
 import "./book.css";
+import useLocalState from "../../utils/localState";
+import axios from "axios";
+import { baseUrl } from "../../utils/url";
+import { useGlobalContext } from "../../context";
 
-function BookScreen(props) {
+function BookScreen() {
+  const { loading, setLoading } = useLocalState();
+  const { user, sessions, setSessions } = useGlobalContext();
+  const fetchSessions = async () => {
+    setLoading(true);
+    try {
+      const { data } = await axios.get(baseUrl + "session");
+      setSessions(data.sessions);
+      console.log(data);
+      console.log(sessions);
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchSessions();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  if (loading) {
+    <div className="flex flex-wrap text-xl font-semibold"> Loading...</div>;
+  }
+  if (sessions.length === 0) {
+    <p>There are no booking available, please Admin will soon add bookings</p>;
+  }
+
   return (
     <div className="book">
       <div className="book-nav">
@@ -26,14 +56,15 @@ function BookScreen(props) {
         could be expected
       </p>
       <div className="book-wrapper">
-        {booksession.map((book) => {
+        {sessions.map((book) => {
           return (
             <div key={book.id} className="book-card">
-              <img src={book.img} alt="book" />
+              <img src={book.image} alt={book.title} />
               <h1>{book.title}</h1>
-              <span>{book.hour}</span>
-              <span>{book.price}</span>
-              <Link to="book">
+              <span>{book.hours} hr</span>
+              <span> ${book.price}</span>
+
+              <Link to={!user ? "/checkout" : "/signin"}>
                 <button className="book-btn">Book Now </button>
               </Link>
             </div>

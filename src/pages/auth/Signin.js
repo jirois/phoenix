@@ -17,13 +17,13 @@ import {
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
 
 import useLocalState from "../../utils/localState";
-import { useGlobalContext } from "../../context";
-import { useHistory } from "react-router-dom";
+// import { useGlobalContext } from "../../context";
+// import { useHistory } from "react-router-dom";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),

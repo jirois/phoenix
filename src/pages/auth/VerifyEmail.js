@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-// import { verifyEmail } from "../../features/auth/authSlice";
-// import { TailSpin } from "react-loader-spinner";
-import { HeaderFour, HeaderTwo, Page } from "../../components/Styles";
+import { HeaderTwo, Page } from "../../components/Styles";
 import { NavBtnLinkBtn } from "../../components/Navbar/navbarELements";
-import { useGlobalContext } from "../../context";
 import axios from "axios";
 import { baseUrl } from "../../utils/url";
 
@@ -14,11 +10,9 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 const VerifyEmail = () => {
-  // const { isLoading, isError, message } = useSelector((store) => store.auth);
-  // const dispatch = useDispatch();
-  const [error, setError] = useState(false);
+  const [setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const { loading: isLoading } = useGlobalContext();
+  const [message, setMessage] = useState("");
   const query = useQuery();
 
   const verifyToken = async () => {
@@ -28,6 +22,7 @@ const VerifyEmail = () => {
         verification: query.get("token"),
         email: query.get("email"),
       });
+      setMessage(data.msg);
     } catch (error) {
       console.log(error.response);
       setError(true);
@@ -39,9 +34,10 @@ const VerifyEmail = () => {
     if (!loading) {
       verifyToken();
     }
-  }, [isLoading]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  if (ioading) {
+  if (loading) {
     return (
       <Page>
         <HeaderTwo>Loading...</HeaderTwo>
@@ -60,7 +56,7 @@ const VerifyEmail = () => {
 
   return (
     <Page>
-      <HeaderTwo>Account Confirmed</HeaderTwo>
+      <HeaderTwo>{message}</HeaderTwo>
       <NavBtnLinkBtn to="/signin">Please login</NavBtnLinkBtn>
     </Page>
   );
