@@ -16,7 +16,6 @@ const VerifyEmail = () => {
   // const { loading: isLoading } = useGlobalContext();
   // // const query = useQuery();
   const [searchParams] = useSearchParams();
-  console.log(searchParams);
 
   const verifyToken = async () => {
     setLoading(true);
@@ -25,7 +24,7 @@ const VerifyEmail = () => {
         verification: searchParams.get("token"),
         email: searchParams.get("email"),
       });
-      console.log(data);
+      console.log(data.msg);
     } catch (error) {
       console.log(error.response.msg);
       setError(true);
