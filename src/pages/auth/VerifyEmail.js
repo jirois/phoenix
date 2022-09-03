@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { HeaderFour, HeaderTwo, Page } from "../../components/Styles";
 // import { NavBtnLinkBtn } from "../../components/Navbar/navbarELements";
 import axios from "axios";
