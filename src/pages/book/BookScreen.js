@@ -64,7 +64,7 @@ function BookScreen() {
               <span>{book.hours} hr</span>
               <span> ${book.price}</span>
 
-              <Link to={!user ? "/checkout" : "/signin"}>
+              <Link to={!user ? `/${book._id}` : "/signin"}>
                 <button className="book-btn">Book Now </button>
               </Link>
             </div>
