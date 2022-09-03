@@ -58,7 +58,7 @@ const VerifyEmail = () => {
 
   return (
     <Page>
-      <HeaderTwo>Account Confirmed</HeaderTwo>
+      <HeaderTwo>Account Confirm</HeaderTwo>
       <Link
         to="/signin"
         className="text-xl text-yellow-500 hover:bg-yellow hover:text-white font-body"
