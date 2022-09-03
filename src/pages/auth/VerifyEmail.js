@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HeaderTwo, Page } from "../../components/Styles";
 import { NavBtnLinkBtn } from "../../components/Navbar/navbarELements";
 import axios from "axios";
@@ -11,7 +11,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 const VerifyEmail = () => {
-  // const [error, setError] = useState(false);
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   // const [message, setMessage] = useState("");
   const { loading: isLoading } = useGlobalContext();
@@ -27,7 +27,7 @@ const VerifyEmail = () => {
       console.log(data);
     } catch (error) {
       console.log(error.response.msg);
-      // setError(true);
+      setError(true);
     }
     setLoading(false);
   };
@@ -46,20 +46,25 @@ const VerifyEmail = () => {
       </Page>
     );
   }
-  // if (error) {
-  //   return (
-  //     <Page>
-  //       <HeaderFour>
-  //         There was an error, please double check your link
-  //       </HeaderFour>
-  //     </Page>
-  //   );
-  // }
+  if (error) {
+    return (
+      <Page>
+        <HeaderFour>
+          There was an error, please double check your link
+        </HeaderFour>
+      </Page>
+    );
+  }
 
   return (
     <Page>
       <HeaderTwo>Account Confirmed</HeaderTwo>
-      <NavBtnLinkBtn to="/signin">Please login</NavBtnLinkBtn>
+      <Link
+        to="/signin"
+        className="text-xl text-yellow-500 hover:bg-yellow hover:text-white font-body"
+      >
+        Please login
+      </Link>
     </Page>
   );
 };
