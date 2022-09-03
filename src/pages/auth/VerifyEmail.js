@@ -56,17 +56,17 @@ const VerifyEmail = () => {
     );
   }
 
-  // return (
-  //   <Page>
-  //     <HeaderTwo>Account Confirm</HeaderTwo>
-  //     <Link
-  //       to="/signin"
-  //       className="text-xl text-yellow-500 hover:bg-yellow hover:text-white font-body"
-  //     >
-  //       Please login
-  //     </Link>
-  //   </Page>
-  // );
+  return (
+    <Page>
+      <HeaderTwo>Account Confirm</HeaderTwo>
+      <Link
+        to="/signin"
+        className="text-xl text-yellow-500 hover:bg-yellow hover:text-white font-body"
+      >
+        Please login
+      </Link>
+    </Page>
+  );
 };
 
 export default VerifyEmail;
