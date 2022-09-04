@@ -32,27 +32,6 @@ function ServiceScreen() {
     <div className="service">
       <h2>Choose Your Pricing Plan</h2>
       <div className="service-cards">
-        <div className="fullcourse">
-          <div className="service-card">
-            <div className="percent-div">
-              <span className="percent">60% OFF</span>
-            </div>
-
-            <span className="service-title">Phoenix Full Course</span>
-
-            <div className="service-price">
-              <span>$</span>
-              <span className="price">150</span>
-            </div>
-            <span className="duration"></span>
-            <span className="description"></span>
-
-            <Link to={user ? "/checkout" : "/signin"}>
-              <button className="service-btn">Purchase Now</button>
-            </Link>
-          </div>
-        </div>
-
         {services.map((service) => {
           if (loading) {
             return (
@@ -62,19 +41,41 @@ function ServiceScreen() {
             );
           }
           return (
-            <div key={service.id} className="service-card">
-              <span className="service-title">{service.title}</span>
-              <div className="service-price">
-                <span>$</span>
-                <span className="price">{service.price}</span>
-              </div>
-              <span className="duration">{service.duration}</span>
-              <span className="description">{service.description}</span>
+            <>
+              {/* <div className="fullcourse">
+                <div className="service-card">
+                  <div className="percent-div">
+                    <span className="percent">60% OFF</span>
+                  </div>
 
-              <Link to={!user ? `/checkout/${service._id}` : "/signin"}>
-                <button className="service-btn">Purchase Now</button>
-              </Link>
-            </div>
+                  <span className="service-title">{service[0].title}</span>
+
+                  <div className="service-price">
+                    <span>$</span>
+                    <span className="price">{service[0].price}</span>
+                  </div>
+                  <span className="duration"></span>
+                  <span className="description">{service[0].description}</span>
+
+                  <Link to={user ? "/checkout" : "/signin"}>
+                    <button className="service-btn">Purchase Now</button>
+                  </Link>
+                </div>
+              </div> */}
+              <div key={service.id} className="service-card">
+                <span className="service-title">{service.title}</span>
+                <div className="service-price">
+                  <span>$</span>
+                  <span className="price">{service.price}</span>
+                </div>
+                <span className="duration">{service.duration}</span>
+                <span className="description">{service.description}</span>
+
+                <Link to={!user ? `/cart/${service._id}` : "/signin"}>
+                  <button className="service-btn">Purchase Now</button>
+                </Link>
+              </div>
+            </>
           );
         })}
       </div>

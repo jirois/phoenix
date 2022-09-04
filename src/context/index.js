@@ -11,7 +11,6 @@ const initialState = {
   notification: false,
 };
 const initialStateCart = {
-  loading: false,
   cart: [],
   total: 0,
 };
@@ -75,6 +74,7 @@ const AppProvider = ({ children }) => {
 
   // Cart
   const [cartState, cartDispatch] = useReducer(reducer, initialStateCart);
+  console.log(cartState);
 
   return (
     <AppContext.Provider

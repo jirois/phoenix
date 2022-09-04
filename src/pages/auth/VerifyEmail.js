@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HeaderFour, HeaderTwo, Page } from "../../components/Styles";
 // import { NavBtnLinkBtn } from "../../components/Navbar/navbarELements";
 import axios from "axios";
@@ -7,22 +7,19 @@ import { baseUrl } from "../../utils/url";
 import { useState } from "react";
 // import { useGlobalContext } from "../../context";
 
-// function useQuery() {
-//   return new URLSearchParams(useLocation().search);
-// }
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 const VerifyEmail = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const { loading: isLoading } = useGlobalContext();
-  // // const query = useQuery();
-  const [searchParams] = useSearchParams();
 
   const verifyToken = async () => {
     setLoading(true);
     try {
       const { data } = await axios.post(baseUrl + "auth/verify-email", {
-        verification: searchParams.get("token"),
-        email: searchParams.get("email"),
+        verification: useQuery.get("token"),
+        email: useQuery.get("email"),
       });
       console.log(data.msg);
     } catch (error) {

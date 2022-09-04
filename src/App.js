@@ -22,6 +22,7 @@ import Students from "./pages/dashboard/pages/Students";
 import Sessions from "./pages/dashboard/pages/Sessions";
 import DashboardHome from "./pages/dashboard/pages/Home";
 import Services from "./pages/dashboard/pages/Services";
+import CartScreen from "./pages/CartScreen";
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
           <Route path="sessions" element={<Sessions />} />
           <Route path="services" element={<Services />} />
         </Route>
+
+        <Route path="/cart/:id" element={<CartScreen />} />
 
         <Route path="/success-page" element={<RedirectPage />} />
 
