@@ -71,7 +71,7 @@ function ServiceScreen() {
               <span className="duration">{service.duration}</span>
               <span className="description">{service.description}</span>
 
-              <Link to={user ? "/checkout" : "/signin"}>
+              <Link to={!user ? `/checkout/${service._id}` : "/signin"}>
                 <button className="service-btn">Purchase Now</button>
               </Link>
             </div>

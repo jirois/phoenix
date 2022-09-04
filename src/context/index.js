@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useReducer } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { baseUrl } from "../utils/url";
+import reducer from "./reducer";
 const AppContext = React.createContext();
 const initialState = {
   userProfile: false,
   cart: false,
   notification: false,
+};
+const initialStateCart = {
+  loading: false,
+  cart: [],
+  total: 0,
 };
 
 const AppProvider = ({ children }) => {
@@ -67,6 +73,9 @@ const AppProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Cart
+  const [cartState, cartDispatch] = useReducer(reducer, initialStateCart);
+
   return (
     <AppContext.Provider
       value={{
@@ -93,6 +102,8 @@ const AppProvider = ({ children }) => {
         setSessions,
         services,
         setServices,
+        cartState,
+        cartDispatch,
       }}
     >
       {children}

@@ -1,4 +1,5 @@
 import React from 'react'
+import FormRow from '../../../components/FormRow'
 
 const Setting = () => {
   return (
@@ -24,12 +25,12 @@ const Setting = () => {
         <div className="md:w-2/3 w-full">
           <div className="py-8 px-16">
             <label for="name" className="text-sm text-gray-600">Name</label>
-            <input className="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500" type="text" value="" name="name" />
+            <FormRow />
           </div>
           <hr className="border-gray-200" />
           <div className="py-8 px-16">
             <label for="email" className="text-sm text-gray-600">Email Address</label>
-            <input className="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500" type="email" name="email" value="" />
+            <FormRow />
           </div>
           <hr className="border-gray-200" />
           <div className="py-8 px-16 clearfix">
