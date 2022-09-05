@@ -3,6 +3,7 @@ import { greeting } from '../../../utils/greeting'
 import {FaUsers, FaServicestack, FaBook} from 'react-icons/fa'
 import {FiBarChart} from 'react-icons/fi'
 import { Chart } from "react-google-charts";
+import { useGlobalContext } from '../../../context';
 export const data2 = [
   ["day", "a", "b", "c", "d"],
   ["Mon", 20, 28, 38, 45],
@@ -33,13 +34,14 @@ const options = {
 };
 
 const Home = () => {
+  const {user} = useGlobalContext()
   return (
     <div className='mt-6'>
      
         <div className=' dark:text-gray-200 dark:bg-secondary-dark-bg  md:pt-0  w-full pt-6'>
           <div>
             <p className='font-bold text-gray-600 text-left'>
-              {greeting() + " Omas"}
+              {greeting() + ` ${user.name}`}
             </p>
           </div>
 

@@ -23,6 +23,7 @@ import Sessions from "./pages/dashboard/pages/Sessions";
 import DashboardHome from "./pages/dashboard/pages/Home";
 import Services from "./pages/dashboard/pages/Services";
 import CartScreen from "./pages/CartScreen";
+import VerifyOtp from "./pages/auth/VerifyOtp";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path="/cart/:id" element={<CartScreen />} />
 
         <Route path="/success-page" element={<RedirectPage />} />
+        <Route path="/verifyEmail/:id" element={<VerifyOtp />} />
 
         <Route path="/signin" element={<Signin />} />
 

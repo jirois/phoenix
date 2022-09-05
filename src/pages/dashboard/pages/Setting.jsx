@@ -6,7 +6,7 @@ const Setting = () => {
     <>
     <div className="bg-gray-200 min-h-screen pb-24 p-12">
  
-  <div classNameName="container mx-auto max-w-3xl mt-8">
+     <div classNameName="container mx-auto max-w-3xl mt-8">
 
 
     <h1 className="text-2xl font-bold text-gray-700 px-6 md:px-0">Account Settings</h1>

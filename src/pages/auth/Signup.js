@@ -15,7 +15,7 @@ import {
 } from "../../components/FormStyles";
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useLocalState from "../../utils/localState";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
 
@@ -30,6 +30,7 @@ const ErrorMessagesSchema = Yup.object().shape({
 
 const Signup = () => {
   const { showAlert, alert, setLoading, loading, hideAlert } = useLocalState();
+  const navigate = useNavigate();
 
   return (
     <BackgroundArea>
@@ -62,11 +63,9 @@ const Signup = () => {
                 baseUrl + "auth/register",
                 values
               );
-              showAlert({
-                text: data.msg,
-                type: "success",
-              });
               resetForm();
+              console.log(data.data.userId);
+              navigate(`/verifyEmail/${data.data.userId}`);
             } catch (error) {
               const { msg } = error.response.data;
 

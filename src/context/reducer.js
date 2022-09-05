@@ -9,16 +9,14 @@ const reducer = async (state, action) => {
     };
   }
   if (action.type === "ADD_TO_CART") {
-    let cartItem = {};
     try {
       const { data } = await axios.get(`${baseUrl}service/${action.payload}`);
-      cartItem = data.service;
-
+      const cartItem = data.service;
       console.log(cartItem);
     } catch (error) {
       console.log(error);
     }
-    return await { ...state, cart: [...state.cart, { cartItem }] };
+    return;
   }
   if (action.type === "GET_TOTALs") {
     let { total } = state.cart.reduce(

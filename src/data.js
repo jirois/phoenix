@@ -9,11 +9,7 @@ import { FiHome, FiSettings } from "react-icons/fi";
 import { MdAccountCircle } from "react-icons/md";
 
 import React from "react";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineBarChart,
-  AiOutlineStock,
-} from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 // import {
 //   FiShoppingBag,
 //   FiEdit,
@@ -25,7 +21,7 @@ import {
 // } from "react-icons/fi";
 
 import { IoMdContacts } from "react-icons/io";
-import { RiContactsLine, RiStockLine } from "react-icons/ri";
+import { RiContactsLine } from "react-icons/ri";
 // import { MdOutlineSupervisorAccount } from "react-icons/md";
 // import { HiOutlineRefresh } from "react-icons/hi";
 // import { TiTick } from "react-icons/ti";
@@ -337,29 +333,6 @@ export const dashboardLinks = [
         name: "Settings",
         icon: <FiSettings />,
         url: "dashboard/settings",
-      },
-    ],
-  },
-
-  {
-    title: "Charts",
-    links: [
-      {
-        name: "line",
-        icon: <AiOutlineStock />,
-        url: "dashboard/line",
-      },
-
-      {
-        name: "bar",
-        icon: <AiOutlineBarChart />,
-        url: "dashboard/bar",
-      },
-
-      {
-        name: "financial",
-        icon: <RiStockLine />,
-        url: "dashboard/financial",
       },
     ],
   },

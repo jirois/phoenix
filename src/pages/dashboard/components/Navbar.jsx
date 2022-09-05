@@ -22,7 +22,7 @@ const NavButton = ( { title, customFunc, icon, color, dotColor}) => (
 )
 
 const Navbar = () => {
-  const { setActiveMenu, isClicked, handleClick, screenSize, setScreenSize } = useGlobalContext()
+  const { setActiveMenu, isClicked, handleClick, screenSize, setScreenSize, user } = useGlobalContext()
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -72,7 +72,7 @@ const Navbar = () => {
             />
             <span className='flex'>
               <span className='text-gray-400 text-14'>Hi, </span>
-              <span className='text-gray-400 text-14 ml-1 font-bold'>Omas</span>
+              <span className='text-gray-400 text-14 ml-1 font-bold'>{user.name}</span>
             </span>
             <MdKeyboardArrowDown className='text-gray-400 text-14' />
           </div>

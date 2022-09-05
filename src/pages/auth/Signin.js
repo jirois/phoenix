@@ -22,6 +22,7 @@ import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
 
 import useLocalState from "../../utils/localState";
+import { useGlobalContext } from "../../context";
 // import { useGlobalContext } from "../../context";
 // import { useHistory } from "react-router-dom";
 
@@ -36,7 +37,7 @@ const ErrorMessagesSchema = Yup.object().shape({
 const Signin = () => {
   const { alert, showAlert, loading, setLoading, hideAlert } = useLocalState();
   const navigate = useNavigate();
-  const { saveUser } = useLocalState();
+  const { saveUser } = useGlobalContext();
 
   return (
     <BackgroundArea>
@@ -66,6 +67,7 @@ const Signin = () => {
                 type: "success",
               });
               setLoading(false);
+
               saveUser(data.user);
               navigate("/dashboard");
               resetForm();
