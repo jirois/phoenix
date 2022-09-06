@@ -106,7 +106,7 @@ const NavbarSection = ({ toggle }) => {
                 <UserImg src={userIcon} />
                 <Textdiv>
                   <Greeting>Hi</Greeting>
-                  <UserName>{user}</UserName>
+                  <UserName>{user.name}</UserName>
                 </Textdiv>
                 <DropIcon />
               </UserDiv>
