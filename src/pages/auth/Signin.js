@@ -59,7 +59,6 @@ const Signin = () => {
           onSubmit={async (values, { resetForm }) => {
             hideAlert();
             setLoading(true);
-            console.log(values);
             try {
               const { data } = await axios.post(baseUrl + "auth/login", values);
               showAlert({
