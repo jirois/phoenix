@@ -24,6 +24,8 @@ import DashboardHome from "./pages/dashboard/pages/Home";
 import Services from "./pages/dashboard/pages/Services";
 import CartScreen from "./pages/CartScreen";
 import VerifyOtp from "./pages/auth/VerifyOtp";
+import VerifyCode from "./pages/auth/VerifyCode";
+import ProtectedRoute from "./pages/auth/ProtectRoute";
 
 function App() {
   return (
@@ -43,7 +45,15 @@ function App() {
 
         <Route path="/testimonials" element={<TestimonialScreen />} />
 
-        <Route path="/dashboard" element={<DashboardScreen />}>
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              {" "}
+              <DashboardScreen />
+            </ProtectedRoute>
+          }
+        >
           <Route path="/dashboard" element={<DashboardHome />} />
           <Route path="settings" element={<Setting />} />
           <Route path="students" element={<Students />} />
@@ -65,6 +75,7 @@ function App() {
         <Route path="user/reset-password" element={<ResetPassword />} />
 
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verifyCode" element={<VerifyCode />} />
 
         <Route path="*" element={<Error />} />
       </Routes>

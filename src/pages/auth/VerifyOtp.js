@@ -65,7 +65,7 @@ const VerifyOtp = () => {
         <StyledTitle size={18} mb="0">
           Verify Account
         </StyledTitle>
-        <p className="w-80 text-left">
+        <p className="w-80 text-l">
           As an added security mesure, please enter the 6-character code sent to
           your email to continue.
         </p>

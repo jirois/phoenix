@@ -56,7 +56,7 @@ const Sidebar = ({ isOpen, toggle }) => {
               <UserImg src={userIcon} />
               <Textdiv>
                 <Greeting>Hi</Greeting>
-                <UserName>Phoenix</UserName>
+                <UserName>{user.name}</UserName>
               </Textdiv>
               <DropIcon />
             </UserDiv>

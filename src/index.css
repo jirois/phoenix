@@ -59,6 +59,10 @@ body {
   border-top-color: #f08000;
   color: #f08000;
 }
+
+input::-webkit-input-placeholder{
+  font-size: 12px;
+}
  
 @tailwind base;
 @tailwind components;

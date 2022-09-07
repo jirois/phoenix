@@ -65,7 +65,9 @@ const Signup = () => {
               );
               resetForm();
               console.log(data.data.userId);
-              navigate(`/verifyEmail/${data.data.userId}`);
+              navigate(
+                `/verifyCode?userId=${data.data.userId}&email=${data.data.email}`
+              );
             } catch (error) {
               const { msg } = error.response.data;
 
