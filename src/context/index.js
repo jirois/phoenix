@@ -4,15 +4,27 @@ import axios from "axios";
 import { useEffect } from "react";
 import { baseUrl } from "../utils/url";
 import reducer from "./reducer";
+import { getLocalStorageCart } from "../utils/getLocalStorage";
+
 const AppContext = React.createContext();
 const initialState = {
   userProfile: false,
   cart: false,
   notification: false,
 };
+// const initialStateCart = {
+//   loading: false,
+//   cart: {
+//     cartItems: [],
+//     paymentMethod: "PayPal",
+//   },
+// };
+
 const initialStateCart = {
-  cart: [],
-  total: 0,
+  cartItems: localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [],
+  PaymentMethod: "Flutterwave",
 };
 
 const AppProvider = ({ children }) => {
@@ -73,8 +85,27 @@ const AppProvider = ({ children }) => {
   }, []);
 
   // Cart
-  const [cartState, cartDispatch] = useReducer(reducer, initialStateCart);
-  console.log(cartState);
+
+  const [list, setList] = useState([]);
+
+  // const removeItem = (id) => {
+  //   setList(list.filter((item) => item._id !== id));
+  // };
+
+  // cart2
+  const [cartState, dispatch] = useReducer(reducer, initialStateCart);
+  console.log(cartState.cartItems);
+
+  const removeItem = (id) => {
+    dispatch({ type: "REMOVE", payload: id });
+  };
+
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(list));
+  }, [list]);
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartState.cartItems));
+  });
 
   return (
     <AppContext.Provider
@@ -102,8 +133,12 @@ const AppProvider = ({ children }) => {
         setSessions,
         services,
         setServices,
+        setList,
+        list,
+        removeItem,
+        dispatch,
         cartState,
-        cartDispatch,
+        removeItem,
       }}
     >
       {children}

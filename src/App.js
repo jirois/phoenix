@@ -26,6 +26,9 @@ import CartScreen from "./pages/CartScreen";
 import VerifyOtp from "./pages/auth/VerifyOtp";
 import VerifyCode from "./pages/auth/VerifyCode";
 import ProtectedRoute from "./pages/auth/ProtectRoute";
+import SingleService from "./pages/services/SingleService";
+import Payment from "./pages/Payment";
+import PlaceOrder from "./pages/PlaceOrderScreen";
 
 function App() {
   return (
@@ -34,6 +37,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<ServiceScreen />} />
+
+        <Route path="/services/:id" element={<SingleService />} />
 
         <Route path="/broker" element={<BrokerScreen />} />
 
@@ -44,6 +49,7 @@ function App() {
         <Route path="/sessions" element={<BookScreen />} />
 
         <Route path="/testimonials" element={<TestimonialScreen />} />
+        <Route path="/placeorder" element={<PlaceOrder />} />
 
         <Route
           path="/dashboard"
@@ -61,7 +67,8 @@ function App() {
           <Route path="services" element={<Services />} />
         </Route>
 
-        <Route path="/cart/:id" element={<CartScreen />} />
+        <Route path="/cart" element={<CartScreen />} />
+        <Route path="/payment" element={<Payment />} />
 
         <Route path="/success-page" element={<RedirectPage />} />
         <Route path="/verifyEmail/:id" element={<VerifyOtp />} />

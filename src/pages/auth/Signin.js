@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import { FiMail, FiLock } from "react-icons/fi";
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { baseUrl } from "../../utils/url";
 import {
@@ -16,7 +16,7 @@ import {
 } from "../../components/FormStyles";
 import * as Yup from "yup";
 import { TextInput } from "../../components/TextInput";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 // import { useEffect } from "react";
 import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
@@ -37,7 +37,17 @@ const ErrorMessagesSchema = Yup.object().shape({
 const Signin = () => {
   const { alert, showAlert, loading, setLoading, hideAlert } = useLocalState();
   const navigate = useNavigate();
-  const { saveUser } = useGlobalContext();
+  const { saveUser, user } = useGlobalContext();
+  // Redirect
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get("redirect");
+  const redirect = redirectInUrl ? redirectInUrl : "/";
+
+  useEffect(() => {
+    if (user) {
+      navigate(redirect);
+    }
+  }, [user, redirect]);
 
   return (
     <BackgroundArea>
@@ -68,7 +78,6 @@ const Signin = () => {
               setLoading(false);
 
               saveUser(data.user);
-              navigate("/dashboard");
               resetForm();
             } catch (error) {
               showAlert({

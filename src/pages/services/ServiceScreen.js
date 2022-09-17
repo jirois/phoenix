@@ -8,14 +8,12 @@ import { baseUrl } from "../../utils/url";
 
 function ServiceScreen() {
   const { loading, setLoading } = useLocalState();
-  const { user, services, setServices } = useGlobalContext();
+  const { services, setServices } = useGlobalContext();
   const fetchServices = async () => {
     setLoading(true);
     try {
       const { data } = await axios.get(baseUrl + "service");
       setServices(data.services);
-      console.log(data);
-      console.log(services);
     } catch (error) {
       console.log(error);
     }
@@ -62,19 +60,21 @@ function ServiceScreen() {
                   </Link>
                 </div>
               </div> */}
-              <div key={service.id} className="service-card">
-                <span className="service-title">{service.title}</span>
-                <div className="service-price">
-                  <span>$</span>
-                  <span className="price">{service.price}</span>
-                </div>
-                <span className="duration">{service.duration}</span>
-                <span className="description">{service.description}</span>
+              <Link to={`/services/${service._id}`}>
+                <div key={service._id} className="service-card">
+                  <span className="service-title">{service.title}</span>
+                  <div className="service-price">
+                    <span>$</span>
+                    <span className="price">{service.price}</span>
+                  </div>
+                  <span className="duration">{service.duration}</span>
+                  <span className="description">{service.description}</span>
 
-                <Link to={!user ? `/cart/${service._id}` : "/signin"}>
-                  <button className="service-btn">Purchase Now</button>
-                </Link>
-              </div>
+                  <Link to={`/services/${service._id}`} className="service-btn">
+                    Purchase Now
+                  </Link>
+                </div>
+              </Link>
             </>
           );
         })}

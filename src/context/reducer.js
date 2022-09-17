@@ -1,37 +1,41 @@
-import axios from "axios";
-import { baseUrl } from "../utils/url";
-
-const reducer = async (state, action) => {
+const reducer = (state, action) => {
   if (action.type === "REMOVE") {
+    console.log("remove");
     return {
       ...state,
-      cart: state.cart.filter((cartItem) => cartItem.id !== action.payload),
+      cartItems: state.cartItems.filter(
+        (cartItem) => cartItem.id !== action.payload
+      ),
     };
   }
   if (action.type === "ADD_TO_CART") {
-    try {
-      const { data } = await axios.get(`${baseUrl}service/${action.payload}`);
-      const cartItem = data.service;
-      console.log(cartItem);
-    } catch (error) {
-      console.log(error);
-    }
-    return;
-  }
-  if (action.type === "GET_TOTALs") {
-    let { total } = state.cart.reduce(
-      (cartTotal, cartItem) => {
-        const itemTotal = cartItem;
-        cartTotal.total += itemTotal;
+    // console.log(state.cart.cartItems);
+    return {
+      ...state,
 
-        return cartTotal;
-      },
-      {
-        total: 0,
-      }
-    );
-    total = parseFloat(total.toFixed(2));
-    return { ...state, total };
+      cartItems: [...state.cartItems, action.payload],
+    };
+    // const item = action.payload;
+    // const existItem = state.cart.cartItems.find((x) => x._id === item._id);
+    // if (existItem) {
+    //   return {
+    //     ...state,
+    //     cartItems: state.cart.cartItems.map((x) =>
+    //       x._id === existItem._id ? item : x
+    //     ),
+    //   };
+    // } else {
+    //   return {
+    //     ...state,
+    //     cartItems: [...state.cart.cartItems, { ...item }],
+    //   };
+    // }
+  }
+  if (action.type === "SAVE_PAYMENT_METHOD") {
+    return {
+      ...state,
+      paymentMethod: action.payload,
+    };
   }
 };
 
