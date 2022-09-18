@@ -86,9 +86,14 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "REMOVE", payload: id });
   };
 
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartState.cartItems));
-  });
+  useEffect(
+    () => {
+      localStorage.setItem("cartItems", JSON.stringify(cartState.cartItems));
+    },
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
   useEffect(() => {
     fetchUser();
 
