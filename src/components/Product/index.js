@@ -13,8 +13,10 @@ import {
   ProductP,
   ProductLink,
 } from "./productElements1";
+import { useGlobalContext } from "../../context";
 
 const Products = () => {
+  const { user } = useGlobalContext();
   return (
     <ProductContainer id="service">
       <ProductH1>Our Products</ProductH1>
@@ -25,7 +27,13 @@ const Products = () => {
           <ProductP>
             Our team has over 3 years of combined experience within the industry
           </ProductP>
-          <ProductLink to="/">Get Started</ProductLink>
+          <div>
+            {user ? (
+              <ProductLink to="/sessions">Book a session now</ProductLink>
+            ) : (
+              <ProductLink to="/signup">Get started</ProductLink>
+            )}
+          </div>
         </ProductsCard>
         <ProductsCard>
           <ProductIcon src={Icon2} />
@@ -35,7 +43,13 @@ const Products = () => {
             market structure, price action, and potential movements to profit
             from the markets utilising our trading strategy
           </ProductP>
-          <ProductLink to="/">Get Started</ProductLink>
+          <div className="p-4">
+            {user ? (
+              <ProductLink to="/services">Check out our services</ProductLink>
+            ) : (
+              <ProductLink to="/signup">Get started</ProductLink>
+            )}
+          </div>
         </ProductsCard>
         <ProductsCard>
           <ProductIcon src={Icon3} />
@@ -44,7 +58,13 @@ const Products = () => {
             Upon completion of the Training, You will undergo an assessment by
             our top analyst and a certificate will be issued'
           </ProductP>
-          <ProductLink to="/">Get Started</ProductLink>
+          <div>
+            {user ? (
+              <ProductLink to="/services">Check out our services</ProductLink>
+            ) : (
+              <ProductLink to="/signup">Get started</ProductLink>
+            )}
+          </div>
         </ProductsCard>
       </ProductWrapper>
     </ProductContainer>

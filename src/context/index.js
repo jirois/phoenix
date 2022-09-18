@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import { baseUrl } from "../utils/url";
 import reducer from "./reducer";
-import { getLocalStorageCart } from "../utils/getLocalStorage";
 
 const AppContext = React.createContext();
 const initialState = {
@@ -78,21 +77,8 @@ const AppProvider = ({ children }) => {
       console.log(err);
     }
   };
-  useEffect(() => {
-    fetchUser();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Cart
-
-  const [list, setList] = useState([]);
-
-  // const removeItem = (id) => {
-  //   setList(list.filter((item) => item._id !== id));
-  // };
-
-  // cart2
+  // cart
   const [cartState, dispatch] = useReducer(reducer, initialStateCart);
   console.log(cartState.cartItems);
 
@@ -101,11 +87,13 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(list));
-  }, [list]);
-  useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartState.cartItems));
   });
+  useEffect(() => {
+    fetchUser();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <AppContext.Provider
@@ -133,12 +121,9 @@ const AppProvider = ({ children }) => {
         setSessions,
         services,
         setServices,
-        setList,
-        list,
         removeItem,
         dispatch,
         cartState,
-        removeItem,
       }}
     >
       {children}

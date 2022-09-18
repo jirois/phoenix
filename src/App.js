@@ -29,6 +29,8 @@ import ProtectedRoute from "./pages/auth/ProtectRoute";
 import SingleService from "./pages/services/SingleService";
 import Payment from "./pages/Payment";
 import PlaceOrder from "./pages/PlaceOrderScreen";
+import OrderScreen from "./pages/Order";
+import Profile from "./pages/profile";
 
 function App() {
   return (
@@ -52,6 +54,15 @@ function App() {
         <Route path="/placeorder" element={<PlaceOrder />} />
 
         <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
@@ -69,6 +80,7 @@ function App() {
 
         <Route path="/cart" element={<CartScreen />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/order/:id" element={<OrderScreen />} />
 
         <Route path="/success-page" element={<RedirectPage />} />
         <Route path="/verifyEmail/:id" element={<VerifyOtp />} />

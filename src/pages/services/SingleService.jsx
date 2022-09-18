@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useGlobalContext } from "../../context";
 import { Link, useParams } from "react-router-dom";
 import './service.css'
@@ -6,16 +6,15 @@ import axios from 'axios';
 import { baseUrl } from '../../utils/url';
 import useLocalState  from '../../utils/localState'
 import useFetch from '../../utils/useFetch';
-import { useEffect } from 'react';
 
 
 
 
 const SingleService = () => {
-    const {list,setList, dispatch, cartState} = useGlobalContext()
+    const {dispatch, cartState} = useGlobalContext()
     const params = useParams();
     const { id: serviceId } = params;
-    const {success, setSuccess, showAlert, alert, hideAlert} = useLocalState()
+    const {success, setSuccess, showAlert, alert} = useLocalState()
 
     const handleAddToCart = async () => {
         try {

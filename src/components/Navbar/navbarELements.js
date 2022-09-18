@@ -92,6 +92,7 @@ export const NavLinks = styled(LinkR)`
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
+  position: relative;
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -144,6 +145,7 @@ export const UserDiv = styled.div`
   cursor: pointer;
   padding: 0.25rem;
   border-radius: 0.5rem;
+  position: relative;
 
   &:hover {
     background-color: rgba(247, 247, 247, 0.3);

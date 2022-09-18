@@ -22,7 +22,7 @@ import {
   UserName,
   DropIcon,
 } from "./navbarELements";
-import UserProfile from "../userProfile";
+import Dropdown from "../drop/DropDownProfile";
 
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -110,7 +110,7 @@ const NavbarSection = ({ toggle }) => {
                 </Textdiv>
                 <DropIcon />
               </UserDiv>
-              {hover && <UserProfile />}
+              {hover && <Dropdown />}
             </div>
           ) : (
             <NavBtnLinkOne to="/signin">Sign In</NavBtnLinkOne>

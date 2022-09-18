@@ -37,13 +37,13 @@ const HeroSection = () => {
         <HeroBtnWrapper>
           {user ? (
             <ButtonLinK
-              to="/sessions"
+              to="/services"
               onMouseEnter={onHover}
               onMouseLeave={onHover}
               primary="true"
               dark="true"
             >
-              Book a Session {hover ? <ArrowForward /> : <ArrowRight />}
+              Check Out Our Services {hover ? <ArrowForward /> : <ArrowRight />}
             </ButtonLinK>
           ) : (
             <ButtonLinK

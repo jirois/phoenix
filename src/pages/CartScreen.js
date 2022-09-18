@@ -1,24 +1,51 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
+import useLocalState from "../utils/localState";
+import { baseUrl } from "../utils/url";
 
 const CartScreen = () => {
-  const { cartState, dispatch } = useGlobalContext();
+  const { cartState, dispatch, user } = useGlobalContext();
+  const { setSuccess } = useLocalState();
+  const [setOrder] = useState("");
   const { cartItems } = cartState;
-  const [total, setTotal] = useState();
-  const [totalAmount, setTotalAmount] = useState();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    let total = cartItems.reduce((acc, item) => acc + Number(item.price), 0);
-    let totalAmount = total * 0.1 + total;
-    setTotal(total);
-    setTotalAmount(totalAmount);
-  }, [cartItems]);
+  const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
 
-  const checkoutHandler = () => {
-    navigate("/signin?redirect=/payment");
+  cartState.servicePrice = toPrice(
+    cartItems.reduce((acc, item) => acc + Number(item.price), 0)
+  );
+  cartState.taxPrice = toPrice(0.1 * cartState.servicePrice);
+  cartState.totalPrice = toPrice(cartState.servicePrice + cartState.taxPrice);
+
+  // createOrder
+  const createOrder = async () => {
+    if (user) {
+      try {
+        const { data } = await axios.post(baseUrl + "orderService", {
+          ...cartState,
+          orderServices: cartState.cartItems,
+        });
+        setOrder(data.order);
+        console.log(data);
+        setSuccess(true);
+        localStorage.removeItem("cartItems");
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
+
+  // const checkoutHandler = () => {
+  //   if (success) {
+  //     navigate(`/order/${order._id}`);
+  //     createOrder();
+  //   }
+  // };
+
+  useEffect(() => {});
 
   return (
     <>
@@ -47,6 +74,7 @@ const CartScreen = () => {
               <div>
                 {cartItems.map((item, index) => {
                   const { _id, title, duration, price } = item;
+                  console.log(_id);
                   return (
                     <div
                       key={index}
@@ -69,7 +97,7 @@ const CartScreen = () => {
                             onClick={() => {
                               dispatch({
                                 type: "REMOVE",
-                                payload: cartItems._id,
+                                payload: _id,
                               });
                             }}
                             className="font-semibold hover:text-red-500 text-gray-500 text-xs"
@@ -115,22 +143,26 @@ const CartScreen = () => {
                 <span className="font-semibold text-sm uppercase">
                   Items {cartItems.length}
                 </span>
-                <span className="font-semibold text-sm">{total}</span>
+                <span className="font-semibold text-sm">
+                  {cartState.servicePrice}
+                </span>
               </div>
               <div className="flex justify-between mt-10 mb-5">
                 <span className="font-semibold text-sm uppercase">
                   VAT(10%)
                 </span>
-                <span className="font-semibold text-sm">{total * 0.1}%</span>
+                <span className="font-semibold text-sm">
+                  {cartState.taxPrice}%
+                </span>
               </div>
 
               <div className="border-t mt-8">
                 <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                   <span>Total cost</span>
-                  <span>{totalAmount}</span>
+                  <span>{cartState.totalPrice.toFixed(2)}</span>
                 </div>
                 <button
-                  onClick={checkoutHandler}
+                  onClick={createOrder}
                   disabled={cartItems.length === 0}
                   className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full"
                 >

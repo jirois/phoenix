@@ -14,19 +14,14 @@ import {
   ProfilteItemDesc,
   ProfilteItemTitle,
 } from "./userProfileElements";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-// import { logOut, removeUser } from "../../features/user/userSlice";
 import { useGlobalContext } from "../../context";
 
 import userIcon from "../../assets/user.png";
-import { userProfileData } from "../../data";
 import { NavBtnLinkBtn } from "../Navbar/navbarELements";
-// import { useDispatch, useSelector } from "react-redux";
 
 const UserProfile = () => {
-  // const { user: userSign } = useSelector((store) => store.user);
-  // const dispatch = useDispatch();
   const { logoutUser, user } = useGlobalContext();
   const navigate = useNavigate();
 
@@ -36,7 +31,7 @@ const UserProfile = () => {
   };
 
   return (
-    <ProfileWrapper on>
+    <ProfileWrapper>
       <ProfileHeader>
         <ProfileTitle>User Profile</ProfileTitle>
       </ProfileHeader>
@@ -49,14 +44,24 @@ const UserProfile = () => {
         </div>
       </ProfileInfo>
       <div>
-        {userProfileData.map((item, index) => (
-          <ProfileContent key={index}>
-            <div>
-              <ProfilteItemTitle>{item.title}</ProfilteItemTitle>
-              <ProfilteItemDesc>{item.desc}</ProfilteItemDesc>
-            </div>
-          </ProfileContent>
-        ))}
+        <ProfileContent>
+          <Link to="/profile">
+            <ProfilteItemTitle>My Profile</ProfilteItemTitle>
+            <ProfilteItemDesc>Account Settings</ProfilteItemDesc>
+          </Link>
+        </ProfileContent>
+        <ProfileContent>
+          <Link to="/cart">
+            <ProfilteItemTitle>Cart</ProfilteItemTitle>
+            <ProfilteItemDesc>Orders</ProfilteItemDesc>
+          </Link>
+        </ProfileContent>
+        <ProfileContent>
+          <div>
+            <ProfilteItemTitle>Products</ProfilteItemTitle>
+            <ProfilteItemDesc>Go to your products </ProfilteItemDesc>
+          </div>
+        </ProfileContent>
       </div>
       <LogoutWrapper>
         <NavBtnLinkBtn onClick={onLogout}>Log out</NavBtnLinkBtn>
