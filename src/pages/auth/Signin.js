@@ -47,6 +47,7 @@ const Signin = () => {
     if (user) {
       navigate(redirect);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, redirect]);
 
   return (
