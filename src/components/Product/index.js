@@ -1,7 +1,7 @@
 import React from "react";
 import Icon1 from "../../img/phoenix_bible.jpg";
 import Icon2 from "../../img/phoenix_course.jpg";
-import Icon3 from "../../img/img-phone.jpg";
+import Icon3 from "../../img/phoenix_img_product.JPG";
 
 import {
   ProductContainer,
@@ -12,6 +12,7 @@ import {
   ProductH2,
   ProductP,
   ProductLink,
+  ProductIcon1,
 } from "./productElements1";
 import { useGlobalContext } from "../../context";
 
@@ -52,7 +53,7 @@ const Products = () => {
           </div>
         </ProductsCard>
         <ProductsCard>
-          <ProductIcon src={Icon3} />
+          <ProductIcon1 src={Icon3} />
           <ProductH2>Get Certified</ProductH2>
           <ProductP>
             Upon completion of the Training, You will undergo an assessment by

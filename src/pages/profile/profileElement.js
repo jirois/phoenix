@@ -39,20 +39,20 @@ export const ProfileInfo = styled.div`
   text-align: center;
 `;
 export const ProfileImg = styled.img`
-  width: 6rem;
-  height: 6rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 50%;
 `;
 
 export const ProfileName = styled.span`
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.55rem;
   line-height: 1.75rem;
   color: ${color.mainBlack};
 `;
 export const ProfileRole = styled.span`
   color: rgb(107, 114, 128);
-  font-size: 0.875rem;
+  font-size: 0.975rem;
   line-height: 1.25rem;
 `;
 export const ProfileEmail = styled.span`

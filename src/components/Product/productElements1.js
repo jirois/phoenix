@@ -49,7 +49,13 @@ export const ProductsCard = styled.div`
 `;
 export const ProductIcon = styled.img`
   width: 100%;
-  height: 350px;
+  height: 250px;
+  margin-bottom: 44px;
+  object-fit: cover;
+`;
+export const ProductIcon1 = styled.img`
+  width: 100%;
+  height: 250px;
   margin-bottom: 44px;
   object-fit: cover;
 `;
