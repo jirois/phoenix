@@ -18,6 +18,12 @@ const initialState = {
 //     paymentMethod: "PayPal",
 //   },
 // };
+const initialModalState = {
+  name: false,
+  email: false,
+  password: false,
+  image: false,
+};
 
 const initialStateCart = {
   cartItems: localStorage.getItem("cartItems")
@@ -39,6 +45,7 @@ const AppProvider = ({ children }) => {
   const [services, setServices] = useState([]);
   const [serviceSuccess, setServiceSuccess] = useState(false);
   const [order, setOrder] = useState("");
+  const [isOpen, setIsOpen] = useState(initialModalState);
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -52,6 +59,10 @@ const AppProvider = ({ children }) => {
 
   const handleClick = (clicked) => {
     setIsClicked({ ...initialState, [clicked]: true });
+  };
+
+  const handleModal = (clicked) => {
+    setIsOpen({ ...initialModalState, [clicked]: true });
   };
 
   const saveUser = (user) => {
@@ -151,6 +162,8 @@ const AppProvider = ({ children }) => {
         serviceSuccess,
         order,
         createOrder,
+        handleModal,
+        isOpen,
       }}
     >
       {children}

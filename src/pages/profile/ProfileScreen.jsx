@@ -1,9 +1,9 @@
 import React from "react";
 import {  useNavigate } from "react-router-dom";
-import { ProfileEmail, ProfileHeader, ProfileImg, ProfileInfo, ProfileName, ProfileRole, ProfileTitle, ProfileWrapper } from "./profileElement";
+import { ProfileWrapper } from "./profileElement";
 import { useGlobalContext } from "../../context";
-import userIcon from "../../assets/user.png";
-
+import userIcon from "../../assets/user.png"
+import {FiLogOut} from 'react-icons/fi'
 
 
 const ProfileScreen =() => {
@@ -18,8 +18,9 @@ const ProfileScreen =() => {
 
   return (
     
-    <ProfileWrapper >
-      <div className="bg-white w-5/6 shadow-xl p-6">
+    <div className="flex  flex-col mt-14">
+      
+      <div className="bg-white md:mx-auto shadow-xl p-6">
         <div className="border-b-1 pb-3">
           <h3 className="text-2xl font-bold mb-1">Profile</h3>
           <span className="text-sm text-gray-600">This is information will be displayed publicly so be careful what you share</span>
@@ -53,9 +54,17 @@ const ProfileScreen =() => {
           <button className="text-blue-400 pt-2">update</button>
         </div>
       </div>
+      <div className="mt-5 md:w-5/6 md:mx-auto">
+        <div className="text-gray-500 flex justify-center py-2  text-xl">
+          <FiLogOut className="pt-2 text-xl" />
+          <button className="font-bold ml-2 hover:text-yellow-500"onClick={onLogout}>Log out</button>
+        </div>
+      </div>
+
+     
      
     
-    </ProfileWrapper>
+    </div>
   );
   
 }
