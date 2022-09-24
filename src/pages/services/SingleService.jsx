@@ -21,7 +21,13 @@ const SingleService = () => {
           const { data } = await axios.get(baseUrl + `service/${serviceId}`);
           const cartItem = data.service;
           console.log(cartItem)
-          dispatch({type: "ADD_TO_CART", payload: cartItem})
+          dispatch({type: "ADD_TO_CART", payload: {
+            title: cartItem.title,
+            duration: cartItem.duration,
+            price: cartItem.price,
+            service: cartItem._id
+
+          }})
           localStorage.setItem('cartItems', JSON.stringify(cartState.cartItems))
           console.log(cartState)
           setSuccess(true)

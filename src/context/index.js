@@ -37,6 +37,8 @@ const AppProvider = ({ children }) => {
   const [themeSettings, setThemeSettings] = useState(false);
   const [sessions, setSessions] = useState([]);
   const [services, setServices] = useState([]);
+  const [serviceSuccess, setServiceSuccess] = useState(false);
+  const [order, setOrder] = useState("");
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -100,6 +102,23 @@ const AppProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // create order
+  const createOrder = async (values) => {
+    setLoading(true);
+    try {
+      const { data } = await axios.post(baseUrl + "orderService", values, {
+        headers: { "Content-Type": "application/json" },
+      });
+      console.log(data);
+      setOrder(data);
+      setServiceSuccess(true);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.message);
+      setLoading(false);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -129,6 +148,9 @@ const AppProvider = ({ children }) => {
         removeItem,
         dispatch,
         cartState,
+        serviceSuccess,
+        order,
+        createOrder,
       }}
     >
       {children}

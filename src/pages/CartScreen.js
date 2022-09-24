@@ -1,16 +1,19 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
-import useLocalState from "../utils/localState";
-import { baseUrl } from "../utils/url";
 
 const CartScreen = () => {
-  const { cartState, dispatch, user } = useGlobalContext();
-  const { setSuccess } = useLocalState();
-  const [setOrder] = useState("");
+  const {
+    cartState,
+    dispatch,
+    user,
+    createOrder,
+    serviceSuccess,
+    order,
+    loading,
+  } = useGlobalContext();
   const { cartItems } = cartState;
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
 
@@ -20,32 +23,41 @@ const CartScreen = () => {
   cartState.taxPrice = toPrice(0.1 * cartState.servicePrice);
   cartState.totalPrice = toPrice(cartState.servicePrice + cartState.taxPrice);
 
+  const removeItem = (id) => {
+    dispatch({ type: "REMOVE", payload: id });
+  };
+  console.log(cartState.cartItems);
+  console.log({ ...cartState });
+
   // createOrder
-  const createOrder = async () => {
-    if (user) {
-      try {
-        const { data } = await axios.post(baseUrl + "orderService", {
-          ...cartState,
-          orderServices: cartState.cartItems,
-        });
-        setOrder(data.order);
-        console.log(data);
-        setSuccess(true);
-        localStorage.removeItem("cartItems");
-      } catch (error) {
-        console.log(error);
-      }
-    }
+  const data = {
+    orderServices: {
+      price: 150,
+      duration: "one time off",
+      title: "phoenix full course",
+      service: "6314e695da3b925d51273133",
+    },
+    paymentMethod: cartState.paymentMethod,
+    servicePrice: cartState.servicePrice,
+    taxPrice: cartState.taxPrice,
+    totalPrice: cartState.totalPrice,
   };
 
-  // const checkoutHandler = () => {
-  //   if (success) {
-  //     navigate(`/order/${order._id}`);
-  //     createOrder();
-  //   }
-  // };
+  const checkoutHandler = () => {
+    createOrder({
+      orderServices: cartState.cartItems,
+      paymentMethod: cartState.paymentMethod,
+      servicePrice: cartState.servicePrice,
+      taxPrice: cartState.taxPrice,
+      totalPrice: cartState.totalPrice,
+    });
+  };
 
-  useEffect(() => {});
+  useEffect(() => {
+    if (serviceSuccess) {
+      navigate(`/order/${order._id}`);
+    }
+  });
 
   return (
     <>
@@ -73,11 +85,11 @@ const CartScreen = () => {
 
               <div>
                 {cartItems.map((item, index) => {
-                  const { _id, title, duration, price } = item;
-                  console.log(_id);
+                  const { service, title, duration, price } = item;
+                  console.log(service);
                   return (
                     <div
-                      key={index}
+                      key={service}
                       className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
                     >
                       <div className="flex w-2/5">
@@ -97,7 +109,7 @@ const CartScreen = () => {
                             onClick={() => {
                               dispatch({
                                 type: "REMOVE",
-                                payload: _id,
+                                payload: service,
                               });
                             }}
                             className="font-semibold hover:text-red-500 text-gray-500 text-xs"
@@ -162,11 +174,11 @@ const CartScreen = () => {
                   <span>{cartState.totalPrice.toFixed(2)}</span>
                 </div>
                 <button
-                  onClick={createOrder}
-                  disabled={cartItems.length === 0}
+                  onClick={checkoutHandler}
+                  disabled={loading}
                   className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full"
                 >
-                  Checkout
+                  {loading ? "Please wait..." : "Checkout"}
                 </button>
               </div>
             </div>

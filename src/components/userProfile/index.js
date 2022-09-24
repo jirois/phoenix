@@ -57,6 +57,12 @@ const UserProfile = () => {
           </Link>
         </ProfileContent>
         <ProfileContent>
+          <Link to="/dashboard">
+            <ProfilteItemTitle>Dashboard</ProfilteItemTitle>
+            <ProfilteItemDesc>Admin Dashboard</ProfilteItemDesc>
+          </Link>
+        </ProfileContent>
+        <ProfileContent>
           <div>
             <ProfilteItemTitle>Products</ProfilteItemTitle>
             <ProfilteItemDesc>Go to your products </ProfilteItemDesc>

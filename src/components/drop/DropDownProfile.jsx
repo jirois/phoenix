@@ -44,6 +44,12 @@ const Dropdown = () => {
           </Link>
         </DropDownContent>
         <DropDownContent>
+          <Link to='/dashboard'>
+            <DropDownItemTitle>Dashboard</DropDownItemTitle>
+            <DropDownItemDesc>Go to Dashboard</DropDownItemDesc>
+          </Link>
+        </DropDownContent>
+        <DropDownContent>
           <div>
             <DropDownItemTitle>Products</DropDownItemTitle>
             <DropDownItemDesc>Go to your products </DropDownItemDesc>
