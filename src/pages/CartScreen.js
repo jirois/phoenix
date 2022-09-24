@@ -3,15 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 const CartScreen = () => {
-  const {
-    cartState,
-    dispatch,
-    user,
-    createOrder,
-    serviceSuccess,
-    order,
-    loading,
-  } = useGlobalContext();
+  const { cartState, dispatch, createOrder, serviceSuccess, order, loading } =
+    useGlobalContext();
   const { cartItems } = cartState;
   const navigate = useNavigate();
 
@@ -23,25 +16,10 @@ const CartScreen = () => {
   cartState.taxPrice = toPrice(0.1 * cartState.servicePrice);
   cartState.totalPrice = toPrice(cartState.servicePrice + cartState.taxPrice);
 
-  const removeItem = (id) => {
-    dispatch({ type: "REMOVE", payload: id });
-  };
   console.log(cartState.cartItems);
   console.log({ ...cartState });
 
   // createOrder
-  const data = {
-    orderServices: {
-      price: 150,
-      duration: "one time off",
-      title: "phoenix full course",
-      service: "6314e695da3b925d51273133",
-    },
-    paymentMethod: cartState.paymentMethod,
-    servicePrice: cartState.servicePrice,
-    taxPrice: cartState.taxPrice,
-    totalPrice: cartState.totalPrice,
-  };
 
   const checkoutHandler = () => {
     createOrder({

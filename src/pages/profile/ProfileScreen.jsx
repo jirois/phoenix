@@ -1,6 +1,5 @@
 import React from "react";
 import {  useNavigate } from "react-router-dom";
-import { ProfileWrapper } from "./profileElement";
 import { useGlobalContext } from "../../context";
 import userIcon from "../../assets/user.png"
 import {FiLogOut} from 'react-icons/fi'
