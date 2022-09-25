@@ -4,6 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { useGlobalContext } from "../../context";
 import { animateScroll as scroll } from "react-scroll/modules";
 import userIcon from "../../assets/user.png";
+import { getFirstName } from "../../utils/greeting";
 
 import {
   Nav,
@@ -106,7 +107,7 @@ const NavbarSection = ({ toggle }) => {
                 <UserImg src={userIcon} />
                 <Textdiv>
                   <Greeting>Hi</Greeting>
-                  <UserName>{user.name}</UserName>
+                  <UserName>{getFirstName(user)}</UserName>
                 </Textdiv>
                 <DropIcon />
               </UserDiv>

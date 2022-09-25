@@ -13,7 +13,7 @@ export const DropDownContainter = styled.div`
   @media (min-width: 1200px) {
     position: normal;
     top: 4rem;
-    right: 2.5rem;
+    right: 1rem;
     left: 2.5rem;
     z-index: 11000;
   }

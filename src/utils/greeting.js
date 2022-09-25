@@ -6,3 +6,9 @@ export const greeting = () => {
     ? "Good Afternoon"
     : "Good Evening";
 };
+
+export const getFirstName = ({ name }) => {
+  let nameArr = name.split(" ");
+  let firstName = nameArr.length > 0 ? nameArr[0] : nameArr[0];
+  return firstName;
+};
