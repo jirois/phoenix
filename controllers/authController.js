@@ -106,15 +106,15 @@ const login = async (req, res) => {
     return;
   }
 
-  refreshToken = randomBytes(40).toString("hex");
+  refreshTokenPrev = randomBytes(40).toString("hex");
   const userAgent = req.headers["user-agent"];
   const ip = req.ip;
-  const userToken = { refreshToken, ip, userAgent, user: user._id };
+  const userToken = { refreshTokenPrev, ip, userAgent, user: user._id };
 
   await Token.create(userToken);
 
-  attachCookiesToResponse({ res, user: tokenUser, refreshToken });
-  res.status(StatusCodes.OK).json({ user: tokenUser });
+  const {accessToken, refreshToken} = attachCookiesToResponse({ res, user: tokenUser, refreshTokenPrev });
+  res.status(StatusCodes.OK).json({ user: tokenUser ,accessToken, refreshToken});
 };
 
 const logout = async (req, res) => {
