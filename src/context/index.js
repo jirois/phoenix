@@ -70,6 +70,10 @@ const AppProvider = ({ children }) => {
     setIsOpen({ ...initialModalState, [clicked]: true });
   };
 
+  const closeModal = (clicked) => {
+    setIsOpen({ ...initialModalState, [clicked]: false });
+  };
+
   const saveUser = (user) => {
     setUser(user);
   };
@@ -169,6 +173,7 @@ const AppProvider = ({ children }) => {
         createOrder,
         handleModal,
         isOpen,
+        closeModal,
       }}
     >
       {children}

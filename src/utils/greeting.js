@@ -12,3 +12,11 @@ export const getFirstName = ({ name }) => {
   let firstName = nameArr.length > 0 ? nameArr[0] : nameArr[0];
   return firstName;
 };
+
+export const initials = ({ name }) => {
+  return name
+    .split(" ")
+    .map((name) => name[0])
+    .join("")
+    .toUpperCase();
+};
