@@ -33,10 +33,6 @@ const initialStateCart = {
   PaymentMethod: "Flutterwave",
 };
 
-const initialUser = localStorage.getItem("accessToken")
-  ? JSON.parse(localStorage.getItem("accessToken"))
-  : null;
-
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(getLocalStorage("userInfo"));
