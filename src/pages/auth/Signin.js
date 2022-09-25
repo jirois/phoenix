@@ -79,6 +79,12 @@ const Signin = () => {
               setLoading(false);
 
               saveUser(data.user);
+              console.log(data);
+              localStorage.setItem(
+                "accessToken",
+                JSON.stringify(data.accessToken)
+              );
+
               resetForm();
             } catch (error) {
               showAlert({

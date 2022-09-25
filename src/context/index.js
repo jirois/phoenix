@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { baseUrl } from "../utils/url";
 import reducer from "./reducer";
+import { getLocalStorage } from "../utils/getLocalStorage";
 
 const AppContext = React.createContext();
 const initialState = {
@@ -32,9 +33,13 @@ const initialStateCart = {
   PaymentMethod: "Flutterwave",
 };
 
+const initialUser = localStorage.getItem("accessToken")
+  ? JSON.parse(localStorage.getItem("accessToken"))
+  : null;
+
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(getLocalStorage("userInfo"));
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
