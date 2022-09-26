@@ -20,7 +20,7 @@ const UserImageModal = () => {
           <h2 className="font-bold text-2xl text-black px-4">Update your profile Image</h2>
         </div>
         <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div className='w-16 h-16 rounded-full text-3xl text-white bg-gray-900 m-5 text-center align-center mx-auto' style={{lineHeight: '4rem'}}>
+          <div className='w-16 h-16 rounded-full text-3xl text-white bg-yellow-600 m-5 text-center align-center mx-auto' style={{lineHeight: '4rem'}}>
             {initials(user)}
           </div>
         

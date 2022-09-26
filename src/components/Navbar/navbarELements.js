@@ -143,13 +143,9 @@ export const UserDiv = styled.div`
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
-  padding: 0.25rem;
   border-radius: 0.5rem;
   position: relative;
-
-  &:hover {
-    background-color: rgba(247, 247, 247, 0.3);
-  }
+  padding: 0.25rem;
 `;
 export const UserImg = styled.img`
   width: 2rem;

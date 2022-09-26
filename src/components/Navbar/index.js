@@ -3,8 +3,8 @@ import { FaBars } from "react-icons/fa";
 // import { useSelector } from "react-redux";
 import { useGlobalContext } from "../../context";
 import { animateScroll as scroll } from "react-scroll/modules";
-import userIcon from "../../assets/user.png";
-import { getFirstName } from "../../utils/greeting";
+// import userIcon from "../../assets/user.png";
+import { getFirstName, initials } from "../../utils/greeting";
 
 import {
   Nav,
@@ -17,13 +17,13 @@ import {
   NavBtn,
   NavBtnLinkOne,
   UserDiv,
-  UserImg,
   Textdiv,
   Greeting,
   UserName,
   DropIcon,
 } from "./navbarELements";
 import Dropdown from "../drop/DropDownProfile";
+// import { AvatarDiv } from "../Avatar";
 
 const NavbarSection = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -104,7 +104,13 @@ const NavbarSection = ({ toggle }) => {
           {user ? (
             <div onMouseEnter={onHover} onMouseLeave={onHover}>
               <UserDiv>
-                <UserImg src={userIcon} />
+                {/* <UserImg src={userIcon} /> */}
+                <div
+                  className="w-8 h-8 rounded-full bg-yellow-600 m-5 text-center text-black align-center mx-auto"
+                  style={{ lineHeight: "2rem", fontSize: "1.1rem" }}
+                >
+                  {initials(user)}
+                </div>
                 <Textdiv>
                   <Greeting>Hi</Greeting>
                   <UserName>{getFirstName(user)}</UserName>

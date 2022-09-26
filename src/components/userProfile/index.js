@@ -5,7 +5,6 @@ import {
   ProfileContent,
   ProfileEmail,
   ProfileHeader,
-  ProfileImg,
   ProfileInfo,
   ProfileName,
   ProfileRole,
@@ -18,8 +17,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useGlobalContext } from "../../context";
 
-import userIcon from "../../assets/user.png";
+// import userIcon from "../../assets/user.png";
 import { NavBtnLinkBtn } from "../Navbar/navbarELements";
+import { initials } from "../../utils/greeting";
 
 const UserProfile = () => {
   const { logoutUser, user } = useGlobalContext();
@@ -36,7 +36,12 @@ const UserProfile = () => {
         <ProfileTitle>User Profile</ProfileTitle>
       </ProfileHeader>
       <ProfileInfo>
-        <ProfileImg src={userIcon} alt="PA" />
+        <div
+          className="w-12 h-12 rounded-full bg-yellow-600 m-5 text-center text-black align-center mx-auto"
+          style={{ lineHeight: "3rem", fontSize: "1.4rem" }}
+        >
+          {initials(user)}
+        </div>
         <div>
           <ProfileName>{user.name}</ProfileName>
           <ProfileRole>{user.role}</ProfileRole>

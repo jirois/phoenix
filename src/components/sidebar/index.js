@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { logout } from "../../features/auth/authSlice";
 // import { useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
-import userIcon from "../../assets/user.png";
+// import userIcon from "../../assets/user.png";
 // import {logoutUser} from '../../context'
 // import { useNavigate } from "react-router-dom";
 
@@ -21,11 +21,11 @@ import {
   Greeting,
   Textdiv,
   UserDiv,
-  UserImg,
   UserName,
 } from "../Navbar/navbarELements";
 import UserProfile from "../userProfile";
 import { useGlobalContext } from "../../context";
+import { getFirstName, initials } from "../../utils/greeting";
 const Sidebar = ({ isOpen, toggle }) => {
   const { user } = useGlobalContext();
   // const history = useHistory();
@@ -53,10 +53,15 @@ const Sidebar = ({ isOpen, toggle }) => {
             onClick={handleClick}
           >
             <UserDiv>
-              <UserImg src={userIcon} />
+              <div
+                className="w-8 h-8 rounded-full bg-yellow-600 text-center text-black align-center mx-auto"
+                style={{ lineHeight: "2rem", fontSize: "1.1rem" }}
+              >
+                {initials(user)}
+              </div>
               <Textdiv>
                 <Greeting>Hi</Greeting>
-                <UserName>{user.name}</UserName>
+                <UserName>{getFirstName(user)}</UserName>
               </Textdiv>
               <DropIcon />
             </UserDiv>

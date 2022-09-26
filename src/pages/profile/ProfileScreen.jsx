@@ -1,12 +1,13 @@
 import React from "react";
 import {  useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context";
-import userIcon from "../../assets/user.png"
+// import userIcon from "../../assets/user.png"
 import {FiLogOut} from 'react-icons/fi'
 import UserNameModal from "../../components/modal/UserNameModal";
 import UserEmailModal from '../../components/modal/UserEmailModal'
 import UserPasswordModal from '../../components/modal/UserPasswordModal'
 import UserImageModal from '../../components/modal/UserImageModal'
+import { initials } from "../../utils/greeting";
 
 
 const ProfileScreen =() => {
@@ -58,7 +59,12 @@ const ProfileScreen =() => {
         <div className="flex justify-between  py-3">
           <div className="flex flex-col ">
             <span className="text-xs text-gray-500 block mb-1">Profile Image</span>
-            <img className="w-10 h-10" src={userIcon} alt="img alt" />
+            <div
+                  className="w-12 h-12 rounded-full bg-yellow-600 text-center text-black align-center"
+                  style={{ lineHeight: "3rem", fontSize: "1.4rem" }}
+                >
+                  {initials(user)}
+                </div>
           </div>
           <button 
           onClick={() => handleModal('image')}

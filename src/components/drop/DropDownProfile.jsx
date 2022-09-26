@@ -4,9 +4,10 @@ import { useNavigate, Link } from "react-router-dom";
 
 import { useGlobalContext } from "../../context";
 
-import userIcon from "../../assets/user.png";
-import { DropDownContainter, DropDownContent, DropDownInfo, DropDownInfoEmail, DropDownInfoImg, DropDownInfoName, DropDownInfoRole, DropDownItemDesc, DropDownItemTitle, DropDownTitle, DropDrowHeader, LogoutWrapper } from "./dropElements";
+// import userIcon from "../../assets/user.png";
+import { DropDownContainter, DropDownContent, DropDownInfo, DropDownInfoEmail,  DropDownInfoName, DropDownInfoRole, DropDownItemDesc, DropDownItemTitle, DropDownTitle, DropDrowHeader, LogoutWrapper } from "./dropElements";
 import { NavBtnLinkBtn } from "../Navbar/navbarELements";
+import { initials } from "../../utils/greeting";
 
 const Dropdown = () => {
   const { logoutUser, user } = useGlobalContext();
@@ -23,11 +24,14 @@ const Dropdown = () => {
       <DropDownTitle>User Profile</DropDownTitle>
     </DropDrowHeader>
     <DropDownInfo>
-      <DropDownInfoImg src={userIcon} alt="PA" />
-      <div>
+    <div
+        className="w-16 h-16 rounded-full text-3xl bg-yellow-600  text-center text-black align-center mx-auto"
+          style={{ lineHeight: "4rem" }}>{initials(user)}</div>
+      {/* <DropDownInfoImg src={userIcon} alt="PA" /> */}
+      <div className="-ml-4">
         <DropDownInfoName>{user.name}</DropDownInfoName>
         <DropDownInfoRole>{user.role}</DropDownInfoRole>
-        <DropDownInfoEmail></DropDownInfoEmail>
+        <DropDownInfoEmail>{user.email}</DropDownInfoEmail>
       </div>
     </DropDownInfo>
     <div>

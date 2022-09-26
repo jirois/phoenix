@@ -21,14 +21,13 @@ const CartScreen = () => {
 
   // createOrder
 
+  const data = {
+    ...cartState,
+    orderServices: cartState.cartItems,
+  };
+
   const checkoutHandler = () => {
-    createOrder({
-      orderServices: cartState.cartItems,
-      paymentMethod: cartState.paymentMethod,
-      servicePrice: cartState.servicePrice,
-      taxPrice: cartState.taxPrice,
-      totalPrice: cartState.totalPrice,
-    });
+    createOrder(JSON.stringify(data));
   };
 
   useEffect(() => {
@@ -74,7 +73,7 @@ const CartScreen = () => {
                         <div className="w-20">
                           <img
                             className="h-24"
-                            src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z"
+                            src="https://res.cloudinary.com/jinncy/image/upload/v1664184754/phoenix_course_img_fwppdy.jpg"
                             alt=""
                           />
                         </div>
