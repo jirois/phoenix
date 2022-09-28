@@ -74,7 +74,10 @@ const Signin = () => {
               const { data } = await axios.post(
                 baseUrl + "auth/signin",
                 JSON.stringify(values),
-                { withCredentials: true }
+                {
+                  headers: { "Content-Type": "application/json" },
+                  withCredentials: true,
+                }
               );
               console.log(JSON.stringify(data?.user));
               saveUser(data?.user);
