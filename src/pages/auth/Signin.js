@@ -79,7 +79,7 @@ const Signin = () => {
                   withCredentials: true,
                 }
               );
-              console.log(JSON.stringify(data?.user));
+              console.log(JSON.stringify(data));
               saveUser(data?.user);
 
               // showAlert({
