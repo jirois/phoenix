@@ -82,7 +82,7 @@ const Signup = () => {
                 name="name"
                 type="name"
                 label="Name"
-                placeholder="info@info.com"
+                placeholder="John Doe"
                 icon={<FiUser />}
               />
               <TextInput

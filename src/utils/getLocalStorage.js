@@ -1,7 +1,7 @@
 export const getLocalStorage = (keyname) => {
-  let userInfo = localStorage.getItem(keyname);
-  if (userInfo) {
-    return (userInfo = JSON.parse(localStorage.getItem(keyname)));
+  let user = localStorage.getItem(keyname);
+  if (user) {
+    return (user = JSON.parse(localStorage.getItem(keyname)));
   } else {
     return null;
   }

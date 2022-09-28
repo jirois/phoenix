@@ -35,7 +35,7 @@ const initialStateCart = {
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(getLocalStorage("userInfo"));
+  const [user, setUser] = useState(getLocalStorage("user"));
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
@@ -47,6 +47,7 @@ const AppProvider = ({ children }) => {
   const [serviceSuccess, setServiceSuccess] = useState(false);
   const [order, setOrder] = useState("");
   const [isOpen, setIsOpen] = useState(initialModalState);
+  const [auth, setAuth] = useState({});
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -91,6 +92,7 @@ const AppProvider = ({ children }) => {
     try {
       await axios.delete(baseUrl + "auth/logout");
       removeUser();
+      localStorage.removeItem("user");
     } catch (err) {
       console.log(err);
     }
@@ -170,6 +172,8 @@ const AppProvider = ({ children }) => {
         handleModal,
         isOpen,
         closeModal,
+        auth,
+        setAuth,
       }}
     >
       {children}

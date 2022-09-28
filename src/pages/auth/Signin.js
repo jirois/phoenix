@@ -71,19 +71,23 @@ const Signin = () => {
             hideAlert();
             setLoading(true);
             try {
-              const { data } = await axios.post(baseUrl + "auth/login", values);
-              showAlert({
-                text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
-                type: "success",
-              });
-              setLoading(false);
-
-              saveUser(data.user);
-              console.log(data);
-              localStorage.setItem(
-                "accessToken",
-                JSON.stringify(data.accessToken)
+              const { data } = await axios.post(
+                baseUrl + "auth/signin",
+                JSON.stringify(values),
+                { withCredentials: true }
               );
+              console.log(JSON.stringify(data?.user));
+              saveUser(data?.user);
+
+              // showAlert({
+              //   text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
+              //   type: "success",
+              // });
+              // setLoading(false);
+
+              // saveUser(data.user);
+              // console.log(data);
+              // localStorage.setItem("user", JSON.stringify(data.user));
 
               resetForm();
             } catch (error) {
