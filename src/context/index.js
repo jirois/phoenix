@@ -5,8 +5,8 @@ import { useEffect } from "react";
 import { baseUrl } from "../utils/url";
 import reducer from "./reducer";
 import { getLocalStorage } from "../utils/getLocalStorage";
-import { useNavigate, useLocation } from "react-router-dom";
-import useAxiosPrivate from "../hooks/usePrivateAxios";
+// import { useNavigate, useLocation } from "react-router-dom";
+import { axiosPrivate } from "../api/axios";
 
 const AppContext = React.createContext();
 const initialState = {
@@ -51,9 +51,8 @@ const AppProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(initialModalState);
   const [auth, setAuth] = useState({});
   const [newUser, setNewUser] = useState();
-  const axiosPrivate = useAxiosPrivate();
-  const navigate = useNavigate();
-  const location = useLocation();
+  // const navigate = useNavigate();
+  // const location = useLocation();
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -143,6 +142,63 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  // use refresh
+
+  const useRefreshToken = () => {
+    const refresh = async () => {
+      const { response } = await axios.get(baseUrl + "auth/refresh", {
+        withCredentials: true,
+      });
+      setAuth((prev) => {
+        console.log(JSON.stringify(prev));
+        console.log(response.data.accessToken);
+        return { ...prev, accessToken: response.data.accessToken };
+      });
+      return response.data.accessToken;
+    };
+
+    return refresh;
+  };
+
+  // useprivateAxiol
+
+  const useAxiosPrivate = () => {
+    const refresh = useRefreshToken();
+
+    useEffect(() => {
+      const requestIntercept = axiosPrivate.interceptors.request.use(
+        (config) => {
+          if (!config.headers["Authorization"]) {
+            config.headers["Authorization"] = `Bearer ${auth?.accessToken}`;
+          }
+          return config;
+        },
+        (error) => Promise.reject(error)
+      );
+
+      const responseIntercept = axiosPrivate.interceptors.response.use(
+        (response) => response,
+        async (error) => {
+          const prevResquest = error?.config;
+          if (error?.response?.status === 403 && !prevResquest?.sent) {
+            prevResquest.sent = true;
+            const newAccessToken = await refresh();
+            prevResquest.headers["Authorization"] = `Bearer ${newAccessToken}`;
+            return axiosPrivate(prevResquest);
+          }
+          return Promise.reject(error);
+        }
+      );
+      return () => {
+        axiosPrivate.interceptors.request.eject(requestIntercept);
+        axiosPrivate.interceptors.response.eject(responseIntercept);
+      };
+    }, [refresh]);
+
+    return axiosPrivate;
+  };
+
+  const axiosPrivates = useAxiosPrivate();
   // create new userobject
   useEffect(() => {
     let isMounted = true;
@@ -150,14 +206,13 @@ const AppProvider = ({ children }) => {
 
     const getUser = async () => {
       try {
-        const { data } = await axiosPrivate.get("users/showMe", {
+        const { data } = await axiosPrivates.get("users/showMe", {
           signal: controller.signal,
         });
         console.log(data);
         isMounted && setNewUser(data);
       } catch (err) {
         console.log(err);
-        navigate("/login", { state: { from: location }, replace: true });
       }
     };
     getUser();
@@ -173,6 +228,8 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        auth,
+        setAuth,
         loading,
         saveUser,
         logoutUser,
@@ -205,8 +262,6 @@ const AppProvider = ({ children }) => {
         handleModal,
         isOpen,
         closeModal,
-        auth,
-        setAuth,
       }}
     >
       {children}

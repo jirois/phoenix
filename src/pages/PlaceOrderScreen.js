@@ -1,7 +1,7 @@
 import React from "react";
 
 const PlaceOrderScreen = () => {
-  return <div>PlaceOrderScreen</div>;
+  return <div></div>;
 };
 
 export default PlaceOrderScreen;
