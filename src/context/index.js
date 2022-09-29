@@ -209,8 +209,8 @@ const AppProvider = ({ children }) => {
         const { data } = await axiosPrivates.get("users/showMe", {
           signal: controller.signal,
         });
-        console.log(data);
-        isMounted && setNewUser(data);
+        console.log(data.user);
+        isMounted && setNewUser(data.user);
       } catch (err) {
         console.log(err);
       }
