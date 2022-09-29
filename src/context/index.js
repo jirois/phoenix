@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { baseUrl } from "../utils/url";
 import reducer from "./reducer";
 import { getLocalStorage } from "../utils/getLocalStorage";
+import { useNavigate, useLocation } from "react-router-dom";
+import useAxiosPrivate from "../hooks/usePrivateAxios";
 
 const AppContext = React.createContext();
 const initialState = {
@@ -48,6 +50,10 @@ const AppProvider = ({ children }) => {
   const [order, setOrder] = useState("");
   const [isOpen, setIsOpen] = useState(initialModalState);
   const [auth, setAuth] = useState({});
+  const [newUser, setNewUser] = useState();
+  const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -136,6 +142,33 @@ const AppProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
+  // create new userobject
+  useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+
+    const getUser = async () => {
+      try {
+        const { data } = await axiosPrivate.get("users/showMe", {
+          signal: controller.signal,
+        });
+        console.log(data);
+        isMounted && setNewUser(data);
+      } catch (err) {
+        console.log(err);
+        navigate("/login", { state: { from: location }, replace: true });
+      }
+    };
+    getUser();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  console.log(newUser);
 
   return (
     <AppContext.Provider

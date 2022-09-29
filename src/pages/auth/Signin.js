@@ -37,7 +37,7 @@ const ErrorMessagesSchema = Yup.object().shape({
 const Signin = () => {
   const { alert, showAlert, loading, setLoading, hideAlert } = useLocalState();
   const navigate = useNavigate();
-  const { saveUser, user } = useGlobalContext();
+  const { saveUser, user, setAuth } = useGlobalContext();
   // Redirect
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
@@ -80,8 +80,11 @@ const Signin = () => {
                 }
               );
               console.log(JSON.stringify(data));
+              const accessToken = data?.accessToken;
+              const role = data?.role;
               saveUser(data?.user);
 
+              setAuth({ ...values, role, accessToken });
               // showAlert({
               //   text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
               //   type: "success",
