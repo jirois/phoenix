@@ -37,7 +37,7 @@ const ErrorMessagesSchema = Yup.object().shape({
 const Signin = () => {
   const { alert, showAlert, loading, setLoading, hideAlert } = useLocalState();
   const navigate = useNavigate();
-  const { saveUser, user, setAuth } = useGlobalContext();
+  const { saveUser, user } = useGlobalContext();
   // Redirect
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
@@ -71,29 +71,19 @@ const Signin = () => {
             hideAlert();
             setLoading(true);
             try {
-              const { data } = await axios.post(
-                baseUrl + "auth/signin",
-                JSON.stringify(values),
-                {
-                  headers: { "Content-Type": "application/json" },
-                  withCredentials: true,
-                }
-              );
-              console.log(JSON.stringify(data));
-              const accessToken = data?.accessToken;
-              const role = data?.role;
+              const { data } = await axios.post(baseUrl + "auth/login");
               saveUser(data?.user);
 
-              setAuth({ ...values, role, accessToken });
-              // showAlert({
-              //   text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
-              //   type: "success",
-              // });
-              // setLoading(false);
+              // setAuth({ ...values, role, accessToken });
+              showAlert({
+                text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
+                type: "success",
+              });
+              setLoading(false);
 
-              // saveUser(data.user);
-              // console.log(data);
-              // localStorage.setItem("user", JSON.stringify(data.user));
+              saveUser(data.user);
+              console.log(data);
+              localStorage.setItem("user", JSON.stringify(data.user));
 
               resetForm();
             } catch (error) {
