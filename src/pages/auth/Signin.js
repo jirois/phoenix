@@ -71,8 +71,7 @@ const Signin = () => {
             hideAlert();
             setLoading(true);
             try {
-              const { data } = await axios.post(baseUrl + "auth/login");
-              saveUser(data?.user);
+              const { data } = await axios.post(baseUrl + "auth/login", values);
 
               // setAuth({ ...values, role, accessToken });
               showAlert({
