@@ -24,9 +24,9 @@ const UserImageModal = () => {
             {initials(user)}
           </div>
         
-          <label className='text-xs border-1 border-dashed'>
-          <input type="text" className="w-full bg-gray-100 p-2 mt-2 mb-3" />
-          </label>
+          
+          <input type="file" className="w-full bg-gray-100 p-2 mt-2 mb-3 border-dashed h-8" />
+    
         </div>
         <div className="bg-gray-200 px-4 py-3 text-right">
           <button 

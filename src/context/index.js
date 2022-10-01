@@ -14,13 +14,6 @@ const initialState = {
   cart: false,
   notification: false,
 };
-// const initialStateCart = {
-//   loading: false,
-//   cart: {
-//     cartItems: [],
-//     paymentMethod: "PayPal",
-//   },
-// };
 const initialModalState = {
   name: false,
   email: false,
