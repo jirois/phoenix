@@ -1,11 +1,12 @@
 const reducer = (state, action) => {
   if (action.type === "REMOVE") {
-    console.log("remove");
+    const item = action.payload;
+    console.log("remove", state.cartItems);
     return {
       ...state,
-      cartItems: state.cartItems.filter(
-        (cartItem) => cartItem.id !== action.payload
-      ),
+      cartItems: state.cartItems.filter((cartItem) => {
+        return cartItem.service !== item;
+      }),
     };
   }
   if (action.type === "ADD_TO_CART") {
@@ -16,18 +17,18 @@ const reducer = (state, action) => {
       cartItems: [...state.cartItems, action.payload],
     };
     // const item = action.payload;
-    // const existItem = state.cart.cartItems.find((x) => x._id === item._id);
+    // const existItem = state.cartItems.find((x) => x._id === item._id);
     // if (existItem) {
     //   return {
     //     ...state,
-    //     cartItems: state.cart.cartItems.map((x) =>
+    //     cartItems: state.cartItems.map((x) =>
     //       x._id === existItem._id ? item : x
     //     ),
     //   };
     // } else {
     //   return {
     //     ...state,
-    //     cartItems: [...state.cart.cartItems, { ...item }],
+    //     cartItems: [...state.cartItems, item],
     //   };
     // }
   }

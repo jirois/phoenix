@@ -73,7 +73,6 @@ const Signin = () => {
             try {
               const { data } = await axios.post(baseUrl + "auth/login", values);
 
-              // setAuth({ ...values, role, accessToken });
               showAlert({
                 text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
                 type: "success",
@@ -81,13 +80,12 @@ const Signin = () => {
               setLoading(false);
 
               saveUser(data.user);
-              console.log(data);
               localStorage.setItem("user", JSON.stringify(data.user));
 
               resetForm();
             } catch (error) {
               showAlert({
-                text: error.response.data.msg,
+                text: error.data?.msg,
               });
               setLoading(false);
             }
