@@ -123,7 +123,9 @@ const AppProvider = ({ children }) => {
     setLoading(true);
     try {
       const { data } = await axios.post(baseUrl + "orderService", values, {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       console.log(data);
       setOrder(data);

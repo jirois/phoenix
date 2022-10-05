@@ -16,15 +16,26 @@ const CartScreen = () => {
   cartState.taxPrice = toPrice(0.1 * cartState.servicePrice);
   cartState.totalPrice = toPrice(cartState.servicePrice + cartState.taxPrice);
 
-  console.log(cartState.cartItems);
-  console.log({ ...cartState });
+  // console.log(JSON.stringify(...cartState, cartState.cartItems));
+  console.log(
+    JSON.stringify({
+      orderServices: cartState.cartItems,
+      paymentMethod: cartState.PaymentMethod,
+      servicePrice: cartState.servicePrice,
+      taxPrice: cartState.taxPrice,
+      totalPrice: cartState.totalPrice,
+    })
+  );
 
   // createOrder
 
-  const data = {
-    ...cartState,
+  const data = JSON.stringify({
     orderServices: cartState.cartItems,
-  };
+    paymentMethod: cartState.PaymentMethod,
+    servicePrice: cartState.servicePrice,
+    taxPrice: cartState.taxPrice,
+    totalPrice: cartState.totalPrice,
+  });
 
   const checkoutHandler = () => {
     createOrder(JSON.stringify(data));
