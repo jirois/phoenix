@@ -6,7 +6,7 @@ import { baseUrl } from "../utils/url";
 import reducer from "./reducer";
 import { getLocalStorage } from "../utils/getLocalStorage";
 // import { useNavigate, useLocation } from "react-router-dom";
-import { axiosPrivate } from "../api/axios";
+// import { axiosPrivate } from "../api/axios";
 
 const AppContext = React.createContext();
 const initialState = {
@@ -43,7 +43,7 @@ const AppProvider = ({ children }) => {
   const [order, setOrder] = useState("");
   const [isOpen, setIsOpen] = useState(initialModalState);
   const [auth, setAuth] = useState({});
-  const [newUser, setNewUser] = useState();
+  // const [newUser, setNewUser] = useState();
   // const navigate = useNavigate();
   // const location = useLocation();
 
@@ -137,21 +137,21 @@ const AppProvider = ({ children }) => {
 
   // use refresh
 
-  const useRefreshToken = () => {
-    const refresh = async () => {
-      const { response } = await axios.get(baseUrl + "auth/refresh", {
-        withCredentials: true,
-      });
-      setAuth((prev) => {
-        console.log(JSON.stringify(prev));
-        console.log(response.data.accessToken);
-        return { ...prev, accessToken: response.data.accessToken };
-      });
-      return response.data.accessToken;
-    };
+  // const useRefreshToken = () => {
+  //   const refresh = async () => {
+  //     const { response } = await axios.get(baseUrl + "auth/refresh", {
+  //       withCredentials: true,
+  //     });
+  //     setAuth((prev) => {
+  //       console.log(JSON.stringify(prev));
+  //       console.log(response.data.accessToken);
+  //       return { ...prev, accessToken: response.data.accessToken };
+  //     });
+  //     return response.data.accessToken;
+  //   };
 
-    return refresh;
-  };
+  //   return refresh;
+  // };
 
   // useprivateAxiol
 
