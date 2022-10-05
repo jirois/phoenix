@@ -56,7 +56,7 @@ const HeroSection = () => {
               Get started {hover ? <ArrowForward /> : <ArrowRight />}
             </ButtonLinK>
           )}
-          <TelegramLink dark href="telegram" target="_blank">
+          <TelegramLink dark href="https://t.me/phoenixcap" target="_blank">
             Join our Telegram
           </TelegramLink>
         </HeroBtnWrapper>
