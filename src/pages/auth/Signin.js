@@ -80,12 +80,11 @@ const Signin = () => {
               setLoading(false);
 
               saveUser(data.user);
-              localStorage.setItem("user", JSON.stringify(data.user));
 
               resetForm();
             } catch (error) {
               showAlert({
-                text: error.data?.msg,
+                text: error.response.data?.msg,
               });
               setLoading(false);
             }
