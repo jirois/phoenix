@@ -1,10 +1,10 @@
 .book {
-  padding: 4rem 0 1.5rem;
+  padding: 5rem 0 1.5rem;
   background: var(--mainWhite);
 }
 
-img,
-span {
+.book img,
+.book span {
   display: block;
 }
 
@@ -29,7 +29,7 @@ span {
   border-right: none;
 }
 
-p {
+ p {
   font-family: Robot, serif;
   line-height: 1.6;
   font-size: 1.3rem;

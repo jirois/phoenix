@@ -1,16 +1,16 @@
 import React from "react";
 import Footer from "../../components/Footer";
 import NavbarHome from "../../components/Navbar/NavbarSection";
-import ServiceScreen from "./ServiceScreen";
+import TestimonialScreen from "./TestimonialScreen";
 
-const Services = () => {
+function index() {
   return (
     <>
-      <NavbarHome bg="transparent" tp="black" />
-      <ServiceScreen />
+      <NavbarHome bg="black" tp="black" />
+      <TestimonialScreen />
       <Footer />
     </>
   );
-};
+}
 
-export default Services;
+export default index;

@@ -1,6 +1,7 @@
 .broker {
-  padding: 4rem 1rem 4rem;
+  padding: 6rem 1rem 4rem;
   background: var(--mainWhite);
+  text-align: center;
 }
 
 .broker h2 {
@@ -10,7 +11,7 @@
   padding: 0 1rem;
 }
 
-p {
+.broker p {
   text-align: center;
   line-height: 1.8;
 }
@@ -59,7 +60,7 @@ p {
 @media screen and (min-width: 768px) {
   .broker {
     text-align: center;
-    padding: 4rem 20rem;
+    padding: 7rem 20rem;
   }
   .broker h2 {
     margin: 1.5rem 0 2.3rem 0;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../assets/phoenix_logo.png";
 import { FiMail } from "react-icons/fi";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import useLocalState from "../../utils/localState";
+import useLocalState from "../../hooks/localState";
 import axios from "axios";
 import { baseUrl } from "../../utils/url";
 

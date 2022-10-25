@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { resetPassword } from "../../features/auth/authSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import useLocalState from "../../utils/localState";
+import useLocalState from "../../hooks/localState";
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }

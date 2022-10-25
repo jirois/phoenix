@@ -6,6 +6,7 @@
 .faq-container {
   background: #fff;
   padding: 2.5rem 0.5rem;
+  margin-top: 4rem;
   
 }
 
@@ -74,7 +75,7 @@
 @media screen and (min-width: 768px) {
   .faq-container{
     width: 80rem;
-    margin: 3rem auto;
+    margin: 6rem auto;
     border-radius: 1rem;
     padding: 2rem;
 

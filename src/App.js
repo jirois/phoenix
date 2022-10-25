@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages";
-import About from "./pages/about/AboutScreen";
+import About from "./pages/about";
 import ServiceScreen from "./pages/services";
-import BrokerScreen from "./pages/broker/BrokerScreen";
-import FaqScreen from "./pages/faq/FaqScreen";
-import ContactScreen from "./pages/contact/ContactScreen";
+import BrokerScreen from "./pages/broker";
+import FaqScreen from "./pages/faq";
+import ContactScreen from "./pages/contact";
 import BookScreen from "./pages/book";
-import TestimonialScreen from "./pages/testimonial/TestimonialScreen";
+import TestimonialScreen from "./pages/testimonial";
 import ResetPassword from "./pages/auth/Reset";
 import VerifyEmail from "./pages/auth/VerifyEmail";
 import Error from "./pages/Error";
@@ -31,6 +31,9 @@ import Payment from "./pages/Payment";
 import PlaceOrder from "./pages/PlaceOrderScreen";
 import OrderScreen from "./pages/Order";
 import Profile from "./pages/profile";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import Login from "./pages/auth/Login";
 
 function App() {
   return (
@@ -38,9 +41,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/services" element={<ServiceScreen />} />
-
-        <Route path="/services/:id" element={<SingleService />} />
 
         <Route path="/broker" element={<BrokerScreen />} />
 
@@ -53,6 +53,9 @@ function App() {
         <Route path="/testimonials" element={<TestimonialScreen />} />
         <Route path="/placeorder" element={<PlaceOrder />} />
 
+        <Route path="/services" element={<ServiceScreen />} />
+
+        <Route path="/services/:id" element={<SingleService />} />
         <Route
           path="/profile"
           element={
@@ -75,7 +78,7 @@ function App() {
           <Route path="settings" element={<Setting />} />
           <Route path="students" element={<Students />} />
           <Route path="sessions" element={<Sessions />} />
-          <Route path="services" element={<Services />} />
+          <Route path="service" element={<Services />} />
         </Route>
 
         <Route path="/cart" element={<CartScreen />} />
@@ -85,6 +88,14 @@ function App() {
         <Route path="/success-page" element={<RedirectPage />} />
         <Route path="/verifyEmail/:id" element={<VerifyOtp />} />
 
+        <Route
+          path="/login"
+          element={
+            <Provider store={store}>
+              <Login />
+            </Provider>
+          }
+        />
         <Route path="/signin" element={<Signin />} />
 
         <Route path="/signup" element={<Signup />} />

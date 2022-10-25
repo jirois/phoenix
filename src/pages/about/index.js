@@ -1,16 +1,16 @@
 import React from "react";
 import Footer from "../../components/Footer";
 import NavbarHome from "../../components/Navbar/NavbarSection";
-import ServiceScreen from "./ServiceScreen";
+import AboutScreen from "./AboutScreen";
 
-const Services = () => {
+const index = () => {
   return (
     <>
-      <NavbarHome bg="transparent" tp="black" />
-      <ServiceScreen />
+      <NavbarHome bg="black" tp="black" pos="relative" />
+      <AboutScreen />
       <Footer />
     </>
   );
 };
 
-export default Services;
+export default index;

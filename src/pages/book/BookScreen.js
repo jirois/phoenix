@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./book.css";
-import useLocalState from "../../utils/localState";
+import useLocalState from "../../hooks/localState";
 import axios from "axios";
 import { baseUrl } from "../../utils/url";
 import { useGlobalContext } from "../../context";

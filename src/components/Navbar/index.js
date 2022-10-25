@@ -25,7 +25,7 @@ import {
 import Dropdown from "../drop/DropDownProfile";
 // import { AvatarDiv } from "../Avatar";
 
-const NavbarSection = ({ toggle }) => {
+const NavbarSection = ({ toggle, tp, bg, pos }) => {
   const [scrollNav, setScrollNav] = useState(false);
   // const { user: usern } = useSelector((store) => store.user);
   const { user } = useGlobalContext();
@@ -55,7 +55,7 @@ const NavbarSection = ({ toggle }) => {
     scroll.scrollToTop();
   };
   return (
-    <Nav scrollNav={scrollNav}>
+    <Nav scrollNav={scrollNav} tp={tp} bg={bg} pos={pos}>
       <NavbarContainer>
         <NavLogo to="/" onClick={toggleHome}>
           PhoenixCap
@@ -120,7 +120,7 @@ const NavbarSection = ({ toggle }) => {
               {hover && <Dropdown />}
             </div>
           ) : (
-            <NavBtnLinkOne to="/signin">Sign In</NavBtnLinkOne>
+            <NavBtnLinkOne to="/login">Sign In</NavBtnLinkOne>
           )}
         </NavBtn>
       </NavbarContainer>

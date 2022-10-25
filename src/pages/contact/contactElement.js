@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1170px;
-  margin-top: 4rem;
+  margin-top: 6rem;
   ${(props) =>
     props.wrapper &&
     css`
@@ -17,6 +17,7 @@ export const Container = styled.div`
 
       @media (min-width: 700px) {
         display: grid;
+        margin-top: 6rem;
         grid-template-columns: 1fr 2fr;
         > * {
           padding: 2em;

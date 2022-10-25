@@ -8,7 +8,7 @@ import NavbarHome from "../components/Navbar/NavbarSection";
 const Home = () => {
   return (
     <div>
-      <NavbarHome />
+      <NavbarHome bg="black" tp="transparent" />
 
       <HeroSection />
       <Services />

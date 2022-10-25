@@ -1,12 +1,12 @@
 import React from "react";
 import Footer from "../../components/Footer";
-import NavbarSection from "../../components/Navbar";
+import NavbarHome from "../../components/Navbar/NavbarSection";
 import BookScreen from "./BookScreen";
 
 export const Book = () => {
   return (
     <>
-      <NavbarSection />
+      <NavbarHome bg="black" tp="black" />
       <BookScreen />
       <Footer />
     </>

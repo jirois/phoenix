@@ -4,13 +4,13 @@ import { color, values } from "../Styles";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 export const Nav = styled.nav`
-  background: ${({ scrollNav }) => (scrollNav ? "#000" : "transparent")};
+  background: ${({ scrollNav, bg, tp }) => (scrollNav ? bg : tp)};
   height: 85px;
   margin-top: 0;
   font-size: 1rem;
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: ${(props) => props.pos || "sticky"};
   top: 0;
   left: 0;
   z-index: 10;

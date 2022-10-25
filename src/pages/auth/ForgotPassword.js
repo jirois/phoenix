@@ -18,7 +18,7 @@ import logo from "../../assets/phoenix_logo.png";
 import { TextInput } from "../../components/TextInput";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
 import { useEffect } from "react";
-import useLocalState from "../../utils/localState";
+import useLocalState from "../../hooks/localState";
 
 const ErrorMessagesSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),

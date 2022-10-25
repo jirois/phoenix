@@ -21,7 +21,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/phoenix_logo.png";
 import { WebsiteRights } from "../../components/Footer/FooterElements";
 
-import useLocalState from "../../utils/localState";
+import useLocalState from "../../hooks/localState";
 import { useGlobalContext } from "../../context";
 // import { useGlobalContext } from "../../context";
 // import { useHistory } from "react-router-dom";

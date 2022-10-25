@@ -5,7 +5,7 @@ import { FaEnvelope } from "react-icons/fa";
 function ContactScreen() {
   return (
     <>
-      <div className="text-center w-full mt-12">
+      <div className="text-center w-full mt-36">
         <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
           GET IN TOUCH
         </h2>
