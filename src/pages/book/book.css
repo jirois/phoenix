@@ -3,8 +3,8 @@
   background: var(--mainWhite);
 }
 
-.book img,
-.book span {
+img,
+span {
   display: block;
 }
 
