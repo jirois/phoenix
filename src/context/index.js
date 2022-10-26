@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import { baseUrl } from "../utils/url";
 import reducer from "./reducer";
-import { getLocalStorage } from "../utils/getLocalStorage";
 // import { useNavigate, useLocation } from "react-router-dom";
 // import { axiosPrivate } from "../api/axios";
 
