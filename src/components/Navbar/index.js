@@ -120,7 +120,7 @@ const NavbarSection = ({ toggle, tp, bg, pos }) => {
               {hover && <Dropdown />}
             </div>
           ) : (
-            <NavBtnLinkOne to="/login">Sign In</NavBtnLinkOne>
+            <NavBtnLinkOne to="/signin">Sign In</NavBtnLinkOne>
           )}
         </NavBtn>
       </NavbarContainer>
