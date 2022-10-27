@@ -36,6 +36,7 @@ const CartScreen = () => {
     taxPrice: cartState.taxPrice,
     totalPrice: cartState.totalPrice,
   });
+  console.log(data);
 
   const checkoutHandler = () => {
     createOrder(JSON.stringify(data));

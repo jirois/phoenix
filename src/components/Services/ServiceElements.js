@@ -7,6 +7,8 @@ export const ServiceContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: #010606;
+  padding: 1rem 0 6rem;
+
   @media (max-height: 668px) {
     padding: 5rem 0;
     padding-top: 0;

@@ -28,6 +28,7 @@ export const StyledSubTitle = styled.h4`
   text-align: center;
   text-transform: capitalize;
   color: ${(props) => props.color || color.primary};
+  margin-bottom: 15px;
 `;
 
 export const StyledButton = styled(LinkR)`
@@ -50,22 +51,22 @@ export const StyledLabel = styled.p`
   text-align: left;
   font-weight: bold;
   font-size: 13px;
-  margin: 0;
   margin-bottom: 4px;
 `;
 
 export const StyledFormInput = styled.input`
   width: 340px;
-  padding: 15px;
+  padding: 12px;
   padding-left: 50px;
   letter-spacing: 1px;
   border: 0;
   font-size: 17px;
   outline: 0;
-  border: 0.5px solid;
+  border: 0.5px solid #ccc;
   color: ${color.mainBlack};
-  margin: -25px auto 15px auto;
+  margin: 5px auto 15px auto;
   display: block;
+  border-radius: 5px;
   transition: ease-in-out 0.3s;
 
   ${(props) =>
@@ -161,10 +162,10 @@ export const TextLink = styled(LinkR)`
 export const StyledIcon = styled.p`
   color: ${color.mainBlack};
   position: absolute;
-  font-size: 23px;
-  top: 30px;
-  ${(props) => props.right && "right:-5px;"}
-  ${(props) => !props.right && "left: -5px;"}
+  font-size: 21px;
+  top: 39px;
+  ${(props) => props.right && "right:15px;"}
+  ${(props) => !props.right && "left: 15px;"}
 `;
 
 export const FieldContainer = styled.div`

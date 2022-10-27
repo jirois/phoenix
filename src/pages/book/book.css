@@ -29,7 +29,7 @@ span {
   border-right: none;
 }
 
- p {
+.book p {
   font-family: Robot, serif;
   line-height: 1.6;
   font-size: 1.3rem;

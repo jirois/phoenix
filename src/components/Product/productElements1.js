@@ -8,6 +8,7 @@ export const ProductContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: #fff;
+  padding: 1rem 0 6rem;
 
   @media (max-height: 668px) {
     padding: 5rem 0;
@@ -63,6 +64,7 @@ export const ProductH1 = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 64px;
   white-space: nowrap;
+  padding: 5rem 0 0;
 
   @media screen and (max-width: 486px) {
     // display: none;
