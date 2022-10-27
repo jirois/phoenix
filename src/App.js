@@ -11,7 +11,6 @@ import TestimonialScreen from "./pages/testimonial";
 import ResetPassword from "./pages/auth/Reset";
 import VerifyEmail from "./pages/auth/VerifyEmail";
 import Error from "./pages/Error";
-import ForgotPassword from "./pages/auth/ForgotPassword";
 import RedirectPage from "./pages/RedirectPage";
 import DashboardScreen from "./pages/dashboard/Home";
 import Signup from "./pages/auth/Signup";
@@ -34,6 +33,7 @@ import Profile from "./pages/profile";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import Login from "./pages/auth/Login";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 
 function App() {
   return (
@@ -104,7 +104,14 @@ function App() {
 
         <Route path="user/reset-password" element={<ResetPassword />} />
 
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route
+          path="/forgot-password"
+          element={
+            <Provider store={store}>
+              <ForgotPassword />
+            </Provider>
+          }
+        />
         <Route path="/verifyCode" element={<VerifyCode />} />
 
         <Route path="*" element={<Error />} />
