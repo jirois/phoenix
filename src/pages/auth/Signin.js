@@ -71,17 +71,26 @@ const Signin = () => {
             hideAlert();
             setLoading(true);
             try {
-              const { data } = await axios.post(baseUrl + "auth/login", values);
+              const { data } = await axios.post(
+                baseUrl + "auth/signin",
+                values,
+                {
+                  withCredentials: true,
+                }
+              );
+              axios.defaults.headers.common[
+                "Authorization"
+              ] = `Bearer ${data["accessToken"]}`;
 
-              showAlert({
-                text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
-                type: "success",
-              });
-              setLoading(false);
+              // showAlert({
+              //   text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
+              //   type: "success",
+              // });
+              // setLoading(false);
 
-              saveUser(data.user);
+              // saveUser(data.user);
 
-              resetForm();
+              // resetForm();
             } catch (error) {
               showAlert({
                 text: error.response.data?.msg,
