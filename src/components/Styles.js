@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { Link } from "react-router-dom";
 
@@ -117,4 +117,19 @@ export const RedirectWrapper = styled.div`
   margin: 50px auto;
   box-shadow: ${values.darkShadow};
   background: ${color.mainWhite};
+`;
+//Loading
+const spinner = keyframes`
+    to{
+        transform: rotate(360deg);
+    }
+`;
+export const Loading = styled.div`
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  border-top-color: ${color.primary};
+  margin: 10rem auto 0;
+  animation: ${spinner} 0.6s linear infinite;
 `;

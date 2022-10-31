@@ -1,13 +1,14 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./pages";
-import About from "./pages/about";
-import ServiceScreen from "./pages/services";
-import BrokerScreen from "./pages/broker";
-import FaqScreen from "./pages/faq";
-import ContactScreen from "./pages/contact";
-import BookScreen from "./pages/book";
-import TestimonialScreen from "./pages/testimonial";
+// import Home from "./pages";
+// import About from "./pages/about";
+// import ServiceScreen from "./pages/services";
+// import BrokerScreen from "./pages/broker";
+// import FaqScreen from "./pages/faq";
+// import ContactScreen from "./pages/contact";
+// import BookScreen from "./pages/book";
+// import TestimonialScreen from "./pages/testimonial";
 import ResetPassword from "./pages/auth/Reset";
 import VerifyEmail from "./pages/auth/VerifyEmail";
 import Error from "./pages/Error";
@@ -34,88 +35,116 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import Login from "./pages/auth/Login";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import { Suspense } from "react";
+import { Loading } from "./components/Styles";
+
+const Home = React.lazy(() => import("./pages"));
+const BookScreen = React.lazy(() => import("./pages/book"));
+const ServiceScreen = React.lazy(() => import("./pages/services"));
+const BrokerScreen = React.lazy(() => import("./pages/broker"));
+const TestimonialScreen = React.lazy(() => import("./pages/testimonial"));
+const FaqScreen = React.lazy(() => import("./pages/faq"));
+const About = React.lazy(() => import("./pages/about"));
+const ContactScreen = React.lazy(() => import("./pages/contact"));
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
 
-        <Route path="/broker" element={<BrokerScreen />} />
+          <Route path="/broker" element={<BrokerScreen />} />
 
-        <Route path="/faq" element={<FaqScreen />} />
+          <Route path="/faq" element={<FaqScreen />} />
 
-        <Route path="/contact" element={<ContactScreen />} />
+          <Route path="/contact" element={<ContactScreen />} />
 
-        <Route path="/sessions" element={<BookScreen />} />
+          <Route path="/sessions" element={<BookScreen />} />
 
-        <Route path="/testimonials" element={<TestimonialScreen />} />
-        <Route path="/placeorder" element={<PlaceOrder />} />
+          <Route path="/testimonials" element={<TestimonialScreen />} />
+          <Route path="/placeorder" element={<PlaceOrder />} />
 
-        <Route path="/services" element={<ServiceScreen />} />
+          <Route path="/services" element={<ServiceScreen />} />
 
-        <Route path="/services/:id" element={<SingleService />} />
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
+          <Route path="services/:id" element={<SingleService />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              {" "}
-              <DashboardScreen />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="/dashboard" element={<DashboardHome />} />
-          <Route path="settings" element={<Setting />} />
-          <Route path="students" element={<Students />} />
-          <Route path="sessions" element={<Sessions />} />
-          <Route path="service" element={<Services />} />
-        </Route>
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                {" "}
+                <DashboardScreen />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/dashboard" element={<DashboardHome />} />
+            <Route path="settings" element={<Setting />} />
+            <Route path="students" element={<Students />} />
+            <Route path="sessions" element={<Sessions />} />
+            <Route path="service" element={<Services />} />
+          </Route>
 
-        <Route path="/cart" element={<CartScreen />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/order/:id" element={<OrderScreen />} />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <CartScreen />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route path="/success-page" element={<RedirectPage />} />
-        <Route path="/verifyEmail/:id" element={<VerifyOtp />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route
+            path="/order/:id"
+            element={
+              <ProtectedRoute>
+                <OrderScreen />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/login"
-          element={
-            <Provider store={store}>
-              <Login />
-            </Provider>
-          }
-        />
-        <Route path="/signin" element={<Signin />} />
+          <Route path="/success-page" element={<RedirectPage />} />
+          <Route path="/verifyEmail/:id" element={<VerifyOtp />} />
 
-        <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/login"
+            element={
+              <Provider store={store}>
+                <Login />
+              </Provider>
+            }
+          />
+          <Route path="/signin" element={<Signin />} />
 
-        <Route path="/user/verify-email" element={<VerifyEmail />} />
+          <Route path="/signup" element={<Signup />} />
 
-        <Route path="user/reset-password" element={<ResetPassword />} />
+          <Route path="/user/verify-email" element={<VerifyEmail />} />
 
-        <Route
-          path="/forgot-password"
-          element={
-            <Provider store={store}>
-              <ForgotPassword />
-            </Provider>
-          }
-        />
-        <Route path="/verifyCode" element={<VerifyCode />} />
+          <Route path="user/reset-password" element={<ResetPassword />} />
 
-        <Route path="*" element={<Error />} />
-      </Routes>
+          <Route
+            path="/forgot-password"
+            element={
+              <Provider store={store}>
+                <ForgotPassword />
+              </Provider>
+            }
+          />
+          <Route path="/verifyCode" element={<VerifyCode />} />
+
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

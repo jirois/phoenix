@@ -17,34 +17,25 @@ const CartScreen = () => {
   cartState.totalPrice = toPrice(cartState.servicePrice + cartState.taxPrice);
 
   // console.log(JSON.stringify(...cartState, cartState.cartItems));
-  console.log(
-    JSON.stringify({
-      orderServices: cartState.cartItems,
-      paymentMethod: cartState.PaymentMethod,
-      servicePrice: cartState.servicePrice,
-      taxPrice: cartState.taxPrice,
-      totalPrice: cartState.totalPrice,
-    })
-  );
 
   // createOrder
 
-  const data = JSON.stringify({
+  const data = {
     orderServices: cartState.cartItems,
     paymentMethod: cartState.PaymentMethod,
     servicePrice: cartState.servicePrice,
     taxPrice: cartState.taxPrice,
     totalPrice: cartState.totalPrice,
-  });
+  };
   console.log(data);
 
   const checkoutHandler = () => {
-    createOrder(JSON.stringify(data));
+    createOrder(data);
   };
 
   useEffect(() => {
     if (serviceSuccess) {
-      navigate(`/order/${order._id}`);
+      navigate(`/signin?redirect=/order/${order.order._id}`);
     }
   });
 

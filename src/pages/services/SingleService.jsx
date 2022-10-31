@@ -6,6 +6,7 @@ import axios from "axios";
 import { baseUrl } from "../../utils/url";
 import useLocalState from "../../hooks/localState";
 import useFetch from "../../utils/useFetch";
+import { Loading } from "../../components/Styles";
 
 const SingleService = () => {
   const { dispatch, cartState } = useGlobalContext();
@@ -50,9 +51,7 @@ const SingleService = () => {
   console.log(data);
 
   if (isLoading) {
-    return (
-      <div className="flex container font-semibold text-left">Loading...</div>
-    );
+    return <Loading />;
   }
   if (error.show) {
     return (

@@ -65,17 +65,28 @@ const NavbarSection = ({ toggle, tp, bg, pos }) => {
         </MobileIcon>
         <NavMenu>
           <NavItem>
-            <NavLinks to="/sessions" activeClassName="selected">
+            <NavLinks
+              to="/sessions"
+              className={({ isActive }) => (isActive ? "active" : " ")}
+            >
               Book Private Session
             </NavLinks>
           </NavItem>
           <NavItem>
-            <NavLinks to="/about" exact={true}>
+            <NavLinks
+              to="/about"
+              className={({ isActive }) => (isActive ? "active" : " ")}
+              exact={true}
+            >
               About
             </NavLinks>
           </NavItem>
           <NavItem>
-            <NavLinks to="services" exact={true}>
+            <NavLinks
+              to="services"
+              className={({ isActive }) => (isActive ? "active" : " ")}
+              exact={true}
+            >
               Our Services
             </NavLinks>
           </NavItem>

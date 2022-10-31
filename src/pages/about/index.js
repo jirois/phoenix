@@ -6,7 +6,7 @@ import AboutScreen from "./AboutScreen";
 const index = () => {
   return (
     <>
-      <NavbarHome bg="black" tp="black" pos="relative" />
+      <NavbarHome bg="black" tp="black" />
       <AboutScreen />
       <Footer />
     </>

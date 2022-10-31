@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { baseUrl } from "../utils/url";
 import reducer from "./reducer";
+import { axiosPrivate } from "../api/axios";
 // import { useNavigate, useLocation } from "react-router-dom";
 // import { axiosPrivate } from "../api/axios";
 
@@ -39,7 +40,11 @@ const AppProvider = ({ children }) => {
   const [sessions, setSessions] = useState([]);
   const [services, setServices] = useState([]);
   const [serviceSuccess, setServiceSuccess] = useState(false);
-  const [order, setOrder] = useState("");
+  const [successPay, setSuccessPay] = useState(false);
+  const [errorPay, setErrorPay] = useState("");
+  const [loadingPay, setLoadingPay] = useState("");
+  const [order, setOrder] = useState({});
+  const [orderDetail, setOrderDetail] = useState({});
   const [isOpen, setIsOpen] = useState(initialModalState);
   const [auth, setAuth] = useState({});
   // const [newUser, setNewUser] = useState();
@@ -78,7 +83,7 @@ const AppProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const { data } = await axios.get(baseUrl + "users/showMe");
+      const { data } = await axiosPrivate.get("users/showMe");
       saveUser(data.user);
     } catch (err) {
       removeUser();
@@ -87,7 +92,7 @@ const AppProvider = ({ children }) => {
   };
   const logoutUser = async () => {
     try {
-      await axios.delete(baseUrl + "auth/logout");
+      await axiosPrivate.delete("auth/logout");
       removeUser();
       console.log(user);
     } catch (err) {
@@ -122,9 +127,7 @@ const AppProvider = ({ children }) => {
     setLoading(true);
     try {
       const { data } = await axios.post(baseUrl + "orderService", values, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        withCredentials: true,
       });
       console.log(data);
       setOrder(data);
@@ -135,88 +138,35 @@ const AppProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  // get orderDetails
+  const getOrder = async (id) => {
+    setLoading(true);
+    try {
+      const { data } = await axiosPrivate.get(`orderService/${id}`);
+      console.log(data);
+      setOrderDetail(data);
+      setServiceSuccess(true);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  // get orderDetails
+  const orderPay = async (id, value) => {
+    setLoadingPay(true);
+    try {
+      const { data } = await axiosPrivate.put(`orderService/${id}/pay`, value);
+      console.log(data);
+      setOrder(data);
+      setSuccessPay(true);
+      setLoadingPay(false);
+    } catch (error) {
+      setLoadingPay(false);
+      setErrorPay(error);
+    }
+  };
 
-  // use refresh
-
-  // const useRefreshToken = () => {
-  //   const refresh = async () => {
-  //     const { response } = await axios.get(baseUrl + "auth/refresh", {
-  //       withCredentials: true,
-  //     });
-  //     setAuth((prev) => {
-  //       console.log(JSON.stringify(prev));
-  //       console.log(response.data.accessToken);
-  //       return { ...prev, accessToken: response.data.accessToken };
-  //     });
-  //     return response.data.accessToken;
-  //   };
-
-  //   return refresh;
-  // };
-
-  // useprivateAxiol
-
-  // const useAxiosPrivate = () => {
-  //   const refresh = useRefreshToken();
-
-  //   useEffect(() => {
-  //     const requestIntercept = axiosPrivate.interceptors.request.use(
-  //       (config) => {
-  //         if (!config.headers["Authorization"]) {
-  //           config.headers["Authorization"] = `Bearer ${auth?.accessToken}`;
-  //         }
-  //         return config;
-  //       },
-  //       (error) => Promise.reject(error)
-  //     );
-
-  //     const responseIntercept = axiosPrivate.interceptors.response.use(
-  //       (response) => response,
-  //       async (error) => {
-  //         const prevResquest = error?.config;
-  //         if (error?.response?.status === 403 && !prevResquest?.sent) {
-  //           prevResquest.sent = true;
-  //           const newAccessToken = await refresh();
-  //           prevResquest.headers["Authorization"] = `Bearer ${newAccessToken}`;
-  //           return axiosPrivate(prevResquest);
-  //         }
-  //         return Promise.reject(error);
-  //       }
-  //     );
-  //     return () => {
-  //       axiosPrivate.interceptors.request.eject(requestIntercept);
-  //       axiosPrivate.interceptors.response.eject(responseIntercept);
-  //     };
-  //   }, [refresh]);
-
-  //   return axiosPrivate;
-  // };
-
-  // const axiosPrivates = useAxiosPrivate();
-  // create new userobject
-  // useEffect(() => {
-  //   let isMounted = true;
-  //   const controller = new AbortController();
-
-  //   const getUser = async () => {
-  //     try {
-  //       const { data } = await axiosPrivates.get("users/showMe", {
-  //         signal: controller.signal,
-  //       });
-  //       console.log(data.user);
-  //       isMounted && setNewUser(data.user);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getUser();
-
-  //   return () => {
-  //     isMounted = false;
-  //     controller.abort();
-  //   };
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  console.log(order);
   console.log(auth);
 
   return (
@@ -256,6 +206,12 @@ const AppProvider = ({ children }) => {
         handleModal,
         isOpen,
         closeModal,
+        getOrder,
+        orderPay,
+        orderDetail,
+        successPay,
+        loadingPay,
+        errorPay,
       }}
     >
       {children}

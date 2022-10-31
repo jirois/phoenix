@@ -23,6 +23,7 @@ import { WebsiteRights } from "../../components/Footer/FooterElements";
 
 import useLocalState from "../../hooks/localState";
 import { useGlobalContext } from "../../context";
+import { axiosPrivate } from "../../api/axios";
 // import { useGlobalContext } from "../../context";
 // import { useHistory } from "react-router-dom";
 
@@ -41,8 +42,10 @@ const Signin = () => {
   // Redirect
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
+  console.log(redirectInUrl);
   const redirect = redirectInUrl ? redirectInUrl : "/";
 
+  console.log(user);
   useEffect(() => {
     if (user) {
       navigate(redirect);
@@ -71,26 +74,17 @@ const Signin = () => {
             hideAlert();
             setLoading(true);
             try {
-              const { data } = await axios.post(
-                baseUrl + "auth/signin",
-                values,
-                {
-                  withCredentials: true,
-                }
-              );
-              axios.defaults.headers.common[
-                "Authorization"
-              ] = `Bearer ${data["accessToken"]}`;
+              const { data } = await axiosPrivate.post("auth/login", values);
 
-              // showAlert({
-              //   text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
-              //   type: "success",
-              // });
-              // setLoading(false);
+              showAlert({
+                text: `Welcome ${data.user.name}. Redirecting to dashboard...`,
+                type: "success",
+              });
+              setLoading(false);
 
-              // saveUser(data.user);
+              saveUser(data.user);
 
-              // resetForm();
+              resetForm();
             } catch (error) {
               showAlert({
                 text: error.response.data?.msg,

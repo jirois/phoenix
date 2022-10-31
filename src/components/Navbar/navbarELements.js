@@ -84,9 +84,7 @@ export const NavLinks = styled(LinkR)`
   &:hover {
     border-bottom: 3px solid ${color.primary};
   }
-  &.active {
-    border-bottom: 3px solid #fff;
-  }
+ 
 `;
 
 export const NavBtn = styled.nav`
