@@ -5,20 +5,23 @@ import { useGlobalContext } from "../context";
 import axios from "axios";
 import { baseUrl } from "../utils/url";
 import useFetchOrder from "../hooks/useFetchOrder";
-import { Loading } from "../components/Styles";
-// import useFetchPayOrder from "../hooks/useFetchPay";
+import { Card, Loading, Row } from "../components/Styles";
+import useFetchPayOrder from "../hooks/useFetchPay";
 
 const OrderScreen = () => {
   const { id: orderId } = useParams();
   const { data: order } = useFetchOrder(orderId);
+  const { loadingPay, errorPay, successPay } = useFetchPayOrder;
   console.log(order);
   console.log(order.service._id);
+  console.log(order.service.orderServices);
 
   const [sdkReady, setSdkReady] = useState(false);
 
   useEffect(() => {
     const addPayPalScript = async () => {
       const { data } = await axios.get(baseUrl + "config/paypal");
+      console.log(data);
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
@@ -28,52 +31,65 @@ const OrderScreen = () => {
       };
       document.body.appendChild(script);
     };
-  }, [orderId, sdkReady]);
+
+    if (!order.service._id) {
+    } else {
+      if (!order.service.isPaid) {
+        if (!window.paypal) {
+          addPayPalScript();
+        } else {
+          setSdkReady(true);
+        }
+      }
+    }
+  }, [order, sdkReady]);
+
+  const successPaymentHandler = () => {};
 
   return (
     <div>
       <h1>Order {order.service._id}</h1>
-      {/* <div className="row top">
-        <div className="col-2">
+      <div className="flex flex-wrap justify-between items-start">
+        <div className="" style={{ flex: "2 1 50rem" }}>
           <ul>
             <li>
-              <div className="card card-body">
+              <Card>
                 <h2>Payment</h2>
                 <p>
                   <strong>Method:</strong>
-                  {orderDetail.paymentResult}
+                  {order.service.paymentMethod}
                 </p>
-                {orderDetail.isPaid ? (
-                  <div>Paid at {orderDetail.paidAt}</div>
+                {order.service.isPaid ? (
+                  <div>Paid at {order.service.paidAt}</div>
                 ) : (
                   <div>Not Paid</div>
                 )}
-              </div>
-            </li> */}
-      {/* <li>
-              <div className="card card-body">
+              </Card>
+            </li>
+            <li>
+              <Card>
                 <h2>Order Items</h2>
                 <ul>
-                  {orderDetail.orderItems.map((item) => (
+                  {order.service.orderServices.map((item) => (
                     <li key={item.service}>
-                      <div className="row">
-                        <div className="min-30">
-                          <Link to={`/service/${item.service}`}>
+                      <Row>
+                        <div className="" style={{ minWidth: "30rem" }}>
+                          <Link to={`/services/${item.service}`}>
                             {item.title}
                           </Link>
                         </div>
 
-                        <div>${item.servicePrice}</div>
-                      </div>
+                        <div>${item.price}</div>
+                      </Row>
                     </li>
                   ))}
                 </ul>
-              </div>
-            </li> */}
-      {/* </ul> */}
-      {/* </div>
+              </Card>
+            </li>
+          </ul>
+        </div>
         <div className="col-1">
-          <div className="card card-body">
+          <Card>
             <ul>
               <li>
                 <h2>Order Summary</h2>
@@ -81,26 +97,26 @@ const OrderScreen = () => {
               <li>
                 <div className="row">
                   <div>Items</div>
-                  <div>${orderDetail.servicePrice.toFixed(2)}</div>
+                  <div>${order.service.servicePrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>Tax</div>
-                  <div>${orderDetail.taxPrice.toFixed(2)}</div>
+                  <div>${order.service.taxPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <Row>
                   <div>
                     <strong>Order Total</strong>
                   </div>
                   <div>
-                    <strong>${orderDetail.totalPrice.toFixed(2)}</strong>
+                    <strong>${order.service.totalPrice.toFixed(2)}</strong>
                   </div>
-                </div>
+                </Row>
               </li>
-              {!orderDetail.isPaid && (
+              {!order.service.isPaid && (
                 <li>
                   {!sdkReady ? (
                     <div className="loading"></div>
@@ -110,17 +126,17 @@ const OrderScreen = () => {
                       {loadingPay && <div className="loading"></div>}
 
                       <PayPalButton
-                        amount={orderDetail.totalPrice}
+                        amount={order.service.totalPrice}
                         onSuccess={successPaymentHandler}
                       ></PayPalButton>
                     </>
                   )}
                 </li>
-              )} */}
-      {/* </ul> */}
-      {/* </div> */}
-      {/* </div> */}
-      {/* // </div> */}
+              )}
+            </ul>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 };

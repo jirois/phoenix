@@ -133,3 +133,21 @@ export const Loading = styled.div`
   margin: 10rem auto 0;
   animation: ${spinner} 0.6s linear infinite;
 `;
+
+export const Card = styled.div`
+  border: 0.1rem solid #c0c0c0;
+  background: #f8f8f8;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding: 1rem;
+
+  & > * {
+    margin-bottom: 0.5rem;
+  }
+`;
+export const Row = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+`;
