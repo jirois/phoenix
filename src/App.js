@@ -1,40 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// import Home from "./pages";
-// import About from "./pages/about";
-// import ServiceScreen from "./pages/services";
-// import BrokerScreen from "./pages/broker";
-// import FaqScreen from "./pages/faq";
-// import ContactScreen from "./pages/contact";
-// import BookScreen from "./pages/book";
-// import TestimonialScreen from "./pages/testimonial";
-import ResetPassword from "./pages/auth/Reset";
-import VerifyEmail from "./pages/auth/VerifyEmail";
-import Error from "./pages/Error";
-import RedirectPage from "./pages/RedirectPage";
-import DashboardScreen from "./pages/dashboard/Home";
-import Signup from "./pages/auth/Signup";
-import Signin from "./pages/auth/Signin";
 import "./App.css";
 import Setting from "./pages/dashboard/pages/Setting";
 import Students from "./pages/dashboard/pages/Students";
 import Sessions from "./pages/dashboard/pages/Sessions";
 import DashboardHome from "./pages/dashboard/pages/Home";
 import Services from "./pages/dashboard/pages/Services";
-import CartScreen from "./pages/CartScreen";
-import VerifyOtp from "./pages/auth/VerifyOtp";
-import VerifyCode from "./pages/auth/VerifyCode";
 import ProtectedRoute from "./pages/auth/ProtectRoute";
-import SingleService from "./pages/services/SingleService";
-import Payment from "./pages/Payment";
-import PlaceOrder from "./pages/PlaceOrderScreen";
-import OrderScreen from "./pages/Order";
-import Profile from "./pages/profile";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import Login from "./pages/auth/Login";
-import ForgotPassword from "./pages/auth/ForgotPassword";
 import { Suspense } from "react";
 import { Loading } from "./components/Styles";
 
@@ -44,8 +19,21 @@ const ServiceScreen = React.lazy(() => import("./pages/services"));
 const BrokerScreen = React.lazy(() => import("./pages/broker"));
 const TestimonialScreen = React.lazy(() => import("./pages/testimonial"));
 const FaqScreen = React.lazy(() => import("./pages/faq"));
-const About = React.lazy(() => import("./pages/about"));
 const ContactScreen = React.lazy(() => import("./pages/contact"));
+const About = React.lazy(() => import("./pages/about"));
+const Signin = React.lazy(() => import("./pages/auth/Signin"));
+const Signup = React.lazy(() => import("./pages/auth/Signup"));
+const CartScreen = React.lazy(() => import("./pages/CartScreen"));
+const OrderScreen = React.lazy(() => import("./pages/auth/VerifyCode"));
+const VerifyCode = React.lazy(() => import("./pages/contact"));
+const DashboardScreen = React.lazy(() => import("./pages/dashboard/Home"));
+const SingleService = React.lazy(() =>
+  import("./pages/services/ServiceScreen")
+);
+const Profile = React.lazy(() => import("./pages/profile"));
+const ResetPassword = React.lazy(() => import("./pages/auth/Reset"));
+const ForgotPassword = React.lazy(() => import("./pages/auth/ForgotPassword"));
+const NotFound = React.lazy(() => import("./pages/Error"));
 
 function App() {
   return (
@@ -64,7 +52,6 @@ function App() {
           <Route path="/sessions" element={<BookScreen />} />
 
           <Route path="/testimonials" element={<TestimonialScreen />} />
-          <Route path="/placeorder" element={<PlaceOrder />} />
 
           <Route path="/services" element={<ServiceScreen />} />
 
@@ -103,7 +90,6 @@ function App() {
             }
           />
 
-          <Route path="/payment" element={<Payment />} />
           <Route
             path="/order/:id"
             element={
@@ -113,22 +99,9 @@ function App() {
             }
           />
 
-          <Route path="/success-page" element={<RedirectPage />} />
-          <Route path="/verifyEmail/:id" element={<VerifyOtp />} />
-
-          <Route
-            path="/login"
-            element={
-              <Provider store={store}>
-                <Login />
-              </Provider>
-            }
-          />
           <Route path="/signin" element={<Signin />} />
 
           <Route path="/signup" element={<Signup />} />
-
-          <Route path="/user/verify-email" element={<VerifyEmail />} />
 
           <Route path="user/reset-password" element={<ResetPassword />} />
 
@@ -142,7 +115,7 @@ function App() {
           />
           <Route path="/verifyCode" element={<VerifyCode />} />
 
-          <Route path="*" element={<Error />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </Router>
