@@ -1,8 +1,6 @@
 import { Form, Formik } from "formik";
 import { FiMail, FiLock } from "react-icons/fi";
 import React, { useEffect } from "react";
-import axios from "axios";
-import { baseUrl } from "../../utils/url";
 import {
   BackgroundArea,
   ExtraText,
