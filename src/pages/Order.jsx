@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { PayPalButton } from "react-paypal-button-v2";
-import { useGlobalContext } from "../context";
+// import { useGlobalContext } from "../context";
 import axios from "axios";
 import { baseUrl } from "../utils/url";
 import useFetchOrder from "../hooks/useFetchOrder";
-import { Card, Loading, Row } from "../components/Styles";
+import { Card, Row } from "../components/Styles";
 import useFetchPayOrder from "../hooks/useFetchPay";
 
 const OrderScreen = () => {
   const { id: orderId } = useParams();
   const { data: order } = useFetchOrder(orderId);
-  const { loadingPay, errorPay, successPay } = useFetchPayOrder;
+  const { loadingPay, errorPay } = useFetchPayOrder;
   console.log(order);
   console.log(order.service._id);
   console.log(order.service.orderServices);
