@@ -58,17 +58,20 @@ export const DropDownInfoName = styled.span`
   font-size: 1.25rem;
   line-height: 1.75rem;
   color: ${color.mainBlack};
+  display: block;
 `;
 export const DropDownInfoRole = styled.span`
   color: rgb(107, 114, 128);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  display: block;
 `;
 export const DropDownInfoEmail = styled.span`
   color: rgb(107, 114, 128);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 600;
+  display: block;
 `;
 
 export const DropDownContent = styled.div`
@@ -102,6 +105,7 @@ export const DropDownItemDesc = styled.span`
   color: rgb(107, 114, 128);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  display: block;
 `;
 
 export const LogoutWrapper = styled.div`
