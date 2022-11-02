@@ -13,8 +13,6 @@ const OrderScreen = () => {
   const { data: order } = useFetchOrder(orderId);
   const { loadingPay, errorPay } = useFetchPayOrder;
   console.log(order);
-  console.log(order.service._id);
-  console.log(order.service.orderServices);
 
   const [sdkReady, setSdkReady] = useState(false);
 

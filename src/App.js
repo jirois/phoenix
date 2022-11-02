@@ -8,10 +8,9 @@ import Sessions from "./pages/dashboard/pages/Sessions";
 import DashboardHome from "./pages/dashboard/pages/Home";
 import Services from "./pages/dashboard/pages/Services";
 import ProtectedRoute from "./pages/auth/ProtectRoute";
-import { Provider } from "react-redux";
-import { store } from "./store";
 import { Suspense } from "react";
 import { Loading } from "./components/Styles";
+import PlaceOrderScreen from "./pages/PlaceOrderScreen";
 
 const Home = React.lazy(() => import("./pages"));
 const BookScreen = React.lazy(() => import("./pages/book"));
@@ -24,11 +23,11 @@ const About = React.lazy(() => import("./pages/about"));
 const Signin = React.lazy(() => import("./pages/auth/Signin"));
 const Signup = React.lazy(() => import("./pages/auth/Signup"));
 const CartScreen = React.lazy(() => import("./pages/CartScreen"));
-const OrderScreen = React.lazy(() => import("./pages/auth/VerifyCode"));
+const OrderScreen = React.lazy(() => import("./pages/Order"));
 const VerifyCode = React.lazy(() => import("./pages/contact"));
 const DashboardScreen = React.lazy(() => import("./pages/dashboard/Home"));
 const SingleService = React.lazy(() =>
-  import("./pages/services/ServiceScreen")
+  import("./pages/services/SingleService")
 );
 const Profile = React.lazy(() => import("./pages/profile"));
 const ResetPassword = React.lazy(() => import("./pages/auth/Reset"));
@@ -55,7 +54,9 @@ function App() {
 
           <Route path="/services" element={<ServiceScreen />} />
 
-          <Route path="services/:id" element={<SingleService />} />
+          <Route path="/services/:id" element={<SingleService />} />
+
+          <Route path="/place" element={<PlaceOrderScreen />} />
           <Route
             path="/profile"
             element={
@@ -105,14 +106,7 @@ function App() {
 
           <Route path="user/reset-password" element={<ResetPassword />} />
 
-          <Route
-            path="/forgot-password"
-            element={
-              <Provider store={store}>
-                <ForgotPassword />
-              </Provider>
-            }
-          />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/verifyCode" element={<VerifyCode />} />
 
           <Route path="*" element={<NotFound />} />
