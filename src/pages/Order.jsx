@@ -4,15 +4,18 @@ import { PayPalButton } from "react-paypal-button-v2";
 // import { useGlobalContext } from "../context";
 import axios from "axios";
 import { baseUrl } from "../utils/url";
-import useFetchOrder from "../hooks/useFetchOrder";
-import { Card, Row } from "../components/Styles";
-import useFetchPayOrder from "../hooks/useFetchPay";
+import { Card, Loading, Row } from "../components/Styles";
+import { useDispatch, useSelector } from "react-redux";
+import { getOrderDetail } from "../features/order/orderSlice";
 
 const OrderScreen = () => {
   const { id: orderId } = useParams();
-  const { data: order } = useFetchOrder(orderId);
-  const { loadingPay, errorPay } = useFetchPayOrder;
+  console.log(orderId);
+  const { isLoading, isError, order, message } = useSelector(
+    (store) => store.orderDetail
+  );
   console.log(order);
+  const dispatch = useDispatch();
 
   const [sdkReady, setSdkReady] = useState(false);
 
@@ -31,6 +34,7 @@ const OrderScreen = () => {
     };
 
     if (!order.service._id) {
+      dispatch(getOrderDetail(orderId));
     } else {
       if (!order.service.isPaid) {
         if (!window.paypal) {
@@ -40,13 +44,21 @@ const OrderScreen = () => {
         }
       }
     }
-  }, [order, sdkReady]);
+  }, [dispatch, order, orderId, sdkReady]);
 
   const successPaymentHandler = () => {};
 
+  if (isLoading) {
+    <Loading />;
+  }
+
+  if (isError) {
+    <div className="text-center p-4">{message}</div>;
+  }
+
   return (
     <div>
-      <h1>Order {order.service._id}</h1>
+      <h1>Order {order}</h1>
       <div className="flex flex-wrap justify-between items-start">
         <div className="" style={{ flex: "2 1 50rem" }}>
           <ul>
@@ -120,8 +132,8 @@ const OrderScreen = () => {
                     <div className="loading"></div>
                   ) : (
                     <>
-                      {errorPay && <div>{errorPay}</div>}
-                      {loadingPay && <div className="loading"></div>}
+                      {/* {errorPay && <div>{errorPay}</div>}
+                      {loadingPay && <div className="loading"></div>} */}
 
                       <PayPalButton
                         amount={order.service.totalPrice}
