@@ -7,14 +7,21 @@ import { baseUrl } from "../utils/url";
 import { Card, Loading, Row } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrderDetail } from "../features/order/orderSlice";
+import { useGlobalContext } from "../context";
 
 const OrderScreen = () => {
+  const { user } = useGlobalContext();
+  const navigate = useDispatch();
+
+  if (!user) {
+    navigate("/signin");
+  }
+
   const { id: orderId } = useParams();
   console.log(orderId);
   const { isLoading, isError, order, message } = useSelector(
     (store) => store.orderDetail
   );
-  console.log(order);
   const dispatch = useDispatch();
 
   const [sdkReady, setSdkReady] = useState(false);

@@ -10,7 +10,7 @@ import Services from "./pages/dashboard/pages/Services";
 import ProtectedRoute from "./pages/auth/ProtectRoute";
 import { Suspense } from "react";
 import { Loading } from "./components/Styles";
-import PlaceOrderScreen from "./pages/PlaceOrderScreen";
+import PlaceOrderScreen from "./pages/payment/PlaceOrderScreen";
 
 const Home = React.lazy(() => import("./pages"));
 const BookScreen = React.lazy(() => import("./pages/book"));
