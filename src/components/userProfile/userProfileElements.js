@@ -64,12 +64,14 @@ export const ProfileRole = styled.span`
   color: rgb(107, 114, 128);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  display: block;
 `;
 export const ProfileEmail = styled.span`
   color: rgb(107, 114, 128);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 600;
+  display: block;
 `;
 
 export const ProfileContent = styled.div`
@@ -98,11 +100,13 @@ export const ProfileItemBtn = styled.button`
 export const ProfilteItemTitle = styled.span`
   font-weight: 600;
   color: ${color.mainBlack};
+  display: block;
 `;
 export const ProfilteItemDesc = styled.span`
   color: rgb(107, 114, 128);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  display: block;
 `;
 
 export const LogoutWrapper = styled.div`
