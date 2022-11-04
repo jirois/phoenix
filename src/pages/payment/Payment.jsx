@@ -26,10 +26,6 @@ const PaymentMethodScreen = ({ onPayment }) => {
           <span className="font-bold text-xl pl-8 pt-2">PayPal </span>
           <img src={paypalLogo} alt="paypal " className="h-12 pr-12" />
         </label>
-
-        {/* <div className="absolute hidden w-5 h-5 peer-checked:block top-5 right-3">
-          👍
-        </div> */}
       </li>
 
       <li className="relative">
@@ -45,18 +41,8 @@ const PaymentMethodScreen = ({ onPayment }) => {
           className="flex justify-between bg-white border py-1 border-gray-300 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:ring-blue-500 peer-checked:ring-2 peer-checked:border-transparent"
           for="answer_no"
         >
-          {/* <span>
-            <Flutterwave
-              className="text-sm h-10"
-              style={{ fontSize: "0.8rem" }}
-            />
-          </span> */}
           <img src={flutterwavelogo} alt="flutterwave" className="h-12 pl-6" />
         </label>
-
-        {/* <div className="absolute hidden w-5 h-5 peer-checked:block top-5 right-3">
-          👎
-        </div> */}
       </li>
 
       <li className="relative">
@@ -75,10 +61,6 @@ const PaymentMethodScreen = ({ onPayment }) => {
           <span className="font-bold text-xl pl-8 pt-2">Cryptocurrency </span>
           <img src={bitcoinLogo} alt="Bitcoin " className="h-10 pr-12" />
         </label>
-
-        {/* <div className="absolute hidden w-5 h-5 peer-checked:block top-5 right-3">
-          🤔
-        </div> */}
       </li>
     </ul>
   );
