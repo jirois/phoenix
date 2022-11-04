@@ -58,7 +58,6 @@ function App() {
 
           <Route path="/services/:id" element={<SingleService />} />
 
-          <Route path="/place" element={<PlaceOrderScreen />} />
           <Route
             path="/profile"
             element={
