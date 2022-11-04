@@ -3,7 +3,7 @@ import { axiosPrivate } from "../../api/axios";
 
 const initialOrderState = {
   order: {},
-  isLoading: false,
+  isLoading: true,
   isError: false,
   message: "",
 };
@@ -12,7 +12,8 @@ export const getOrderDetail = createAsyncThunk(
   "/order",
   async (orderId, thunkAPI) => {
     try {
-      const { data } = await axiosPrivate.post(`/orderServices/${orderId}`);
+      const { data } = await axiosPrivate.get(`/orderService/${orderId}`);
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -6,6 +6,10 @@ import PaypalOption from "./PaypalOption";
 import { useGlobalContext } from "../../context";
 import FlutterwaveOption from "./FlutterwaveOption";
 import CreditCard from "./CreditCard";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getOrderDetail } from "../../features/order/orderSlice";
+import { Loading } from "../../components/Styles";
 
 const PlaceOrderScreen = () => {
   const { user } = useGlobalContext();
@@ -14,14 +18,35 @@ const PlaceOrderScreen = () => {
   const handleChangePayment = (payment) => {
     setPayment(payment);
   };
-  console.log(payment);
-
   if (!user) {
     navigate("/signin");
   }
 
   const { id: orderId } = useParams();
+  const orderNumber = `${orderId}`.substring(0, 6);
   console.log(orderId);
+
+  const { isLoading, isError, message, order } = useSelector(
+    (store) => store.orderDetail
+  );
+  const dispatch = useDispatch();
+  console.log(order);
+
+  const paymentToken = {
+    user,
+    order,
+  };
+
+  useEffect(() => {
+    dispatch(getOrderDetail(orderId));
+  }, [orderId, dispatch]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (isError) {
+    return <div>{message}</div>;
+  }
 
   return (
     <div className="flex flex-col items-center justify-center bg-gray-100 text-gray-800 p-8 lg:flex-row lg:justify-between lg:px-24">
@@ -34,42 +59,55 @@ const PlaceOrderScreen = () => {
         </div>
       </div>
       <div className=" w-full lg:flex-2 lg:w-4/6">
-        <h2 className="text-3xl font-medium">Order #11220</h2>
+        <h2 className="text-3xl font-medium">Order #{orderNumber}</h2>
         <div className="bg-white rounded mt-4 shadow-lg py-8 px-6">
-          <div className="">
-            <div className="flex items-end">
-              <div>
-                <h3 className="text-xl">Product Name</h3>
+          {order.service.orderServices.map((item) => (
+            <div className="" key={item.service}>
+              <div className="flex items-end">
+                <div>
+                  <h3 className="text-xl">{item.title}</h3>
+                </div>
+                <span className="text-xl ml-auto font-semibold">
+                  ${item.price}
+                </span>
+                <span className="text-xl text-gray-500 mb-px">/yr</span>
               </div>
-              <span className="text-xl ml-auto font-semibold">$20</span>
-              <span className="text-xl text-gray-500 mb-px">/mo</span>
+              <span className="text-sm text-gray-500 mt-2">
+                {item.duration}
+              </span>
             </div>
-            <span className="text-sm text-gray-500 mt-2">One Time Off</span>
-          </div>
+          ))}
           <div className="mt-4 border-t pt-6">
             <div className="flex items-end">
               <div>
                 <p className="text-lg ">Plan Discount 75%</p>
               </div>
-              <span className="text-base ml-auto font-semibold ">$202</span>
+              <span className="text-base ml-auto font-semibold ">$756</span>
             </div>
             <div className="flex items-end mt-2">
               <div>
                 <p className="text-lg ">Tax/Fee</p>
               </div>
-              <span className="text-base ml-auto font-semibold">$20</span>
+              <span className="text-base ml-auto font-semibold">
+                ${order.service.taxPrice}
+              </span>
             </div>
           </div>
 
           <div className="px mt-4 border-t pt-6 pb-6">
             <div className="flex items-end justify-between">
               <span className="font-semibold text-2xl">Total</span>
-              <span className="font-semibold text-xl">$0</span>
+              <span className="font-semibold text-xl">
+                ${order.service.totalPrice}
+              </span>
             </div>
           </div>
           <div className="flex border-t pt-4 mt-4 justify-evenly">
             {payment === "paypal" && <PaypalOption />}
-            {payment === "flutterwave" && <FlutterwaveOption />}
+
+            {payment === "flutterwave" && (
+              <FlutterwaveOption payment={paymentToken} />
+            )}
             {payment === "bitcoin" && <CreditCard />}
           </div>
           <div className="flex items-center px-8 mt-8">

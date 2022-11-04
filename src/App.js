@@ -10,7 +10,6 @@ import Services from "./pages/dashboard/pages/Services";
 import ProtectedRoute from "./pages/auth/ProtectRoute";
 import { Suspense } from "react";
 import { Loading } from "./components/Styles";
-import PlaceOrderScreen from "./pages/payment/PlaceOrderScreen";
 
 const Home = React.lazy(() => import("./pages"));
 const BookScreen = React.lazy(() => import("./pages/book"));
@@ -23,7 +22,7 @@ const About = React.lazy(() => import("./pages/about"));
 const Signin = React.lazy(() => import("./pages/auth/Signin"));
 const Signup = React.lazy(() => import("./pages/auth/Signup"));
 const CartScreen = React.lazy(() => import("./pages/CartScreen"));
-const OrderScreen = React.lazy(() => import("./pages/Order"));
+// const OrderScreen = React.lazy(() => import("./pages/Order"));
 const VerifyCode = React.lazy(() => import("./pages/contact"));
 const DashboardScreen = React.lazy(() => import("./pages/dashboard/Home"));
 const SingleService = React.lazy(() =>
@@ -33,6 +32,9 @@ const Profile = React.lazy(() => import("./pages/profile"));
 const ResetPassword = React.lazy(() => import("./pages/auth/Reset"));
 const ForgotPassword = React.lazy(() => import("./pages/auth/ForgotPassword"));
 const NotFound = React.lazy(() => import("./pages/Error"));
+const PlaceOrderScreen = React.lazy(() =>
+  import("./pages/payment/PlaceOrderScreen")
+);
 
 function App() {
   return (
@@ -95,7 +97,7 @@ function App() {
             path="/order/:id"
             element={
               <ProtectedRoute>
-                <OrderScreen />
+                <PlaceOrderScreen />
               </ProtectedRoute>
             }
           />

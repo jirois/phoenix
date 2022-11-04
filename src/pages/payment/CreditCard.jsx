@@ -6,7 +6,7 @@ const CreditCard = () => {
       <div className="bg-white rounded mt-4 ">
         <div className="grid grid-cols-2 gap-4 px-8 pb-8">
           <div className="">
-            <label className="text-xs font-semibold" for="cardNumber">
+            <label className="text-xs font-semibold" htmlFor="cardNumber">
               Name On Card
             </label>
             <input
@@ -16,7 +16,7 @@ const CreditCard = () => {
             />
           </div>
           <div className="">
-            <label className="text-xs font-semibold" for="cardNumber">
+            <label className="text-xs font-semibold" htmlFor="cardNumber">
               Card number
             </label>
             <input
@@ -26,7 +26,7 @@ const CreditCard = () => {
             />
           </div>
           <div className="">
-            <label className="text-xs font-semibold" for="cardNumber">
+            <label className="text-xs font-semibold" htmlFor="cardNumber">
               Expiry Date
             </label>
             <input
@@ -36,7 +36,7 @@ const CreditCard = () => {
             />
           </div>
           <div className="">
-            <label className="text-xs font-semibold" for="cardNumber">
+            <label className="text-xs font-semibold" htmlFor="cardNumber">
               CVC/CVV
             </label>
             <input
