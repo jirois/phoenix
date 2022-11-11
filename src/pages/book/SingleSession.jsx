@@ -19,7 +19,7 @@ const SingleSession = () => {
   const { id: sessionId } = useParams();
   const [value, setValue] = useState(0);
   console.log(value);
-  const { isLoading, error, data } = useFetch("session", sessionId);
+  const { isLoading, data } = useFetch("session", sessionId);
   console.log(data);
   if (isLoading) {
     return <Loading />;
@@ -38,9 +38,13 @@ const SingleSession = () => {
       <InnerWrapper>
         <h3>{title}</h3>
         <p>
-          This session last for {hours} hour after which you wiil be require to
+          This session last for {hours} hour after which you will be require to
           book again
         </p>
+        <div className="flex justify-center px-3 mb-6">
+          <span className="font-bold text-sm">Fee (tax inclusive)</span>
+          <span className="font-bold text-sm">${price}</span>
+        </div>
 
         <TabButton>
           {payment.map((item, index) => (

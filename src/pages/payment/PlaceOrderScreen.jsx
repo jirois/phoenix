@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PaymentMethodScreen from "./Payment";
-import PaypalOption from "./PaypalOption";
+// import PaypalOption from "./PaypalOption";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useGlobalContext } from "../../context";
 import FlutterwaveOption from "./FlutterwaveOption";
@@ -11,15 +11,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getOrderDetail } from "../../features/order/orderSlice";
 import { Loading } from "../../components/Styles";
-import axios from "axios";
-import { baseUrl } from "../../utils/url";
+// import axios from "axios";
+// import { baseUrl } from "../../utils/url";
 import { payOrder } from "../../features/order/orderPaySlice";
 
 const PlaceOrderScreen = () => {
   const { user } = useGlobalContext();
   const navigate = useNavigate();
   const [payment, setPayment] = useState("");
-  const [sdkReady, setSdkReady] = useState(false);
+  // const [sdkReady, setSdkReady] = useState(false);
   const handleChangePayment = (payment) => {
     setPayment(payment);
   };
@@ -34,11 +34,9 @@ const PlaceOrderScreen = () => {
   const { isLoading, isError, message, order } = useSelector(
     (store) => store.orderDetail
   );
-
-  console.log(order);
-  const { loadingPay, errorPay, successPay } = useSelector(
-    (store) => store.orderPay
-  );
+  // const { loadingPay, errorPay, successPay } = useSelector(
+  // (store) => store.orderPay
+  // );
   const dispatch = useDispatch();
 
   const paymentToken = {
@@ -46,11 +44,39 @@ const PlaceOrderScreen = () => {
     totalPrice: order.totalPrice,
   };
 
+  // useEffect(() => {
+  //   const addPayPalScript = async () => {
+  //     const { data } = await axios.get(baseUrl + "config/paypal");
+  //     const script = document.createElement("script");
+  //     script.type = "text/javascript";
+  //     script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
+  //     script.async = true;
+  //     script.onload = () => {
+  //       setSdkReady(true);
+  //     };
+  //     document.body.appendChild(script);
+  //   };
+  //   if (
+  //     !order ||
+  //     successPay ||
+  //     (order && order._id !== orderId)
+  //   ) {
+
+  //     dispatch(detailsOrder(orderId));
+  //   } else {
+  //     if (!order.isPaid) {
+  //       if (!window.paypal) {
+  //         addPayPalScript();
+  //       } else {
+  //         setSdkReady(true);
+  //       }
+  //     }
+  //   }
+  // }, [dispatch, orderId, sdkReady, successPay, successDeliver, order]);
+
   useEffect(() => {
-    if (!order || successPay) {
-      dispatch(getOrderDetail(orderId));
-    }
-  }, [orderId, dispatch, successPay, order]);
+    dispatch(getOrderDetail(orderId));
+  }, [orderId, dispatch]);
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult));
@@ -76,7 +102,7 @@ const PlaceOrderScreen = () => {
       <div className=" w-full lg:flex-2 lg:w-4/6">
         <h2 className="text-3xl font-medium">Order #{orderNumber}</h2>
         <div className="bg-white rounded mt-4 shadow-lg py-8 px-6">
-          {order.service.orderServices.map((item) => (
+          {order.orderServices.map((item) => (
             <div className="" key={item.service}>
               <div className="flex items-end">
                 <div>
@@ -104,7 +130,7 @@ const PlaceOrderScreen = () => {
                 <p className="text-lg ">Tax/Fee</p>
               </div>
               <span className="text-base ml-auto font-semibold">
-                ${order.service.taxPrice}
+                ${order.taxPrice}
               </span>
             </div>
           </div>
@@ -112,15 +138,13 @@ const PlaceOrderScreen = () => {
           <div className="px mt-4 border-t pt-6 pb-6">
             <div className="flex items-end justify-between">
               <span className="font-semibold text-2xl">Total</span>
-              <span className="font-semibold text-xl">
-                ${order.service.totalPrice}
-              </span>
+              <span className="font-semibold text-xl">${order.totalPrice}</span>
             </div>
           </div>
           <div className="flex border-t pt-4 mt-4 justify-evenly">
             {payment === "paypal" && (
               <PayPalButton
-                amount={order.service.totalPrice}
+                amount={order.totalPrice}
                 onSuccess={successPaymentHandler}
               ></PayPalButton>
             )}

@@ -27,7 +27,7 @@ export const InnerWrapper = styled.div`
   & p {
     font-size: 0.87rem;
     margin-bottom: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 `;
 export const TabButton = styled.div`
