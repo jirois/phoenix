@@ -1,28 +1,28 @@
-import axios from "axios";
 import { useState, useEffect, useCallback } from "react";
-import { baseUrl } from "./url";
+import { axiosPrivate } from "../api/axios";
 
-const useFetch = (urlParams) => {
-  const [isLoading, setLoading] = useState(false);
+const useFetch = (uri, urlParams) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({ show: false, msg: "" });
   const [data, setData] = useState({});
 
   const fetchUrl = useCallback(async () => {
-    setLoading(true);
+    setIsLoading(true);
     try {
-      const { data } = await axios.get(baseUrl + `service/${urlParams}`);
-      if (data) {
-        setData(data.service || data);
+      const { data } = await axiosPrivate.get(`${uri}/${urlParams}`);
+      const dataA = data.session;
+      if (dataA || data) {
+        setData(dataA);
         setError({ show: false, msg: "" });
       } else {
         setError({ show: true, msg: data.error });
       }
-      setLoading(false);
+      setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
-    setLoading(false);
-  }, [urlParams]);
+    setIsLoading(false);
+  }, [uri, urlParams]);
 
   useEffect(() => {
     fetchUrl();

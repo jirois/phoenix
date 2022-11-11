@@ -1,10 +1,10 @@
 .book {
-  padding: 5rem 0 1.5rem;
+  padding: 5rem 0 1.5rem 0;
   background: var(--mainWhite);
 }
 
-img,
-span {
+.book img,
+.book span {
   display: block;
 }
 

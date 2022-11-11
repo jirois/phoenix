@@ -37,7 +37,7 @@ const orderDetailSlice = createSlice({
       .addCase(getOrderDetail.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        state.order = action.payload;
+        state.order = action.payload.service;
       })
       .addCase(getOrderDetail.rejected, (state, action) => {
         state.isLoading = false;

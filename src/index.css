@@ -60,6 +60,10 @@ body {
   color: #f08000;
 }
 
+.active-btn {
+  box-shadow: 0 2px #f08000;
+}
+
 input::-webkit-input-placeholder{
   font-size: 12px;
 }

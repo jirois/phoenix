@@ -5,7 +5,7 @@ import "./service.css";
 import axios from "axios";
 import { baseUrl } from "../../utils/url";
 import useLocalState from "../../hooks/localState";
-import useFetch from "../../utils/useFetch";
+import useFetch from "../../hooks/useFetchService";
 import { Loading } from "../../components/Styles";
 
 const SingleService = () => {
@@ -18,7 +18,6 @@ const SingleService = () => {
     try {
       const { data } = await axios.get(baseUrl + `service/${serviceId}`);
       const cartItem = data.service;
-      console.log(cartItem);
       dispatch({
         type: "ADD_TO_CART",
         payload: {
@@ -29,7 +28,6 @@ const SingleService = () => {
         },
       });
       localStorage.setItem("cartItems", JSON.stringify(cartState.cartItems));
-      console.log(cartState);
       setSuccess(true);
       showAlert({ text: `${cartItem.title} added to cart`, type: "success" });
     } catch (error) {
@@ -47,7 +45,7 @@ const SingleService = () => {
   //   }
   // })
 
-  const { isLoading, error, data } = useFetch(serviceId);
+  const { isLoading, error, data } = useFetch("service", serviceId);
   console.log(data);
 
   if (isLoading) {

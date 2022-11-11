@@ -35,6 +35,7 @@ const NotFound = React.lazy(() => import("./pages/Error"));
 const PlaceOrderScreen = React.lazy(() =>
   import("./pages/payment/PlaceOrderScreen")
 );
+const SingleSession = React.lazy(() => import("./pages/book/SingleSession"));
 
 function App() {
   return (
@@ -51,6 +52,15 @@ function App() {
           <Route path="/contact" element={<ContactScreen />} />
 
           <Route path="/sessions" element={<BookScreen />} />
+
+          <Route
+            path="/sessions/:id"
+            element={
+              <ProtectedRoute>
+                <SingleSession />
+              </ProtectedRoute>
+            }
+          />
 
           <Route path="/testimonials" element={<TestimonialScreen />} />
 

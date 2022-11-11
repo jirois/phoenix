@@ -34,6 +34,8 @@ const PlaceOrderScreen = () => {
   const { isLoading, isError, message, order } = useSelector(
     (store) => store.orderDetail
   );
+
+  console.log(order);
   const { loadingPay, errorPay, successPay } = useSelector(
     (store) => store.orderPay
   );
@@ -41,33 +43,14 @@ const PlaceOrderScreen = () => {
 
   const paymentToken = {
     user,
-    order,
+    totalPrice: order.totalPrice,
   };
 
   useEffect(() => {
-    const addPayPalScript = async () => {
-      const { data } = await axios.get(baseUrl + "config/paypal");
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
-      script.async = true;
-      script.onload = () => {
-        setSdkReady(true);
-      };
-      document.body.appendChild(script);
-    };
     if (!order || successPay) {
       dispatch(getOrderDetail(orderId));
-    } else {
-      if (!order.service.isPaid) {
-        if (!window.paypal) {
-          addPayPalScript();
-        } else {
-          setSdkReady(true);
-        }
-      }
     }
-  }, [orderId, dispatch, sdkReady, successPay, order]);
+  }, [orderId, dispatch, successPay, order]);
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult));

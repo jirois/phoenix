@@ -5,6 +5,7 @@ import useLocalState from "../../hooks/localState";
 import axios from "axios";
 import { baseUrl } from "../../utils/url";
 import { useGlobalContext } from "../../context";
+import { ButtonLinK } from "../../components/ButtonElement";
 
 function BookScreen() {
   const { loading, setLoading } = useLocalState();
@@ -14,8 +15,6 @@ function BookScreen() {
     try {
       const { data } = await axios.get(baseUrl + "session");
       setSessions(data.sessions);
-      console.log(data);
-      console.log(sessions);
     } catch (error) {
       console.log(error);
     }
@@ -64,9 +63,12 @@ function BookScreen() {
               <span>{book.hours} hr</span>
               <span> ${book.price}</span>
 
-              <Link to={!user ? `/${book._id}` : "/signin"}>
-                <button className="book-btn">Book Now </button>
-              </Link>
+              <ButtonLinK
+                primary
+                to={user ? `/sessions/${book._id}` : "/signin"}
+              >
+                Book Now
+              </ButtonLinK>
             </div>
           );
         })}
