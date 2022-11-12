@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const FlutterwaveOption = ({ payment }) => {
   const navigate = useNavigate();
   const config = {
-    public_key: "FLWPUBK_TEST-ea4bcb03cfff2a2d9a1e7ad34cf29371-X",
+    public_key: "FLWPUBK_TEST-1a86e70f2cfa0d382e2f48f677e4cedd-X",
     tx_ref: Date.now(),
     amount: payment.totalPrice,
     currency: "USD",

@@ -36,6 +36,9 @@ const PlaceOrderScreen = React.lazy(() =>
   import("./pages/payment/PlaceOrderScreen")
 );
 const SingleSession = React.lazy(() => import("./pages/book/SingleSession"));
+const SuccessPay = React.lazy(() =>
+  import("./components/successpay/SuccessPay")
+);
 
 function App() {
   return (
@@ -52,6 +55,7 @@ function App() {
           <Route path="/contact" element={<ContactScreen />} />
 
           <Route path="/sessions" element={<BookScreen />} />
+          <Route path="/paymentFeedback" element={<SuccessPay />} />
 
           <Route
             path="/sessions/:id"

@@ -4,9 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetchSession";
 import { Image, InnerWrapper, TabButton, Wrapper } from "./Styles";
 import FlutterWave from "../payment/FlutterwaveOption";
-import PayPal from "../payment/PaypalOption";
+// import PayPal from "../payment/PaypalOption";
 import { Loading } from "../../components/Styles";
 import { useGlobalContext } from "../../context";
+import PaypalCheckoutButton from "../../utils/PaymentCheckoutButton";
 const payment = ["pay with flutter", "pay with Paypal"];
 
 const SingleSession = () => {
@@ -59,7 +60,7 @@ const SingleSession = () => {
         </TabButton>
         <div className="text-center flex justify-center">
           {value === 0 && <FlutterWave payment={paymentToken} />}
-          {value === 1 && <PayPal />}
+          {value === 1 && <PaypalCheckoutButton session={data} />}
         </div>
       </InnerWrapper>
     </Wrapper>

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PaymentMethodScreen from "./Payment";
-// import PaypalOption from "./PaypalOption";
-import { PayPalButton } from "react-paypal-button-v2";
+// import PayPal from "./PaypalOption";
+// import { PayPalButton } from "react-paypal-button-v2";
 import { useGlobalContext } from "../../context";
 import FlutterwaveOption from "./FlutterwaveOption";
 import CreditCard from "./CreditCard";
@@ -13,7 +13,8 @@ import { getOrderDetail } from "../../features/order/orderSlice";
 import { Loading } from "../../components/Styles";
 // import axios from "axios";
 // import { baseUrl } from "../../utils/url";
-import { payOrder } from "../../features/order/orderPaySlice";
+// import { payOrder } from "../../features/order/orderPaySlice";
+import PaypalCheckoutButton from "../../utils/PaymentCheckoutButtonServices";
 
 const PlaceOrderScreen = () => {
   const { user } = useGlobalContext();
@@ -35,8 +36,10 @@ const PlaceOrderScreen = () => {
     (store) => store.orderDetail
   );
   // const { loadingPay, errorPay, successPay } = useSelector(
-  // (store) => store.orderPay
+  //   (store) => store.orderPay
   // );
+
+  console.log(order);
   const dispatch = useDispatch();
 
   const paymentToken = {
@@ -56,13 +59,8 @@ const PlaceOrderScreen = () => {
   //     };
   //     document.body.appendChild(script);
   //   };
-  //   if (
-  //     !order ||
-  //     successPay ||
-  //     (order && order._id !== orderId)
-  //   ) {
-
-  //     dispatch(detailsOrder(orderId));
+  //   if (!order || successPay || (order && order._id !== orderId)) {
+  //     dispatch(getOrderDetail(orderId));
   //   } else {
   //     if (!order.isPaid) {
   //       if (!window.paypal) {
@@ -72,15 +70,15 @@ const PlaceOrderScreen = () => {
   //       }
   //     }
   //   }
-  // }, [dispatch, orderId, sdkReady, successPay, successDeliver, order]);
+  // }, [dispatch, orderId, sdkReady, successPay, order]);
 
   useEffect(() => {
     dispatch(getOrderDetail(orderId));
   }, [orderId, dispatch]);
 
-  const successPaymentHandler = (paymentResult) => {
-    dispatch(payOrder(orderId, paymentResult));
-  };
+  // const successPaymentHandler = (paymentResult) => {
+  //   dispatch(payOrder(orderId, paymentResult));
+  // };
 
   if (isLoading) {
     return <Loading />;
@@ -142,12 +140,7 @@ const PlaceOrderScreen = () => {
             </div>
           </div>
           <div className="flex border-t pt-4 mt-4 justify-evenly">
-            {payment === "paypal" && (
-              <PayPalButton
-                amount={order.totalPrice}
-                onSuccess={successPaymentHandler}
-              ></PayPalButton>
-            )}
+            {payment === "paypal" && <PaypalCheckoutButton order={order} />}
 
             {payment === "flutterwave" && (
               <FlutterwaveOption payment={paymentToken} />

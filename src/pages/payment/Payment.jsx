@@ -16,7 +16,6 @@ const PaymentMethodScreen = ({ onPayment }) => {
           type="radio"
           value="paypal"
           name="payment"
-          disabled
           onChange={paymentChangeHandler}
           id="paypal"
         />
