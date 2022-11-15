@@ -41,9 +41,7 @@ const HeroSection = () => {
       </HeroBg>
       <HeroContent>
         <HeroH1>Phoenixcreed</HeroH1>
-        <HeroP className="text-2xl font-extrabold">
-          Speed Your Trading Journey with our Unique Trading System
-        </HeroP>
+        <HeroP>Speed Your Trading Journey with our Unique Trading System</HeroP>
         <HeroBtnWrapper>
           {user ? (
             <ButtonLinK
