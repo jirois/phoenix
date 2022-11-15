@@ -47,7 +47,10 @@ function TestimonialScreen(props) {
             </TestimonialP>
           </TestimonialCard>
           <TestimonialCard>
-            <TestimonialVideo src="https://www.youtube.com/embed/wAH8CoKJG0o" />
+            <TestimonialVideo
+              src="https://www.youtube.com/embed/wAH8CoKJG0o"
+              alt="uzondu photo"
+            />
 
             <TestimonialH2>Tanshi</TestimonialH2>
             <TestimonialP>
