@@ -43,8 +43,8 @@ const SingleSession = () => {
           book again
         </p>
         <div className="flex justify-center px-3 mb-6">
-          <span className="font-bold text-sm">Fee (tax inclusive)</span>
-          <span className="font-bold text-sm">${price}</span>
+          <span className="font-extrabold text-3xl">{price}</span>
+          <span className="font-extrabold text-sm">$</span>
         </div>
 
         <TabButton>
