@@ -25,12 +25,12 @@ function BookScreen() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  if (loading) {
-    <div className="flex flex-wrap text-xl font-semibold"> Loading...</div>;
-  }
-  if (sessions.length === 0) {
-    <p>There are no booking available, please Admin will soon add bookings</p>;
-  }
+  // if (loading) {
+  //   <div className="flex flex-wrap text-xl font-semibold"> Loading...</div>;
+  // }
+  // if (sessions.length === 0) {
+  //   <p>There are no booking available, please Admin will soon add bookings</p>;
+  // }
 
   return (
     <div className="book">
