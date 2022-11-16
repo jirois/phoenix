@@ -5,7 +5,7 @@ import PaymentMethodScreen from "./Payment";
 // import PayPal from "./PaypalOption";
 // import { PayPalButton } from "react-paypal-button-v2";
 import { useGlobalContext } from "../../context";
-import FlutterwaveOption from "./FlutterwaveOption";
+// import FlutterwaveOption from "./FlutterwaveOption";
 import CreditCard from "./CreditCard";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -42,10 +42,10 @@ const PlaceOrderScreen = () => {
   console.log(order);
   const dispatch = useDispatch();
 
-  const paymentToken = {
-    user,
-    totalPrice: order.totalPrice,
-  };
+  // const paymentToken = {
+  //   user,
+  //   totalPrice: order.totalPrice,
+  // };
 
   // useEffect(() => {
   //   const addPayPalScript = async () => {
@@ -143,7 +143,8 @@ const PlaceOrderScreen = () => {
             {payment === "paypal" && <PaypalCheckoutButton order={order} />}
 
             {payment === "flutterwave" && (
-              <FlutterwaveOption payment={paymentToken} />
+              // <FlutterwaveOption payment={paymentToken} />
+              <CreditCard />
             )}
             {payment === "bitcoin" && <CreditCard />}
           </div>
