@@ -14,7 +14,7 @@ import { Loading } from "../../components/Styles";
 // import axios from "axios";
 // import { baseUrl } from "../../utils/url";
 // import { payOrder } from "../../features/order/orderPaySlice";
-import PaypalCheckoutButton from "../../utils/PaymentCheckoutButtonServices";
+import PaypalCheckoutButton from "../../utils/PaymentCheckoutButton";
 
 const PlaceOrderScreen = () => {
   const { user } = useGlobalContext();
@@ -42,36 +42,6 @@ const PlaceOrderScreen = () => {
   console.log(order);
   const dispatch = useDispatch();
 
-  // const paymentToken = {
-  //   user,
-  //   totalPrice: order.totalPrice,
-  // };
-
-  // useEffect(() => {
-  //   const addPayPalScript = async () => {
-  //     const { data } = await axios.get(baseUrl + "config/paypal");
-  //     const script = document.createElement("script");
-  //     script.type = "text/javascript";
-  //     script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
-  //     script.async = true;
-  //     script.onload = () => {
-  //       setSdkReady(true);
-  //     };
-  //     document.body.appendChild(script);
-  //   };
-  //   if (!order || successPay || (order && order._id !== orderId)) {
-  //     dispatch(getOrderDetail(orderId));
-  //   } else {
-  //     if (!order.isPaid) {
-  //       if (!window.paypal) {
-  //         addPayPalScript();
-  //       } else {
-  //         setSdkReady(true);
-  //       }
-  //     }
-  //   }
-  // }, [dispatch, orderId, sdkReady, successPay, order]);
-
   useEffect(() => {
     dispatch(getOrderDetail(orderId));
   }, [orderId, dispatch]);
@@ -79,6 +49,11 @@ const PlaceOrderScreen = () => {
   // const successPaymentHandler = (paymentResult) => {
   //   dispatch(payOrder(orderId, paymentResult));
   // };
+
+  const paypalData = {
+    title: "Phoenix Course",
+    price: order.totalPrice,
+  };
 
   if (isLoading) {
     return <Loading />;
@@ -140,7 +115,7 @@ const PlaceOrderScreen = () => {
             </div>
           </div>
           <div className="flex border-t pt-4 mt-4 justify-evenly">
-            {payment === "paypal" && <PaypalCheckoutButton order={order} />}
+            {payment === "paypal" && <PaypalCheckoutButton info={paypalData} />}
 
             {payment === "flutterwave" && (
               // <FlutterwaveOption payment={paymentToken} />

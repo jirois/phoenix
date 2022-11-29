@@ -61,7 +61,7 @@ const SingleSession = () => {
         </TabButton>
         <div className="text-center flex justify-center">
           {value === 0 && <CreditCard />}
-          {value === 1 && <PaypalCheckoutButton session={data} />}
+          {value === 1 && <PaypalCheckoutButton info={data} />}
         </div>
       </InnerWrapper>
     </Wrapper>

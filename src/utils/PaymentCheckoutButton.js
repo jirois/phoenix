@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useNavigate } from "react-router-dom";
 
-const PaypalCheckoutButton = ({ session }) => {
+const PaypalCheckoutButton = ({ info }) => {
   const navigate = useNavigate();
   const [paidFor, setPaidFor] = useState(false);
   const [error, setError] = useState(null);
@@ -35,9 +35,9 @@ const PaypalCheckoutButton = ({ session }) => {
           return actions.order.create({
             purchase_units: [
               {
-                description: session.title,
+                description: info.title,
                 amount: {
-                  value: session.price,
+                  value: info.price,
                 },
               },
             ],
