@@ -28,7 +28,7 @@ function TestimonialScreen(props) {
             </TestimonialP>
           </TestimonialCard>
           <TestimonialCard>
-            <TestimonialVideo src="https://www.youtube.com/embed/iFytRizSsmU" />
+            <TestimonialVideo src="https://www.youtube.com/embed/Fm3VbXgpzi4" />
 
             <TestimonialH2>Orlena</TestimonialH2>
             <TestimonialP>
@@ -38,17 +38,17 @@ function TestimonialScreen(props) {
             </TestimonialP>
           </TestimonialCard>
           <TestimonialCard>
-            <TestimonialVideo src="https://www.youtube.com/embed/_M3KsUB8SY0" />
+            <TestimonialVideo src="https://www.youtube.com/embed/9nrqm4csBNw" />
 
-            <TestimonialH2>Uzondu</TestimonialH2>
+            <TestimonialH2>Alice</TestimonialH2>
             <TestimonialP>
-              This is uzondu from nigeria a young millioniare that started
-              trading with us last year
+              This is Alice from California in USA that started trading with us
+              last year
             </TestimonialP>
           </TestimonialCard>
           <TestimonialCard>
             <TestimonialVideo
-              src="https://www.youtube.com/embed/wAH8CoKJG0o"
+              src="https://www.youtube.com/embed/TddVgaP6rjk"
               alt="uzondu photo"
             />
 
